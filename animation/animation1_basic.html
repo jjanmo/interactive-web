@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Animation Basic</title>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: #fff111;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                animation: move 5s cubic-bezier(0.73, -0.28, 0.74, 1.73) infinite;
+                opacity: 0;
+                border: 1px solid red;
+            }
+            @keyframes move {
+                0% {
+                    opacity: 0.2;
+                    transform: translate(0, 0);
+                }
+                35% {
+                    opacity: 1;
+                }
+                50% {
+                    transform: translate(300px, 0);
+                }
+                100% {
+                    opacity: 0.2;
+                    transform: translate(400px, 300px);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Animation Basic Syntax</h1>
+        <div class="box">BOX</div>
+    </body>
+</html>

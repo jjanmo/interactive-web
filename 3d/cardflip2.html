@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Card Flip</title>
+        <style>
+            .space {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 70vw;
+                height: 70vh;
+                background-color: silver;
+                perspective: 500px;
+            }
+            .card {
+                position: relative;
+                width: 150px;
+                height: 200px;
+
+                /* overflow : hidden을 주게 되면 3d 속성을 제거하여 보여주는 속성을 무엇보다 우선시하게 만든다
+                즉 transform-style: preserve-3d; 이 속성이 card공간에서 사라지게 되는 것 */
+                /* https://css-tricks.com/things-watch-working-css-3d/ */
+                /* overflow: hidden; */
+
+                /* 초기값 설정해주는편이 좋다고 한다 */
+                transform: rotate(0deg);
+
+                /* 공간 안의 공간을 다시 3d공간으로서 설정해준다고 생각하면 될듯 */
+                transform-style: preserve-3d;
+
+                /* transition: all 1s ease-in-out; */
+                animation: auto-card-flip 4s ease-in-out infinite;
+                /* transform-origin: left; */
+            }
+            .card-face {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                font-size: 1.5rem;
+                font-weight: 600;
+                border-radius: 1em;
+                border: 3px solid #123456;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                backface-visibility: hidden;
+                box-sizing: border-box;
+            }
+            .front-face {
+                background-color: powderblue;
+                z-index: 1;
+            }
+            .back-face {
+                background-color: salmon;
+                transform: rotateY(180deg);
+            }
+
+            /* .space:hover .card {
+                transform: rotateY(-180deg);
+            } */
+
+            @keyframes auto-card-flip {
+                0% {
+                    transform: rotateY(0deg);
+                }
+                50% {
+                    transform: rotateY(180deg);
+                }
+                100% {
+                    transform: rotateY(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="space">
+            <div class="card">
+                <div class="card-face front-face">Front</div>
+                <div class="card-face back-face">Back</div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Image Sprite</title>
+        <style>
+            .box {
+                /* shorthand syntax : background : url() repeat position / size */
+                background-image: url('sprite_spaceship.png');
+                background-position: 0 0;
+                /* background-size: cover; */
+                /* 이 예제의 경우 cover옵션도 가능하다 */
+                background-size: auto 150px;
+                /* x와 y 중에서 편한 변을 먼저 계산한 후 그게 맞게 auto를 사용하면 된다.
+                이미 width와 height를 결정해놨기 때문에 */
+                width: 150px;
+                height: 150px;
+                animation: rotate 1s infinite steps(17);
+            }
+            @keyframes rotate {
+                to {
+                    background-position: -2550px 0;
+                    /* -인 이유 : 이미지가 흘러가는 방향이 반대방향이기때문에 */
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Frame By Frame</h1>
+        <p>
+            장면,장면별로 그려서 표현하는 것을 일컫는 말, 이것을 CSS를 통해서 표현할 수 있다 => <b>Image Sprite기법</b>이라고 한다
+        </p>
+        <p>원래는 300px/300px 짜리 이미지이나 고해상도로 표현하기위해서 150px로 압축하여 표현한다</p>
+        <p>2가지로 구현 가능 1)자바스크립트 2)CSS</p>
+        <p>
+            <strong>animation-timing-function</strong> 안에 <u>steps()</u>라는 함수를 사용하여 단계적으로 애니메이션이 보이도록
+            만들 수 있다
+        </p>
+        <div class="box"></div>
+        <script>
+            // 자바스크립트로 구현한 것
+            // const $box = document.querySelector('.box');
+            // let index = 0;
+            // setInterval(() => {
+            //     $box.style.backgroundPosition = `${-300 * index}px 0`;
+            //     if (index === 16) index = 0;
+            //     index++;
+            // }, 100);
+        </script>
+    </body>
+</html>

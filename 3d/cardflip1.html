@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Card Flip</title>
+        <style>
+            .card {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.5rem;
+                font-weight: 600;
+                width: 150px;
+                height: 200px;
+                background-color: powderblue;
+                border: 2px solid #123456;
+                border-radius: 1em;
+                margin: 0 2em;
+                transform: rotateY(45deg);
+
+                /* transform: perspective(500px) rotateY(45deg); */
+                /* 만약에 3개의 카드에 같은 원근감을 주고 싶다면, card에 주어진 transform안에 perspective함수를 넣어주면 된다. */
+            }
+            .space {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 70vw;
+                height: 70vh;
+                background-color: #eee;
+                /* 3d표현을 하려는 대상의 환경을 3d 공간으로 만드는 방법 : perspective */
+                perspective: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="space">
+            <div class="card">
+                CARD
+            </div>
+            <div class="card">
+                CARD
+            </div>
+            <div class="card">
+                CARD
+            </div>
+        </div>
+    </body>
+</html>
