@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./flex.css" />
+        <title>Flex</title>
+    </head>
+    <body>
+        <div>
+            <section class="explanation">
+                ▶ black line : container <br />
+                ▶ green line : item <br />
+                <br />
+                📘 Container 속성<br />
+                ✅ flex-direction : 주축을 결정하는 속성, 주축이란 아이템들이 나열되는 방향을 말한다. <br />
+                ✅ justify-content : 주축에서 아이템들을 배열하는 방법에 대한 속성이다.
+                <details>
+                    좀 더 자세히 말하면, 아이템 주위에 여백을 어떻게 분배할 것인지에 대한 것을 나타낸다 직접 조작하다보면 무슨 느낌인지
+                    몸으로 인지하는게 더 좋은 방법이다
+                </details>
+                ✅ align-items : 교차축에서의 아이템들의 배열하는 방벙에 대한 속성이다.
+                <br />
+                📘 Item 속성<br />
+                ✅ flex-grow : 아이템의 너비,아이템의 width가 아니라 컨텐츠 폭을 제외한 여백의 비율을 설정해준다
+                <details>각각의 아이템마다 다른 값을 넣어주면 각각의 아이템이 서로 다른 너비를 갖게된다</details>
+                ✅ flex-shrink : 아이템의 찌그러지는 너비
+                <details>일반적으로 grow와 shrink를 다르게 사용하는 경우는 드물다</details>
+                ✅ flex-basis : 원래 컨텐츠가 차지하는 영역을 어떻게 해줄지를 설정해주는 속성으로, 기본값 auto 이다
+                <details>
+                    0으로 설정할 경우 : 모든 컨텐츠의 영역 비율이 동일하게 바뀐다.<br />
+                    일반적으로 우리가 의도하는 바 => shorthhand : flex : 1 => flex-grow : 1/ flex-shrink : 1 / flex-basis : 0
+                </details>
+            </section>
+        </div>
+        <header class="controller">
+            <section>
+                <h3>container에 적용하는 속성</h3>
+                <div class="controller__wrapper">
+                    <div class="controller__wrapper-title">flex-direction</div>
+                    <div class="controller__wrapper-seletion">
+                        <input type="radio" name="direction" id="row" data-option="row" checked />
+                        <label for="row">row</label>
+                        <input type="radio" name="direction" id="column" data-option="column" />
+                        <label for="column">column</label>
+                        <input type="radio" name="direction" id="column-reverse" data-option="column-reverse" />
+                        <label for="column-reverse">column-reverse</label>
+                        <input type="radio" name="direction" id="row-reverse" data-option="row-reverse" />
+                        <label for="row-reverse">row-reverse</label>
+                    </div>
+                    <div class="controller__wrapper-title">justify-content</div>
+                    <div class="controller__wrapper-seletion">
+                        <input type="radio" name="justify-content" id="jc-flex-start" data-option="flex-start" checked />
+                        <label for="jc-flex-start">flex-start</label>
+                        <input type="radio" name="justify-content" id="jc-flex-end" data-option="flex-end" />
+                        <label for="jc-flex-end">flex-end</label>
+                        <input type="radio" name="justify-content" id="jc-center" data-option="center" />
+                        <label for="jc-center">center</label>
+                        <input type="radio" name="justify-content" id="space-between" data-option="space-between" />
+                        <label for="space-between">space-between</label>
+                        <input type="radio" name="justify-content" id="space-around" data-option="space-around" />
+                        <label for="space-around">space-around</label>
+                    </div>
+                    <div class="controller__wrapper-title">align-items</div>
+                    <div class="controller__wrapper-seletion">
+                        <input type="radio" name="align-items" id="stretch" data-option="stretch" checked />
+                        <label for="stretch">stretch</label>
+                        <input type="radio" name="align-items" id="ai-center" data-option="center" />
+                        <label for="ai-center">center</label>
+                        <input type="radio" name="align-items" id="ai-flex-start" data-option="flex-start" />
+                        <label for="ai-flex-start">flex-start</label>
+                        <input type="radio" name="align-items" id="ai-flex-end" data-option="flex-end" />
+                        <label for="ai-flex-end">flex-end</label>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <div class="container">
+            <div class="item item1">item1</div>
+            <div class="item item2">item2</div>
+            <div class="item item3">item3</div>
+            <div class="item item4">item4</div>
+            <div class="item item5">item5</div>
+        </div>
+        <script src="flex.js"></script>
+    </body>
+</html>
