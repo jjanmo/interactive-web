@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Card Flip</title>
+        <style>
+            .space {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 70vw;
+                height: 70vh;
+                background-color: silver;
+                perspective: 500px;
+            }
+            .card-face {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                /* transform: translate(-50%, -50%); */
+                /* 밑에서 transform을 사용하기 때문에 transform 효과가 이상하게 보이게 됨 */
+                /* 그래서 margin값을 이용해서 변경시켜야한다 */
+                margin: -100px 0 0 -75px;
+                width: 150px;
+                height: 200px;
+                font-size: 1.5rem;
+                font-weight: 600;
+                border-radius: 1em;
+                border: 3px solid #123456;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                box-sizing: border-box;
+                transition: all 0.5s ease-in-out;
+            }
+            .front-face {
+                background-color: powderblue;
+                z-index: 1;
+            }
+            .back-face {
+                background-color: salmon;
+                transform: rotateY(180deg);
+            }
+            .space:hover .front-face {
+                transform: rotateY(180deg);
+            }
+            .space:hover .back-face {
+                transform: rotateY(360deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="space">
+            <div class="card-face front-face">Front</div>
+            <div class="card-face back-face">Back</div>
+        </div>
+    </body>
+</html>
