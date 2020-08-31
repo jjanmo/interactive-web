@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DOM</title>
+        <style>
+            .container {
+                width: 500px;
+                background-color: #eee;
+                border: 2px solid black;
+            }
+            .item {
+                width: 100px;
+                height: 100px;
+                margin: 5px;
+                background-color: aqua;
+            }
+            .powderblue {
+                background-color: powderblue;
+            }
+            .dashed {
+                border: 3px dashed #243ed1;
+            }
+            .new {
+                width: 200px;
+                height: 200px;
+                background-color: purple;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item a"></div>
+            <div class="item b"></div>
+            <div class="item c"></div>
+        </div>
+        <script>
+            const $container = document.querySelector('.container');
+            console.log($container); //<div class="container"> ... </div>
+
+            const $items = document.querySelectorAll('.item');
+            console.log($items); //nodelist[3] ...
+
+            const $item2 = document.querySelector('.item:nth-child(2)');
+            console.log($item2); //<div class="item b"></div>
+            $item2.setAttribute('data-index', 2);
+            console.log($item2); //<div class="item b" data-index="2"></div>
+
+            // $container.className = 'powderblue';
+            // console.log($container); //<div class="powderblue">...</div>
+
+            $container.classList.add('powderblue');
+            console.log($container); // <div class="container powderblue">...</div>
+
+            const $newItem = document.createElement('div');
+            $newItem.classList.add('new');
+            $container.appendChild($newItem);
+        </script>
+    </body>
+</html>
