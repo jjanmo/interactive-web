@@ -7,6 +7,7 @@
         <title>Flex</title>
     </head>
     <body>
+        <h1>미완성 : 아이템 속성이 설정이 제대로 안된다, 설정하는 부분이 조금 불편하다</h1>
         <div>
             <section class="explanation">
                 ▶ black line : container <br />
@@ -24,13 +25,11 @@
                 📘 Item 속성<br />
                 ✅ flex-grow : 아이템의 너비,아이템의 width가 아니라 컨텐츠 폭을 제외한 여백의 비율을 설정해준다
                 <details>각각의 아이템마다 다른 값을 넣어주면 각각의 아이템이 서로 다른 너비를 갖게된다</details>
-                ✅ flex-shrink : 아이템의 찌그러지는 너비
-                <details>일반적으로 grow와 shrink를 다르게 사용하는 경우는 드물다</details>
+                ✅ flex-shrink : 아이템의 찌그러지는, 축소시키는 비율
+                <details>일반적으로 grow와 shrink를 다르게 사용하는 경우는 드물고 같은 값으로 설정해준다.</details>
                 ✅ flex-basis : 원래 컨텐츠가 차지하는 영역을 어떻게 해줄지를 설정해주는 속성으로, 기본값 auto 이다
-                <details>
-                    0으로 설정할 경우 : 모든 컨텐츠의 영역 비율이 동일하게 바뀐다.<br />
-                    일반적으로 우리가 의도하는 바 => shorthhand : flex : 1 => flex-grow : 1/ flex-shrink : 1 / flex-basis : 0
-                </details>
+                <details>0으로 설정할 경우 : 모든 컨텐츠의 영역 비율이 동일하게 바뀐다.<br /></details>
+                ✅ 일반적으로 우리가 의도하는 바 => shorthhand : flex : 1 => flex-grow : 1/ flex-shrink : 1 / flex-basis : 0
             </section>
         </div>
         <header class="controller">
@@ -76,11 +75,36 @@
             </section>
         </header>
         <div class="container">
-            <div class="item item1">item1</div>
-            <div class="item item2">item2</div>
-            <div class="item item3">item3</div>
-            <div class="item item4">item4</div>
-            <div class="item item5">item5</div>
+            <div class="item item1">
+                item1
+                <input type="number" id="item1_flexGrow" class="flex-grow" placeholder="flex-grow default=0" />
+                <input type="number" id="item1_flexShrink" class="flex-shrink" placeholder="flex-shrink default=0" />
+                <input type="number" id="item1_flexBasis" class="flex-basis" placeholder="flex-basis default=auto" />
+            </div>
+            <div class="item item2">
+                item2
+                <input type="number" id="item2_flexGrow" class="flex-grow" placeholder="flex-grow default=0" />
+                <input type="number" id="item2_flexShrink" class="flex-shrink" placeholder="flex-shrink default=0" />
+                <input type="number" id="item2_flexBasis" class="flex-basis" placeholder="flex-basis default=auto" />
+            </div>
+            <div class="item item3">
+                item3
+                <input type="number" id="item3_flexGrow" class="flex-grow" placeholder="flex-grow default=0" />
+                <input type="number" id="item3_flexShrink" class="flex-shrink" placeholder="flex-shrink default=0" />
+                <input type="number" id="item3_flexBasis" class="flex-basis" placeholder="flex-basis default=auto" />
+            </div>
+            <div class="item item4">
+                item4
+                <input type="number" id="item4_flexGrow" class="flex-grow" placeholder="flex-grow default=0" />
+                <input type="number" id="item4_flexShrink" class="flex-shrink" placeholder="flex-shrink default=0" />
+                <input type="number" id="item4_flexBasis" class="flex-basis" placeholder="flex-basis default=auto" />
+            </div>
+            <div class="item item5">
+                item5
+                <input type="number" id="item5_flexGrow" class="flex-grow" placeholder="flex-grow default=0" />
+                <input type="number" id="item5_flexShrink" class="flex-shrink" placeholder="flex-shrink default=0" />
+                <input type="number" id="item5_flexBasis" class="flex-basis" placeholder="flex-basis default=auto" />
+            </div>
         </div>
         <script src="flex.js"></script>
     </body>

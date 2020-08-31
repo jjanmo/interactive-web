@@ -25,7 +25,7 @@ details {
 }
 .container {
     display: flex;
-    height: 60vh;
+    height: 80vh;
     background-color: #eee;
     flex-direction: row;
     justify-content: flex-start;
@@ -34,11 +34,21 @@ details {
     margin: 1rem 0;
 }
 .item {
-    /* flex: 1; */
-    font-size: 2rem;
-    border: 3px solid#16a085;
+    font-size: 1.5rem;
+    border: 5px solid#16a085;
     background-color: #1abc9c;
     color: white;
     font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+}
+input[type='number'] {
+    width: 180px;
     text-align: center;
+    margin-bottom: 0.5rem;
 }
