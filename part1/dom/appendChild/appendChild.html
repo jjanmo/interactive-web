@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <style>
+            .container {
+                border: 1px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container"></div>
+    </body>
+    <script>
+        const container = document.querySelector('.container');
+        const p = document.createElement('p');
+
+        console.log(typeof p);
+
+        for (let i = 0; i < 5; i++) {
+            p.textContent = i;
+            // debugger;
+            container.appendChild(p);
+            if (i === 4) {
+                console.log(44);
+                container.appendChild(p);
+            }
+            //이 곳이 5번 실행이 되지만 append된 p 태그는 하나뿐이다
+            //이유
+            //1) p태그가 1번만 만들어졌기 때문에
+
+            //2)
+
+            // console.log(i, result);
+        }
+    </script>
+</html>
