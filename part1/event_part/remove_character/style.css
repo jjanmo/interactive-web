@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/*
+vw: viewport width
+vh : viewport height
+width를 사용한다고해서 vw를 사용하는것이 아니라 어떤 의도인지에 따라서 vw or vh를 결정하는 것
+
+width : 100vw;
+height : 80vw;
+-> 의도 : 높이값을 width가 변함에 따라서 height에도 변화를 주겠다는 의미
+*/
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #0984e3;
+    position: relative;
+    overflow: hidden;
+}
+
+.item {
+    position: absolute;
+    object-fit: contain;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* contain : 이미지가 짤리지않는 상태에서 가득차게된다 vs cover : 이미지가 짤리는것과 상관없이 가득차게된다 */
+    background-position: center center;
+}
+.ilbuni1 {
+    width: 100px;
+    height: 100px;
+    top: 100px;
+    left: 0px;
+    background-image: url('../image/ilbuni_0.png');
+    animation: move-right 4s ease-in-out infinite alternate;
+}
+.ilbuni2 {
+    width: 200px;
+    height: 200px;
+    top: 300px;
+    left: 0px;
+    background-image: url('../image/ilbuni_1.png');
+    animation: move-right 2.5s linear infinite alternate;
+}
+.ilbuni3 {
+    width: 150px;
+    height: 150px;
+    top: 500px;
+    left: 0px;
+    background-image: url('../image/ilbuni_2.png');
+    animation: move-right 2s ease infinite alternate-reverse;
+}
+.ilbuni4 {
+    width: 250px;
+    height: 250px;
+    bottom: 100px;
+    right: 0px;
+    background-image: url('../image/ilbuni_3.png');
+    animation: move-left 3s ease-in-out infinite alternate;
+}
+
+@keyframes move-right {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100vw);
+    }
+}
+@keyframes move-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100vw);
+    }
+}
