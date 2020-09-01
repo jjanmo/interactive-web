@@ -1,0 +1,67 @@
+body {
+    background-color: #333;
+}
+.container {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.door-space {
+    width: 150px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    background: black;
+}
+.door {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+}
+.door1 {
+    background-color: rgba(241, 196, 15, 0.8);
+}
+.door2 {
+    right: 0;
+    transform: rotateY(-120deg);
+    background-color: rgba(230, 126, 34, 0.8);
+}
+.door3 {
+    background-color: rgba(41, 128, 185, 0.8);
+}
+.door4 {
+    background-color: rgba(39, 174, 96, 0.8);
+}
+img {
+    width: 80%;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    right: -100%;
+    opacity: 0;
+    transition: all 0.4s ease-in-out 1s;
+}
+.open {
+    transform: rotateY(-120deg);
+}
+.close {
+    transform: rotateY(0);
+}
+.show {
+    right: 0;
+    opacity: 1;
+}
+.hide {
+    right: -100%;
+    opacity: 0;
+}
