@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Transition</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .ball {
+                width: 50px;
+                height: 50px;
+                /* 엘리먼트의 좌측상단이 기준이기 때문에 */
+                /* 방법1 */
+                /* margin: -25px 0 0 -25px; */
+                border-radius: 50%;
+                background-color: tomato;
+                transition: 1s;
+            }
+            .ball.blue {
+                background-color: dodgerblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ball"></div>
+        <script>
+            const $ball = document.querySelector('.ball');
+
+            function handleClick(e) {
+                const { clientX, clientY, screenX, screenY } = e;
+                //client / screen의 값은 같다
+                $ball.style.transform = `translate( ${clientX - 25}px, ${clientY - 25}px )`; //방법2
+                // $ball.style.transform = `translate( ${screenX}px, ${screenY}px )`;
+            }
+
+            window.addEventListener('click', handleClick);
+            $ball.addEventListener('transitionend', function (e) {
+                console.log(e);
+                //transition이벤트에 대한 속성이 들어있음
+                //elapsedTime : transition duration
+                //propertyName : transition 속성 이름 - 어떤 속성이 변화하는지 그 속성의 이름
+                $ball.classList.add('blue');
+            });
+
+            //transiton이 끝날 때 일어나는 이벤트 : transitionend
+            //이와 반대로 transition이 시작할 때 일어나는 이벤트 : transitionstart
+        </script>
+    </body>
+</html>

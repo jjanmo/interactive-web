@@ -92,8 +92,7 @@
                         const posYFromIlboni = $ilbuni.getBoundingClientRect().top;
 
                         $header.innerHTML = posYFromIlboni;
-                        console.log(window.innerHeight / 5);
-                        console.log(document.documentElement.scrollTop);
+
                         // if (posYFromIlboni < window.innerHeight / 5) {
                         //     $ilbuni.classList.add('zoom');
                         // } else {
@@ -105,7 +104,7 @@
                         //문서 내에서 스크롤의 위치
                         const posScrollY = document.documentElement.scrollTop;
                         //window.scrollY와 같은 값
-
+                        console.dir($ilbuni);
                         $ilbuni.style.transform = `translateY(${window.scrollY}px)`;
                     }
 

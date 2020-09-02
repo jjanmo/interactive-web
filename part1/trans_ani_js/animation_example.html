@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Animation</title>
+        <style>
+            @keyframes move {
+                from {
+                    transform: translate(0, 0);
+                }
+                to {
+                    transform: translate(500px, 500px);
+                }
+            }
+            @keyframes bigger {
+                to {
+                    transform: scale(2);
+                }
+            }
+            .ball {
+                position: absolute;
+                top: 100px;
+                left: 100px;
+                width: 30px;
+                height: 30px;
+                margin: -15px 0 0 -15px;
+                border-radius: 50%;
+                background-color: tomato;
+            }
+            .ball.clicked {
+                animation: move 1s 4 alternate;
+            }
+            .ball.end {
+                background-color: dodgerblue;
+                animation: bigger 1s forwards;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ball"></div>
+        <script>
+            const $ball = document.querySelector('.ball');
+
+            $ball.addEventListener('click', function () {
+                $ball.classList.add('clicked');
+            });
+
+            $ball.addEventListener('animationend', function (e) {
+                $ball.classList.add('end');
+            });
+
+            $ball.addEventListener('animationiteration', function (e) {
+                console.log(e);
+            });
+
+            //animationstart
+            //animationend
+            //animationiteration : 애니메이션의 반복이 일어날 때마다 일어나는 이벤트
+        </script>
+    </body>
+</html>
