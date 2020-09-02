@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Nth of Type</title>
+        <style>
+            .container {
+                width: 70vw;
+                height: 20vw;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                border: 10px dashed #eee;
+                margin: 0 auto;
+            }
+            .item {
+                position: relative;
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+            }
+            .text {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 50%;
+            }
+            .icon {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 50%;
+            }
+            /* 두번째 text에 색을 주고 싶은 것 */
+            /* (같은) 부모의 형제들 중에 두번째에 있는 item이라는 클래스를 가진 녀석의 자식이 text클래스를 가진 것 */
+            .item:nth-child(2) .text {
+                background-color: red;
+            }
+            /* 위 코드를 nth-of-type로 */
+            /* 이 상황에서는 같음 */
+            .item:nth-of-type(2) .text {
+                background-color: aqua;
+            }
+            /* 나는 p2에 칠할라고 한건데, p1에 칠해진 것 */
+
+            /* "container클래스를 가진 두번째 자식" 의 (같은 부모의) p태그를 가진 "두번째 자식"을 고르시오 */
+            /* p tag  &&  nth-child(2) */
+            .container:nth-child(2) p:nth-child(2) {
+                background-color: violet;
+            }
+
+            /* "container클래스를 가진 두번째 자식" 의 (같은 부모의) p태그를 가진 것 중에 "두번째"를 고르시오 */
+            /* p tag 중에서 2번째   */
+            .container:nth-child(2) p:nth-of-type(2) {
+                background-color: teal;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item">
+                <div class="text"></div>
+                <div class="icon"></div>
+            </div>
+            <div class="item">
+                <div class="text"></div>
+                <div class="icon"></div>
+            </div>
+            <div class="item">
+                <div class="text"></div>
+                <div class="icon"></div>
+            </div>
+            <div class="item">
+                <div class="text"></div>
+                <div class="icon"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div>div1 tag</div>
+            <p>p1 tag</p>
+            <p>p2 tag</p>
+            <span>span tag</span>
+            <div>div2 tag</div>
+        </div>
+    </body>
+</html>

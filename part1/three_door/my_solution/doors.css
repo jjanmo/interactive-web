@@ -16,7 +16,6 @@ body {
     align-items: center;
     position: relative;
     perspective: 1000px;
-    transform-style: preserve-3d;
     background: black;
 }
 .door {
