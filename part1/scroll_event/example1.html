@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Scroll</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                color: white;
+                background-color: rgba(52, 52, 52, 0.5);
+                width: 100vw;
+                font-size: 2rem;
+                font-weight: 700;
+                padding: 1rem 0;
+            }
+            main {
+                width: 100vw;
+                height: 1000vh;
+                padding-top: 100px;
+                background-color: greenyellow;
+            }
+            section {
+                width: 80%;
+                margin: 2rem auto;
+                font-size: 1.1rem;
+            }
+            .ilbuni {
+                background: url(./image/ilbuni_0.png) no-repeat center center / contain;
+                width: 200px;
+                height: 250px;
+                margin: 2rem auto;
+                transition: 1s;
+            }
+            .ilbuni.zoom {
+                transform: scale(2);
+            }
+        </style>
+    </head>
+    <body>
+        <header>OUTPUT</header>
+        <main>
+            <section>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas dicta maxime obcaecati, nam illo modi ducimus
+                exercitationem incidunt quia alias minus sint debitis corporis earum quidem animi unde ea! Eaque? Pariatur possimus, ipsam
+                labore odio rem ipsa accusamus vero ut asperiores ea rerum voluptates sed quidem. Laborum deleniti, necessitatibus eligendi
+                qui, adipisci ipsum possimus ratione, consequuntur rem maiores iure iusto. Incidunt similique odit sapiente dolores modi
+                molestiae delectus ut laudantium voluptate molestias. Qui velit culpa et eveniet aliquid vero ipsum tempora nulla dolor quas
+                sit cumque, aut nesciunt, a libero. Vero, aperiam, voluptatum, id rem delectus doloribus at impedit provident non totam
+                consectetur! Itaque excepturi facilis id exercitationem atque perferendis. Reprehenderit numquam corporis odit delectus
+                facere ipsum doloremque ex harum! Nesciunt dolor voluptatum dolores repellat autem voluptatibus! Commodi molestias quasi ut
+                animi rem eaque sapiente, porro vitae. Totam dignissimos odit neque, placeat dolorem consectetur quaerat nisi, perspiciatis
+                autem cumque ab! Aut, nihil minima ipsa aperiam ab repellendus recusandae labore eos cupiditate cumque explicabo numquam nam
+                error vitae a maiores iste debitis atque mollitia nostrum iure sequi unde molestiae doloremque! Expedita. Corporis aperiam,
+                et ullam adipisci pariatur eius voluptates non ipsa assumenda, qui eos soluta debitis totam ad, consequuntur repellendus ea
+                consectetur numquam praesentium possimus! Numquam voluptatem eveniet explicabo obcaecati soluta! Illo, nulla sint! Accusamus
+                quod praesentium dolore commodi sint labore fugiat magni, eaque nesciunt reprehenderit laboriosam quas nemo ab explicabo
+                eligendi nisi enim delectus laudantium totam illo! Alias, quibusdam fugit. Explicabo quam modi exercitationem blanditiis
+                minus voluptas illo nihil accusantium dolores a omnis voluptate quasi, quos hic quidem tenetur perspiciatis quia iusto.
+                Omnis iusto est ex, sequi hic pariatur? Officia. Mollitia saepe consequuntur asperiores harum blanditiis ea, illo cum maxime
+                deserunt! Iste suscipit minus, illo nobis expedita nisi ipsa doloremque totam! Amet quidem excepturi inventore saepe
+                temporibus nesciunt omnis magnam.
+                <div class="ilbuni"></div>
+            </section>
+            <script>
+                //구현하고자 하는 것 : 특정 위치에 스크롤이 오면 일분이가 커진다.
+                //-> 스크롤 할 때마다 일분이와 스크롤간의 위치를 알아야함
+
+                (function () {
+                    const $header = document.querySelector('header');
+                    const $ilbuni = document.querySelector('.ilbuni');
+
+                    function handleScroll(e) {
+                        //pageYoffset : 스크롤한 거리
+                        //$header.innerHTML = window.pageYOffset;
+
+                        //현재 문서에서의 일분이의 높이를 말해준다.(top에서 일분이의 위치까지)
+                        // $header.innerHTML = $ilbuni.offsetTop;
+
+                        //$ilbuni.getBoundingClientRect()
+                        //=> 해당 엘리먼트의 뷰포트내에서의 top/left/right/bottom/width/height를 나타내준다
+                        //=> top/left/right/bottom은 스크롤에 따른 해당 엘리먼트의 뷰포트로 비교했을때의 상대적인 위치
+                        //=> 이것을 이용하면 스크롤에 따른 해당 엘리먼트의 위치를 알고 그에 따라 반응할 수 있다.
+
+                        const posYFromIlboni = $ilbuni.getBoundingClientRect().top;
+
+                        $header.innerHTML = posYFromIlboni;
+                        console.log(window.innerHeight / 5);
+                        console.log(document.documentElement.scrollTop);
+                        // if (posYFromIlboni < window.innerHeight / 5) {
+                        //     $ilbuni.classList.add('zoom');
+                        // } else {
+                        //     $ilbuni.classList.remove('zoom');
+                        // }
+
+                        //이미지가 안보이면 이미지가 스크롤을 따라다니도록
+
+                        //문서 내에서 스크롤의 위치
+                        const posScrollY = document.documentElement.scrollTop;
+                        //window.scrollY와 같은 값
+
+                        $ilbuni.style.transform = `translateY(${window.scrollY}px)`;
+                    }
+
+                    window.addEventListener('scroll', handleScroll);
+                })();
+            </script>
+        </main>
+    </body>
+</html>
