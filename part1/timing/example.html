@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .result {
+                font-size: 2rem;
+                font-weight: 700;
+                color: tomato;
+            }
+            button {
+                font-size: 3rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="result"></div>
+        <button>cancel</button>
+        <script>
+            const $result = document.querySelector('.result');
+            const $button = document.querySelector('button');
+            let timerId;
+            let index = 0;
+            let animation;
+            //settimeout
+            // timerId = setTimeout(function () {
+            //     $result.innerHTML = 'result';
+            //     console.log('result');
+            // }, 3000);
+
+            // setinterval
+            // timerId = setInterval(function () {
+            //     index++;
+            //     $result.innerHTML = `setinterval ${index}`;
+            // }, 1000);
+
+            //requestanimationframe
+            function request() {
+                index++;
+                $result.innerHTML = `${index} request`;
+
+                animation = requestAnimationFrame(request);
+                console.log(animation);
+            }
+            request();
+
+            $button.addEventListener('click', function () {
+                // clearInterval(timerId);
+                cancelAnimationFrame(animation);
+            });
+        </script>
+    </body>
+</html>
