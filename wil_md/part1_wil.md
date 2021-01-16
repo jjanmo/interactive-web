@@ -81,7 +81,7 @@ document.documentElement.scrollTop
 
 -   우리가 원하는 좌표로 계산하여 사용하는 방법
 
-![location](./image/location.png)
+![location](../screenshots/part1_location.png)
 
 ```javascript
 const posX = -1 + (e.clientX / window.innerWidth) * 2;
