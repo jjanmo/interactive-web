@@ -5,7 +5,15 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 canvas.style.backgroundColor = '#eee';
 
-// charater
+let cactuses = [];
+// 시간의 흐름은 항상 프레임으로 계산한다.: 타이머 변수가 필요
+let timer = 0;
+let jumpTimer = 0;
+
+let isJumping = false;
+let isRestart = false;
+let animation;
+
 const dino = {
   x: 10,
   y: 200,
@@ -16,7 +24,6 @@ const dino = {
     ctx.fillRect(this.x, this.y, this.width, this.height);
   },
 };
-dino.draw();
 
 class Cactus {
   constructor() {
@@ -32,14 +39,12 @@ class Cactus {
   }
 }
 
-const cactuses = [];
-// 시간의 흐름은 항상 프레임으로 계산한다.: 타이머 변수가 필요
-let timer = 0;
-let jumpTimer = 0;
-let isJumping = false;
+function start() {
+  move();
+}
 
 function move() {
-  requestAnimationFrame(move);
+  animation = requestAnimationFrame(move);
   timer++;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -49,13 +54,15 @@ function move() {
     cactuses.push(cactus);
   }
 
-  cactuses.forEach((catcus, index) => {
-    if (catcus.x < 0) {
+  cactuses.forEach((cactus, index) => {
+    if (cactus.x < 0) {
       cactuses.splice(index, 1);
     }
 
-    catcus.x -= 5;
-    catcus.draw();
+    checkCollision(dino, cactus);
+
+    cactus.x -= 5;
+    cactus.draw();
   });
 
   if (isJumping) {
@@ -71,10 +78,32 @@ function move() {
     }
   }
 
+  if (isRestart) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    cactuses = [];
+    timer = 0;
+    jumpTimer = 0;
+    isJumping = false;
+    animation = null;
+    isRestart = false;
+    start();
+  }
+
   dino.draw();
 }
 
-move();
+function checkCollision(dino, cactus) {
+  const xDiff = cactus.x - (dino.x + dino.width);
+  const yDiff = cactus.y - (dino.y + dino.height);
+  if (xDiff < 0 && yDiff < 0) {
+    cancelAnimationFrame(animation);
+    const result = confirm('Game Over 😭 \nStart Again?');
+    if (result) {
+      isRestart = result;
+    }
+    return;
+  }
+}
 
 const handleKeydown = e => {
   if (e.code === 'Space') {
@@ -82,4 +111,9 @@ const handleKeydown = e => {
   }
 };
 
-document.addEventListener('keydown', handleKeydown);
+function init() {
+  document.addEventListener('keydown', handleKeydown);
+  start();
+}
+
+init();
