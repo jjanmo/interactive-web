@@ -32,8 +32,11 @@ class Cactus {
   }
 }
 
-let timer = 0;
 const cactuses = [];
+// 시간의 흐름은 항상 프레임으로 계산한다.: 타이머 변수가 필요
+let timer = 0;
+let jumpTimer = 0;
+let isJumping = false;
 
 function move() {
   requestAnimationFrame(move);
@@ -46,12 +49,37 @@ function move() {
     cactuses.push(cactus);
   }
 
-  cactuses.forEach(catcus => {
+  cactuses.forEach((catcus, index) => {
+    if (catcus.x < 0) {
+      cactuses.splice(index, 1);
+    }
+
     catcus.x -= 5;
     catcus.draw();
   });
+
+  if (isJumping) {
+    dino.y -= 5;
+    jumpTimer++;
+    if (jumpTimer > 30) {
+      isJumping = false;
+    }
+  } else {
+    if (dino.y < 200) {
+      dino.y += 5;
+      jumpTimer = 0;
+    }
+  }
 
   dino.draw();
 }
 
 move();
+
+const handleKeydown = e => {
+  if (e.code === 'Space') {
+    isJumping = true;
+  }
+};
+
+document.addEventListener('keydown', handleKeydown);

@@ -37,6 +37,6 @@
 
 ## Part3
 
-> Google T-Rex Game(일명 공룡 게임)
+> 유사 Google T-Rex Game(일명 공룡 게임) 만들기
 
 - [What I Learned](/wil_md/part3_wil.md)
