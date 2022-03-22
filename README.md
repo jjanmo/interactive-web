@@ -34,3 +34,5 @@
 ## Part3 : SVG Tutorials
 
 > SVG Animation 따라만들기 with [Online Tutotorials](https://www.youtube.com/playlist?list=PL5e68lK9hEzd-ZM4Km6xUia-mxQp52G6U)
+
+- [Text Animation](https://devdemodd.github.io/svg-demo-site/text-animation/)
