@@ -1,0 +1,107 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  animation: blur 3s infinite;
+}
+
+svg {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+  width: 100%;
+  height: 40rem;
+}
+
+svg text {
+  font-size: 10rem;
+  fill: rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  stroke-linejoin: round;
+}
+
+svg text:first-child {
+  stroke-width: 5px;
+  stroke: #3c40c6;
+  stroke-dasharray: 100 20;
+  animation: first-animate 1s linear infinite;
+}
+
+svg text:nth-child(2) {
+  stroke-width: 10px;
+  stroke: #ef5777;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: second-animate 5s linear infinite;
+}
+
+svg text:last-child {
+  font-size: 5rem;
+  font-style: italic;
+  stroke-width: 2px;
+  stroke: #ffdd59;
+  stroke-dasharray: 400;
+  animation: third-animate 4s linear infinite;
+  fill: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes first-animate {
+  100% {
+    stroke-dashoffset: 120;
+  }
+}
+
+@keyframes second-animate {
+  0% {
+    stroke-dashoffset: 500;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -500;
+  }
+}
+
+@keyframes third-animate {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(2px);
+  }
+  50% {
+    filter: blur(12px);
+  }
+  100% {
+    filter: blur(2px);
+  }
+}
