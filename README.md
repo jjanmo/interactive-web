@@ -11,13 +11,15 @@
 
 ## Part1
 
-> [Interactive Web](https://www.inflearn.com/course/interactive_web) 를 실습한 공간이다.
+> 1분코딩님의 [Interactive Web](https://www.inflearn.com/course/interactive_web)강좌를 실습하며 과정을 기록한 공간이다.
 
 - [What I Learned](docs/part1.md)
 
 ## Part2
 
-> [CSS 3D Transform](https://3dtransforms.desandro.com/) 을 실습한 공간이다.
+> CSS 3D Transform Animation 따라 만들기
+
+> [참고 사이트](https://3dtransforms.desandro.com/)를 바탕으로 실습하였다.
 
 파트1을 만들어가면서 조금 더 인터렉티브함을 주기 위해선 좋은 자바스크립트 실력과 더불어 3D에 대한 감각이 중요함을 느꼈다. 거기에는 CSS를 이용한 `3D Transform`이 있다고 생각한다. 그리고 3D공간에 대한 이해는 많이 경험해보는 것이 좋은 것 같다. 그래서 3D Transform을 이용하여 몇가지를 만들어 보고자 한다.
 
@@ -28,3 +30,7 @@
 - 3D Cube
 - 3D Box
 - 3D Carousel
+
+## Part3 : SVG Tutorials
+
+> SVG Animation 따라만들기 with [Online Tutotorials](https://www.youtube.com/playlist?list=PL5e68lK9hEzd-ZM4Km6xUia-mxQp52G6U)
