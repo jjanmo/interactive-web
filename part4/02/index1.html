@@ -12,6 +12,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         width: 200px;
+        cursor: pointer;
       }
       .face__hair {
         fill: #fdcb6e;
@@ -19,9 +20,7 @@
       .face__hair:nth-of-type(2) {
         fill: #ffeaa7;
       }
-      .face__eye {
-        animation: eye-scale 0.5s infinite alternate;
-      }
+
       .face__eye:nth-of-type(2) {
         transform-origin: 175px 380.5px;
       }
@@ -35,6 +34,9 @@
         100% {
           transform: scale(1.1);
         }
+      }
+      .clicked .face__eye {
+        animation: eye-scale 0.5s infinite alternate;
       }
     </style>
   </head>
@@ -66,5 +68,6 @@
       <ellipse class="face__hair" cx="428.5" cy="198.5" rx="142.5" ry="123.5" />
       <ellipse class="face__hair" cx="245.5" cy="103" rx="151.5" ry="103" />
     </svg>
+    <script src="app.js"></script>
   </body>
 </html>

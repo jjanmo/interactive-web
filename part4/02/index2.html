@@ -30,15 +30,13 @@
           left: 50%;
           transform: translate(-50%, -50%);
           width: 200px;
+          cursor: pointer;
         }
         .face__hair {
           fill: #fdcb6e;
         }
         .face__hair:nth-of-type(2) {
           fill: #ffeaa7;
-        }
-        .face__eye {
-          animation: eye-scale 0.5s infinite alternate;
         }
         .face__eye:nth-of-type(2) {
           transform-origin: 175px 380.5px;
@@ -54,7 +52,15 @@
             transform: scale(1.1);
           }
         }
+        .clicked .face__eye {
+          animation: eye-scale 0.5s infinite alternate;
+        }
       </style>
+      <script>
+        const $face = document.querySelector('.face');
+        $face.addEventListener('click', (e) => {
+        e.currentTarget.classList.toggle('clicked'); });
+      </script>
       <circle class="face__eye" cx="175" cy="380.5" r="42.5" />
       <circle class="face__eye" cx="397" cy="380.5" r="42.5" />
       <path
