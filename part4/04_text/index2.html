@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .shapes {
+      width: 800px;
+      height: 600px;
+      background-color: #eee;
+    }
+    path {
+      stroke: aqua;
+      fill: transparent;
+    }
+    text {
+      font-size: 14px;
+      font-weight: 700;
+      fill: tomato;
+    }
+    tspan {
+      fill: darkblue;
+    }
+  </style>
+  <body>
+    <svg class="shapes" xmlns="http://www.w3.org/2000/svg">
+      <!-- 참조를 위한 태그 -->
+      <defs>
+        <path
+          id="curved-text"
+          d="M 50 400 C 50 400, 300 500, 400 400 C 400 400, 600 170, 700 300"
+        ></path>
+      </defs>
+      <text x="50" y="50">
+        <textPath href="#curved-text">
+          Lorem ipsum, dolor sit amet
+          <tspan>consectetur</tspan>
+          adipisicing elit. Saepe enim voluptatum natus laudantium aliquam
+          commodi.
+        </textPath>
+      </text>
+    </svg>
+  </body>
+</html>
