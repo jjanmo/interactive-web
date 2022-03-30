@@ -7,11 +7,13 @@
 
 - 2020년에 시작한 고대(?) 프로젝트로서 2021년에 여러가지 인터렉티브한 것들을 만들어보고자했으나, 생각만 하였다는...😭 2022년에는 꾸준히 업데이트를 해보고자 한다.
 
+- SVG의 시작 💫 : 2022년 3월 말경
+
 </details>
 
 ## Part1
 
-> 1분코딩님의 [Interactive Web](https://www.inflearn.com/course/interactive_web)강좌를 실습하며 과정을 기록한 공간이다.
+> 1분코딩님의 [Interactive Web](https://www.inflearn.com/course/interactive_web)강좌를 실습하는 과정을 기록한 공간이다.
 
 - [What I Learned](docs/part1.md)
 
@@ -36,3 +38,9 @@
 > SVG Animation 따라만들기 with [Online Tutotorials](https://www.youtube.com/playlist?list=PL5e68lK9hEzd-ZM4Km6xUia-mxQp52G6U)
 
 - [Text Animation](https://devdemodd.github.io/svg-demo-site/text-animation/)
+
+## Part4 : SVG Master
+
+> SVG ~~마스터하기~~ 라고 쓰고 중수정도까지만 💫
+
+> 1분 코딩님의 [SVG 마스터](https://www.inflearn.com/course/mastering-svg) 강의를 실습 및 정리하는 공간입니다.
