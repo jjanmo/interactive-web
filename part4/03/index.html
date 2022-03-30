@@ -12,6 +12,10 @@
       height: 400px;
       background-color: rgba(0, 0, 0, 0.3);
     }
+    /* 모양의 속성은 모두 CSS로도 가능하다, CSS가 우선순위를 갖는다  */
+    rect {
+      fill: bisque;
+    }
   </style>
   <body>
     <svg class="shapes">
@@ -34,6 +38,27 @@
         stroke-width="5"
       ></circle>
       <ellipse cx="300" cy="300" rx="80" ry="20" fill="yellow"></ellipse>
+      <line
+        x1="10"
+        y1="10"
+        x2="300"
+        y2="300"
+        stroke="white"
+        stroke-width="5"
+      ></line>
+      <polyline
+        points="0 0, 200 100, 150, 300"
+        stroke="green"
+        stroke-width="10"
+      ></polyline>
+      <!-- <polygon
+        points="0 0, 200 100, 150, 300"
+        stroke="green"
+        stroke-width="10"
+      ></polygon> -->
+
+      <!-- polyline vs polygon
+        → polygon은 포인트를 다 이은 후 마무리 마지막 꼭지점까지 이어줌 -->
     </svg>
   </body>
 </html>
