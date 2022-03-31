@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @keyframes ani1 {
+      from {
+        stroke-dashoffset: 942;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes ani2 {
+      from {
+        stroke-dashoffset: 1000;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    circle {
+      fill: transparent;
+      stroke: #555;
+      stroke-width: 8px;
+      stroke-dasharray: 942;
+      animation: ani1 2s ease-in-out infinite;
+      /* 시작점 변경 */
+      transform: rotate(-90deg);
+      transform-origin: right;
+    }
+    svg {
+      background-color: aliceblue;
+      width: 800px;
+      height: 800px;
+    }
+    .group1 {
+      fill: transparent;
+      stroke: tomato;
+      stroke-width: 8;
+      stroke-linecap: round;
+    }
+    path {
+      stroke-dasharray: 100;
+      animation: ani2 2s ease-in-out infinite;
+    }
+  </style>
+  <body>
+    <svg x="0" y="0" viewBox="0 0 1200 600">
+      <circle cx="80%" cy="20%" r="150"></circle>
+      <g class="group1">
+        <path
+          d="M91 294C91 272.81 90.1174 251.405 91 230.222C91.2782 223.545 96.9611 216.707 99.4444 210.611C100.783 207.327 102.94 205.042 105 202.222C113.41 190.714 132.958 189 145.778 189C152.003 189 157.447 188.3 163 191.222C167.328 193.5 170.454 198.179 173 202.222C176.867 208.364 177 214.797 177 222C177 237 177 252 177 267C177 281.442 180.995 294.213 193 302.944C201.318 308.994 213.343 311.394 223.5 309.889C229.955 308.933 236.553 301.288 241 297C246.114 292.068 251.239 287.235 256 281.944C262.086 275.183 265.392 268.488 267.5 260.056C269.483 252.122 270 243.155 270 235C270 227.456 272 219.96 272 212.5C272 204.545 272.816 188.092 281 184"
+        />
+        <path
+          d="M281 183C290.894 179.139 298.89 178 309.5 178C323.487 178 330.297 195.96 335.222 206C338.994 213.688 342.006 218.608 343 227.056C343.942 235.065 346.698 242.144 349 249.778C350.485 254.703 351.325 259.836 353.556 264.5C355.14 267.813 357.689 270.726 359.5 273.944C362.139 278.636 364.596 283.448 367.222 288.222C370.686 294.521 377.152 309 386.444 309C397.701 309 407.794 293.853 410.5 284.111C412.394 277.292 414.76 270.511 418 264.222C424.157 252.271 422.852 239.321 423.5 226.222C424.858 198.789 419.679 169.397 427.778 143C431.668 130.322 436.18 123.032 445.778 113.778C452.054 107.725 457.199 101.5 466 99.5C475.899 97.2503 487.502 101.749 496.944 97.5C509.715 91.7532 509.74 79.9014 516 69.2222C517.827 66.1059 519 59.6134 519 56"
+        />
+        svg g tag
+      </g>
+    </svg>
+
+    <script>
+      // path의 총 길이를 구하는 방법
+      console.log(document.querySelector('circle').getTotalLength());
+      console.log(document.querySelector('path').getTotalLength());
+    </script>
+  </body>
+</html>
