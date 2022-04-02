@@ -14,7 +14,7 @@
       <div class="box">scale(2)</div>
       <div class="box">skew(45deg)</div>
     </div>
-    <div class="buttons">
+    <div class="buttons container">
       <div>transform-orgin</div>
       <button type="radio" class="cc clicked">center center</button>
       <button type="radio" class="ct">center top</button>
@@ -32,6 +32,30 @@
       transform-origin의 경우, 위에처럼 키워드 뿐만아니라 %,px 등의 단위로도
       가능(% 추천) <br />
       ex) center center === 50% 50%
+    </p>
+
+    <div class="container">
+      <h3>transition의 적용 여부</h3>
+      <input
+        type="radio"
+        name="transition"
+        class="radio"
+        value="미적용"
+        checked
+      />
+      미적용
+      <input type="radio" name="transition" class="radio" value="적용" /> 적용
+    </div>
+
+    <p>
+      transition은 숫자값의 속성이 변화할 때, 그 중간 과정(중간 과정의
+      애니메이션을 정의해주는 것)을 나타내는 속성을 말한다. <br />
+      transition-property: transform → 어떤 속성에 transition을 적용할 것인지
+      <br />
+      transition-duration: 0.5s → 애니메이션이 몇초동안 진행되는지<br />
+      transition-timing-function: ease-in-out → 어떻게 애니메이션이
+      진행되는지<br />
+      transition-delay: 0s → delay 초 뒤에 애니메이션이 시작되는 설정 <br />
     </p>
     <script src="app1.js"></script>
   </body>

@@ -7,7 +7,6 @@
   display: flex;
   margin: 5rem;
 }
-
 .box {
   width: 150px;
   height: 150px;
@@ -16,6 +15,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.transition {
+  transition: transform 0.5s ease-in-out;
 }
 .box:nth-child(1):hover {
   transform: rotate(45deg);
@@ -26,8 +28,8 @@
 .box:nth-child(3):hover {
   transform: skew(30deg);
 }
-.buttons {
-  margin: 2rem;
+.container {
+  margin: 1rem;
 }
 button {
   margin: 10px;
@@ -37,7 +39,7 @@ button {
   border: 2px solid tomato;
 }
 p {
-  margin: 0 5rem;
+  margin: 10px 5rem;
   padding: 10px;
   background-color: #eee;
   display: inline-block;
