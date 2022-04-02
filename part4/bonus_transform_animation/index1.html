@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles1.css" />
+    <title></title>
+  </head>
+  <body>
+    <h1>CSS Transform</h1>
+    <div class="box-container">
+      <div class="box">rotate(45deg)</div>
+      <div class="box">scale(2)</div>
+      <div class="box">skew(45deg)</div>
+    </div>
+    <div class="buttons">
+      <div>transform-orgin</div>
+      <button type="radio" class="cc clicked">center center</button>
+      <button type="radio" class="ct">center top</button>
+      <button type="radio" class="cb">center bottom</button>
+      <button type="radio" class="lt">left top</button>
+      <button type="radio" class="lb">left bottom</button>
+      <button type="radio" class="lc">left center</button>
+      <button type="radio" class="rt">right top</button>
+      <button type="radio" class="rb">right bottom</button>
+      <button type="radio" class="rc">right center</button>
+    </div>
+
+    <p>
+      transform-origins은 transform되는 기준점을 말한다. <br />
+      transform-origin의 경우, 위에처럼 키워드 뿐만아니라 %,px 등의 단위로도
+      가능(% 추천) <br />
+      ex) center center === 50% 50%
+    </p>
+    <script src="app1.js"></script>
+  </body>
+</html>
