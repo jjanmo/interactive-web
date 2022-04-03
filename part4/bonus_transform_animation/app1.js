@@ -22,7 +22,6 @@ $buttons.addEventListener('click', (e) => {
 
 $radios.forEach(($radio) => {
   $radio.addEventListener('click', (e) => {
-    console.log(e.target, e.target.value);
     if (e.target.value === '적용') {
       $boxs.forEach(($box) => {
         $box.classList.add('transition');
