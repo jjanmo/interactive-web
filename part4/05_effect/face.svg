@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 571 625.5">
+  <defs>
+    <style>
+      @keyframes wink {
+        from {
+          transform : scaleY(1);
+        }
+        to {
+          transform: scaleY(0.2);
+        }
+      }
+      .right-eye{
+        animation : wink 1s alternate infinite;
+        transform-origin: 175px 380px;
+        <!-- transform이 일어나는 기준점을 설정한다
+        → 여기서는 눈의 중심으로 설정, 눈의 중심을 기준으로 y길이가 길어졌다 짧아졌다 하는것 -->
+      }
+    </style>
+  </defs>
+  <circle cx="286.5" cy="354.5" r="251" stroke-width="40" fill="none" stroke="#000" stroke-miterlimit="10"/>
+  <circle class="right-eye" cx="175" cy="380.5" r="42.5"/>
+  <circle cx="397" cy="380.5" r="42.5"/>
+  <path d="M422 476.16a181.3 181.3 0 0 1-135.48 60.59H286a181.3 181.3 0 0 1-135.48-60.59" stroke-width="30" fill="none" stroke="#000" stroke-miterlimit="10"/>
+  <ellipse  cx="168.5" cy="210.5" rx="168.5" ry="121.5"/>
+  <ellipse  cx="428.5" cy="198.5" rx="142.5" ry="123.5"/>
+  <ellipse cx="245.5" cy="103" rx="151.5" ry="103"/>
+</svg>
