@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mask1</title>
+  </head>
+  <style>
+    .svg-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #eee;
+    }
+    #text {
+      font-size: 2rem;
+    }
+  </style>
+  <body>
+    <svg class="svg-box">
+      <defs>
+        <mask id="mask-circle">
+          <circle id="my-circle" cx="250" cy="90" r="40" fill="white"></circle>
+        </mask>
+      </defs>
+      <!-- 텍스트에 마스크 적용  g tag 이용-->
+      <g mask="url(#mask-circle)">
+        <text x="100" y="100" id="text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis,
+          voluptates excepturi. Voluptatibus earum illum
+        </text>
+      </g>
+    </svg>
+  </body>
+</html>
