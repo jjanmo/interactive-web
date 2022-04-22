@@ -7,6 +7,18 @@
     <title>Mask2</title>
   </head>
   <style>
+    @keyframes wink {
+      from {
+        transform: scaleY(1);
+      }
+      to {
+        transform: scaleY(0.2);
+      }
+    }
+    .right-eye {
+      animation: wink 0.6s alternate infinite;
+      transform-origin: 20px 42px;
+    }
     .my-svg {
       position: absolute;
       top: 0;
@@ -15,16 +27,23 @@
       height: 100%;
       background-color: #eee;
     }
+
+    /* 전체 바탕 */
     .bg-rect {
+      fill: url(#bg-pattern);
+    }
+    /* 돋보기 바탕 */
+    .bg-glass {
+      fill: #ddd;
+    }
+    /* 돋보기 확대 설정 */
+    .bg {
+      transform: scale(1.8);
       fill: url(#bg-pattern);
     }
   </style>
   <body>
-    <svg
-      class="my-svg"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1000 1000"
-    >
+    <svg class="my-svg" xmlns="http://www.w3.org/2000/svg">
       <path
         class="magnifier"
         d="M150.81 41.26a80.5 80.5 0 1 0-41.94 114.6l36.28 64.95a12 12 0 1 0 20.95-11.7l-36.29-64.95a80.51 80.51 0 0 0 21-102.9zm-41 91.63a60 60 0 1 1 23.12-81.64 60 60 0 0 1-23.12 81.64z"
@@ -38,7 +57,7 @@
         </mask>
 
         <!-- 배경 패턴 -->
-        <pattern x="0" y="0" width="0.1" height="0.1" id="bg-pattern">
+        <pattern x="0" y="0" width="0.07" height="0.07" id="bg-pattern">
           <path
             d="M138.61,133a29.89,29.89,0,1,1,21.14-8.75A29.72,29.72,0,0,1,138.61,133Zm0-55.38a25.49,25.49,0,1,0,18,7.46A25.32,25.32,0,0,0,138.61,77.63Z"
             transform="translate(-107 -64)"
@@ -58,8 +77,14 @@
         </pattern>
       </defs>
 
+      <!-- 바탕 패턴 설정 -->
+      <rect class="bg-rect" x="0" y="0" width="100%" height="100%"></rect>
+
       <g mask="url(#mask-glass)">
-        <rect class="bg-rect" x="0" y="0" width="100%" height="100%"></rect>
+        <!-- 돋보기 바탕색 설정 -->
+        <rect class="bg-glass" x="0" y="0" width="100%" height="100%"></rect>
+        <!-- 돋보기 설정 -->
+        <rect class="bg" x="0" y="0" width="100%" height="100%"></rect>
       </g>
     </svg>
     <script src="mask2.js"></script>

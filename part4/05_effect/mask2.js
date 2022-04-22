@@ -3,7 +3,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const magnifier = document.querySelector('.magnifier');
 
   window.addEventListener('mousemove', (e) => {
-    console.log(e.clientX);
     glass.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
     magnifier.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
   });
