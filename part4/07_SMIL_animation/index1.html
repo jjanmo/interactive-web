@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMIL1</title>
+  </head>
+  <body>
+    <h1>Synchronized Multimedia Integration Language</h1>
+    <p>
+      SVG에서 애니메이션을 만들때 CSS가 아닌 방법으로 사용하는 것으로서, CSS로
+      처리하지 못하는 기능을 처리할 수 있다.
+      <hr />
+      <br />
+      repeatCount="indefinite" : 애니메이션 무한반복  <br />
+      fill="freeze" : CSS animation-fill-mode의 forwards와 같음 <br />
+    </p>
+
+    <svg viewBox="100 100 1000 1000">
+      <defs>
+        <script>
+          window.addEventListener('DOMContentLoaded', () => {
+            const $rect = document.querySelector('rect')
+            const $animate = document.querySelector('animate')
+
+            $rect.addEventListener('click', () => {
+              $animate.beginElement()
+            })
+          })
+        </script>
+      </defs>
+      <rect
+        x="200"
+        y="200"
+        width="10%"
+        height="10%"
+        rx="15"
+        ry="15"
+        fill="tomato"
+      >
+        <animate attributeName="x" to="800" dur="1s" begin="indefinite" repeatCount="1"  fill="freeze"/>
+      </rect>
+    </svg>
+  </body>
+</html>
