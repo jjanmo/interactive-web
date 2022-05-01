@@ -16,6 +16,11 @@
       repeatCount="indefinite" : 애니메이션 무한반복  <br />
       fill="freeze" : CSS animation-fill-mode의 forwards와 같음 <br />
     </p>
+    <p>
+      animate에서의 CSS alternative와 같은 효과 <br />
+      기존에는 to를 사용 : 목적지만 정해줌 <br />
+      values 와 keyTimes 사용하여 중간과정을 설정함
+    </p>
 
     <svg viewBox="100 100 1000 1000">
       <defs>
@@ -39,7 +44,11 @@
         ry="15"
         fill="tomato"
       >
-        <animate attributeName="x" to="800" dur="1s" begin="indefinite" repeatCount="1"  fill="freeze"/>
+        <animate attributeName="x" 
+        values="200;800;200" 
+        keyTimes="0;0.5;1"
+        dur="2s" 
+        begin="indefinite" repeatCount="indefinite"  fill="freeze"/>
       </rect>
     </svg>
   </body>
