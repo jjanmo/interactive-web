@@ -1,0 +1,43 @@
+.react-mon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+.cls-1 {
+  fill: none;
+  stroke: #61dafb;
+  stroke-width: 15px;
+}
+
+@keyframes moving-eye {
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+@keyframes flicker {
+  80% {
+    transform: scaleY(1);
+  }
+  90% {
+    transform: scaleY(0.01);
+  }
+  100% {
+    transform: scaleY(0.01);
+  }
+}
+
+.black-eye {
+  animation: moving-eye 1s linear infinite alternate;
+}
+.white-eye {
+  transform-origin: 50% 50%;
+  animation: flicker 2s linear infinite alternate;
+}
