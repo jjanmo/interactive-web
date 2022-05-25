@@ -16,4 +16,6 @@ body {
   border-radius: 50%;
   background-color: #ffcd3c;
   margin: -20px 0 0 -20px;
+
+  transition: all 0.5s ease-in-out;
 }
