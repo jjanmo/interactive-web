@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  overflow: hidden;
+  background: linear-gradient(
+    158deg,
+    rgba(20, 157, 237, 1) 0%,
+    rgba(20, 233, 139, 1) 100%
+  );
+}
+#forest {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+#pokemon {
+  position: absolute;
+  top: calc(50% + 40px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 600px;
+  margin: -300px 0 0 -250px;
+}
+.points {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: wheat;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 5;
+}
