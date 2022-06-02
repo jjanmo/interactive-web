@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: dodgerblue;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+}
+.text {
+  text-align: center;
+  border: 2px solid white;
+  border-bottom: none;
+  padding: 20px;
+}
+.button-container {
+  width: 100%;
+  display: flex;
+}
+button {
+  all: unset;
+  width: 50%;
+  text-align: center;
+  border: 2px solid white;
+  padding: 20px;
+  transition: background 0.5s, color 0.5s;
+}
+button:nth-child(1) {
+  border-right: none;
+}
+button:hover {
+  background-color: white;
+  color: dodgerblue;
+}
+.cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+  /* 요소가 겹치는 효과를 주는 속성 */
+  mix-blend-mode: multiply;
+}
+
+.circle {
+  /* 
+  부모가 position absolute이기때문에 쌓임맥락에서 벗어나게되어 이를 보이게 하기 위해선 
+  display : block or position :fixed을 줘야 해당 컨텐츠가 보이게 된다
+  */
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(98, 89, 218);
+  margin: -50px 0 0 -50px;
+  transition: all 0.3s ease-in-out;
+}

@@ -1,10 +1,12 @@
+// example site
+// https://www.nytimes.com/paidpost/allbirds/the-view-from-above.html
+
 const quote = document.querySelector('.quote-box');
 const scenes = document.querySelectorAll('.scene');
 const animatedImgs = document.querySelectorAll('.animated > img');
 const animatedVideo = document.querySelectorAll('.animated > video');
-console.log(animatedImgs, animatedVideo);
-const color = ['color1', 'color2', 'color3'];
 
+const color = ['color1', 'color2', 'color3'];
 window.addEventListener('scroll', () => {
   if (window.scrollY > 650) {
     quote.style.opacity = 1;
