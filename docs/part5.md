@@ -1,0 +1,71 @@
+# Interactive Web에서 사용하는 아이디어s 🚀
+
+> 기본적인 내용임에도 이를 활용해서 어떻게 인터렉티브한 화면을 구현할 수 있는지에 대한 아이디어를 배울 수 있었다.
+
+## mousemove event
+
+```js
+let posX = 0,
+  posY = 0;
+
+window.addEventListener('mousemove', (e) => {
+  posX = e.clientX;
+  posY = e.clientY;
+});
+```
+
+mousemove 이벤트를 통해서 마우스 이동의 좌표를 얻을 수 있다. 이를 통해서 마우스 이동에 따른 이펙트 효과를 줄 수 있다. 여기서는 마우스 커서를 따라다니는 이펙트를 만들어보았다.
+
+## mousemove event + speed
+
+> 약간의 수학적인 노하우(?) 첨가
+
+```js
+let mX = 0,
+  mY = 0,
+  posX = 0,
+  posY = 0,
+  speed = 0.09; // (3)
+
+window.addEventListener('mousemove', (e) => {
+  posX = e.clientX;
+  posY = e.clientY;
+});
+
+const move = () => {
+  mX += (posX - mX) * speed; // (1)
+  mY += (posY - mY) * speed; // (2)
+  $star.style.transform = `translate3d(${mX}px, ${mY}px, 0)`;
+
+  window.requestAnimationFrame(move);
+};
+move();
+```
+
+첫번째 코드블럭에서 처럼 마우스 이동의 좌표를 바로 가져와서 사용하게 되면, 마우스 좌표에 대한 이펙트가 툭툭 끊기는 현상을 경험하게 된다. 이를 해결하기 위해( + 좀 더 스무스한 이펙트를 주기 위해서) `스피트 변수(3)`를 사용할 수 있다. 이를 사용하면 마우스 이동에 따른 부드러운 이펙트를 구현할 수 있다.
+
+- (1)과 (2) 코드 설명
+
+  해당 코드를 살짝 설명하면, posX와 posY에 고정좌표를 주고 점진적으로 고정값에 가까워지게 만들어지는 약간의 수학적(?) 방법을 사용한 것이다. 이 때 스피브 값에 따라서 그 고정값에 빠르게 혹은 느리게 가까워지는 것을 조절할 수 있다.
+
+## scroll event + parallax
+
+- **Parallax**
+
+  Parallax란 천문학에서 `시차`라는 의미를 갖고 있는 단어이다. 시차란, 한 물체를 다른 위치에서 바라볼 때, 서로 보이는 모습이 달라지는 차이을 말한다. 이것을 스크롤에 적용해보면, 스크롤의 움직임에 따라서 먼 위치(뒷쪽)는 느리게, 가까운 위치(앞쪽)는 빠르게 움직이도록 만드는 것을 말한다. 이를 통해서 좀 더 생동감과 입체감을 높여서 보다 인상적인 웹 디자인을 구현할 수 있다.
+
+- scrollTop
+
+  ```js
+  window.addEventListener('scroll', () => {
+    const scroll = document.documentElement.scrollTop;
+    elem.style.transform = `translateY(${scroll / 10}px)`; // (1)
+    elem.style.transform = `translateY(-${scroll / 10}px)`; // (2)
+  });
+  ```
+
+  스크롤 이벤트에서 문서의 스크롤이 얼마만큼 움직이는지를 보여주는 값은 `document.documentElement.scrollTop`을 통해서 얻을 수 있다. 즉 모든 스크롤 관련 이펙트 효과는 단지 해당 값을 얻어서 값을 어떻게 조작하는지에 달려있다. 그 중에 한가지는 (1)처럼 값을 나눠줌으로서 스크롤이 일어나는 속도보다 낮게 만들어 줄 수 있다. 그래서 이 값으로 특정 요소를 transform 하게 되면 스크롤이 일어나지만 특정 요소는 스크롤보다 덜 움직이는 효과를 받을 수 있다. 이러한 효과를 여러 요소에 분할하여 주게(앞에 요소는 빠르게, 뒤에 요소는 느리게) 되면 이것이 Parallax 효과가 된다.
+
+  (2)는 스크롤과 반대로 이동하는 효과를 줄 수 있다.
+
+  이외에도 scroll을 통해서 transform의 다양한 속성을 조절할 수 있다(translateZ, scale 등등). 뿐만 아니라 opacity(rgba)를 조절하여 점점 어두워지는 효과 혹은 점점 밝아지는 효과를 구현할 수도 있다. (ex. parallax-blog)
