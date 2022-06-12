@@ -31,25 +31,25 @@ body {
   background-position: top center;
 }
 .image1 {
-  background: url('./images/main_1.png');
+  background: url('../images/main_1.png');
 }
 .image2 {
-  background: url('./images/main_2.png');
+  background: url('../images/main_2.png');
 }
 .image3 {
-  background: url('./images/main_3.png');
+  background: url('../images/main_3.png');
 }
 .image4 {
-  background: url('./images/main_4.png');
+  background: url('../images/main_4.png');
 }
 .image5 {
-  background: url('./images/main_5.png');
+  background: url('../images/main_5.png');
 }
 .image6 {
-  background: url('./images/main_6.png');
+  background: url('../images/main_6.png');
 }
 .image7 {
-  background: url('./images/main_7.png');
+  background: url('../images/main_7.png');
 }
 
 section.page {
