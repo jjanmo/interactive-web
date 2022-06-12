@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+}
+.images {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+.image-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#4b0220, #691c46);
+}
+.image-wrapper > div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: top center;
+}
+.image1 {
+  background: url('./images/main_1.png');
+}
+.image2 {
+  background: url('./images/main_2.png');
+}
+.image3 {
+  background: url('./images/main_3.png');
+}
+.image4 {
+  background: url('./images/main_4.png');
+}
+.image5 {
+  background: url('./images/main_5.png');
+}
+.image6 {
+  background: url('./images/main_6.png');
+}
+.image7 {
+  background: url('./images/main_7.png');
+}
+
+section.page {
+  width: 50%;
+  min-height: 50vh;
+  margin: 20rem auto 0;
+}
+section.page .wrapper {
+  width: 100%;
+  color: #eee;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem 3rem;
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
+section.page.last {
+  width: 100%;
+  height: auto;
+}
+section.page.last .wrapper {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section.page.last .wrapper p {
+  width: 50%;
+  margin: 0 auto;
+}
