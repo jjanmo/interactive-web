@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03</title>
+    <style>
+      .canvas {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="canvas" width="600" height="400"> </canvas>
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+
+      context.fillRect(50, 50, 100, 100); // 검은색
+      context.fillStyle = 'tomato';
+      context.fillRect(0, 0, 100, 100); // 토마토
+      // context.fillStyle = 'tomato'; ❌ 여기에 있으면 안됨 : 그리는 순서가 있음, 색 설정 → 그리기
+
+      context.clearRect(80, 80, 50, 50); // 해당 영역을 지움
+      context.strokeRect(150, 150, 100, 100); // 사각형 그리기
+    </script>
+  </body>
+</html>
