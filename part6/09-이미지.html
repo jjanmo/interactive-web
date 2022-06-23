@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .canvas {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="canvas" width="600" height="400"></canvas>
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+
+      // const $img =  document.createElement('img')
+      const image = new Image();
+      image.src = 'https://placekitten.com/200/287';
+
+      // 이미지가 로드될 때까지 기달려야함! 그래서 load 이벤트 필요!
+      image.addEventListener('load', () => {
+        context.drawImage(image, 0, 0);
+        context.drawImage(image, 220, 0, 200, 100); // (image, dx, dy, dwidth, dheight) [이미지의 왼쪽 꼭지점 좌표 x, y][이미지 길이 너비, 높이]
+        context.drawImage(image, 50, 10, 120, 150, 300, 250, 100, 100); // clip image -> from source to destination
+      });
+    </script>
+  </body>
+</html>
