@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>07</title>
+    <title>06</title>
     <style>
       .canvas {
         background-color: #eee;
@@ -12,26 +12,39 @@
     </style>
   </head>
   <body>
-    <h1>setInterval</h1>
+    <h1>requestAnimationFrame</h1>
     <canvas class="canvas" width="600" height="400"></canvas>
     <script>
       const canvas = document.querySelector('.canvas');
       const context = canvas.getContext('2d');
 
+      // [응용] 스피드 조절을 통해서 애니메이션을 색다르게 표현가능
+      // const speed = 0.9;
+      // let posX = 580,
+      //   mX = 40;
+
       let posX = 20;
+      let count = 0;
 
       draw();
 
-      function draw() {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.beginPath();
-        context.arc(posX, 150, 20, 0, Math.PI * 2, false);
-        context.fill();
-        posX += 2;
-      }
+      // 이동 속도 조절 : 나머지 연산자를 통해서 그리는 타이밍을 조절할 수 있다. + 움직이는 속도(posX)
+      // → 이런식으로 조절을 하는 이유?
+      // 여러개의 개체의 속도를 각자 조절해야할때, requestAnimationFrame 이나 setInterval을 통해서
+      // 각자 속도를 만들어낼수 있지만, 이런 경우 성능이 매우 안좋아질수 있다.(각각 개체마다 프레임 속도 조절을 가지고 있기때문에)
 
-      setInterval(draw, 20);
-      // posX의 커짐과 interval의 초로 속도를 조절할 수 있다
+      function draw() {
+        if (count % 10 === 0) {
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          context.beginPath();
+          context.arc(posX, 150, 20, 0, Math.PI * 2, false);
+          context.fill();
+          posX += 5;
+        }
+
+        count++;
+        requestAnimationFrame(draw);
+      }
     </script>
   </body>
 </html>

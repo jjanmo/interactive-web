@@ -24,27 +24,30 @@
       //   mX = 40;
 
       let posX = 20;
-      let count = 0;
+      let animationId;
 
       draw();
 
-      // 이동 속도 조절 : 나머지 연산자를 통해서 그리는 타이밍을 조절할 수 있다. + 움직이는 속도(posX)
-      // → 이런식으로 조절을 하는 이유?
-      // 여러개의 개체의 속도를 각자 조절해야할때, requestAnimationFrame 이나 setInterval을 통해서
-      // 각자 속도를 만들어낼수 있지만, 이런 경우 성능이 매우 안좋아질수 있다.(각각 개체마다 프레임 속도 조절을 가지고 있기때문에)
-
       function draw() {
-        if (count % 10 === 0) {
-          context.clearRect(0, 0, canvas.width, canvas.height);
-          context.beginPath();
-          context.arc(posX, 150, 20, 0, Math.PI * 2, false);
-          context.fill();
-          posX += 5;
-        }
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.beginPath();
+        context.arc(posX, 150, 20, 0, Math.PI * 2, false);
+        context.fill();
+        posX += 5;
 
-        count++;
-        requestAnimationFrame(draw);
+        // if (posX > canvas.width - 20) return; // 1) 애니메이션 멈추는 방법1
+
+        animationId = requestAnimationFrame(draw);
+
+        // 2) 애니메이션 멈추는 방법1
+        // if (posX > canvas.width - 20) {
+        //   cancelAnimationFrame(animationId);
+        // }
       }
+
+      canvas.addEventListener('click', () => {
+        cancelAnimationFrame(animationId);
+      });
     </script>
   </body>
 </html>
