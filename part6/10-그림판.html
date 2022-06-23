@@ -69,31 +69,11 @@
         </button>
       </li>
     </ul>
-    <script>
-      const canvas = document.querySelector('.canvas');
-      const context = canvas.getContext('2d');
-
-      let currentColor = '#f1c40f';
-
-      const $palette = document.querySelector('.palette');
-
-      $palette.addEventListener('click', (e) => {
-        const target = e.target;
-
-        if (target.tagName === 'BUTTON') {
-          const color = target.id;
-          currentColor = color;
-        }
-      });
-
-      canvas.addEventListener('click', (e) => {
-        const posX = e.offsetX;
-        const posY = e.offsetY;
-
-        context.beginPath();
-        context.arc(posX, posY, 10, 0, Math.PI * 2, false);
-        context.fill();
-      });
-    </script>
+    <div class="brush-control">
+      <label for="brush">브러쉬 두께</label>
+      <input type="range" id="brush" min="1" max="20" value="10" step="1"></input>
+      <span class="brush-value">10</span>
+    </div>
+    <script src="./10-painting.js"></script>
   </body>
 </html>
