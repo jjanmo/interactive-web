@@ -19,6 +19,7 @@
       const context = canvas.getContext('2d');
 
       let posX = 20;
+      let id;
 
       draw();
 
@@ -28,9 +29,11 @@
         context.arc(posX, 150, 20, 0, Math.PI * 2, false);
         context.fill();
         posX += 2;
+
+        if (posX > canvas.width - 20) clearInterval(id);
       }
 
-      setInterval(draw, 20);
+      id = setInterval(draw, 20);
       // posX의 커짐과 interval의 초로 속도를 조절할 수 있다
     </script>
   </body>
