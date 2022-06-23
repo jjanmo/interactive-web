@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .canvas {
+        background-color: #eee;
+      }
+      .palette {
+        display: flex;
+        list-style: none;
+      }
+      .palette-button {
+        all: unset;
+        width: 80px;
+        height: 80px;
+        margin: 0 10px;
+        border-radius: 50%;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+        opacity: 0.7;
+        text-transform: uppercase;
+      }
+      .palette-button:hover {
+        opacity: 1;
+      }
+      .sunflower {
+        background-color: #f1c40f;
+      }
+      .orange {
+        background-color: #f39c12;
+      }
+      .emerald {
+        background-color: #2ecc71;
+      }
+      .sky {
+        background-color: #87ceeb;
+      }
+      .midnight {
+        background-color: #2c3e50;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>그림판</h1>
+    <canvas class="canvas" width="600" height="400"></canvas>
+    <ul class="palette">
+      <li>
+        <button class="palette-button sunflower" id="#f1c40f">
+          sun flower
+        </button>
+      </li>
+      <li>
+        <button class="palette-button orange" id="#f39c12">orange</button>
+      </li>
+      <li>
+        <button class="palette-button emerald" id="#2ecc71">emerald</button>
+      </li>
+      <li><button class="palette-button sky" id="#87ceeb">sky blue</button></li>
+      <li>
+        <button class="palette-button midnight" id="#2c3e50">
+          midnight blue
+        </button>
+      </li>
+    </ul>
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+
+      let currentColor = '#f1c40f';
+
+      const $palette = document.querySelector('.palette');
+
+      $palette.addEventListener('click', (e) => {
+        const target = e.target;
+
+        if (target.tagName === 'BUTTON') {
+          const color = target.id;
+          currentColor = color;
+        }
+      });
+
+      canvas.addEventListener('click', (e) => {
+        const posX = e.offsetX;
+        const posY = e.offsetY;
+
+        context.beginPath();
+        context.arc(posX, posY, 10, 0, Math.PI * 2, false);
+        context.fill();
+      });
+    </script>
+  </body>
+</html>
