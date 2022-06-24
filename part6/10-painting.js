@@ -21,7 +21,6 @@ let prevButtonId = 'black';
 let isPainting = false;
 let currentMode = 'paint'; // paint | erase | image
 let currentColor = '#000';
-let currentImage = '';
 
 function initBrush() {
   $brush.value = DEFAULT_WIDTH;
@@ -46,7 +45,7 @@ function handleClickControls(e) {
       context.strokeStyle = currentColor; // change stroke color
     } else if (mode === 'image') {
       const src = `./assets/${target.id}.png`;
-      currentImage = src;
+      $image.src = src;
     } else {
       context.clearRect(0, 0, canvas.width, canvas.height);
       initBrush();
@@ -83,7 +82,6 @@ function handleMousemove(e) {
       context.moveTo(posX, posY);
     }
   } else if (currentMode === 'image' && isPainting) {
-    $image.src = currentImage;
     context.drawImage($image, posX, posY, 40, 40);
   }
 }
