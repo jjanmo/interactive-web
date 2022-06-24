@@ -7,53 +7,71 @@ const $brushValue = document.querySelector('.brush-value');
 const $saveButton = document.querySelector('.save-button');
 const $image = new Image();
 
-let previousColorButton = document.querySelector('.black');
-let brushWidth = 10;
+const COLOR = {
+  sunflower: '#f1c40f',
+  orange: '#f39c12',
+  emerald: '#2ecc71',
+  sky: '#87ceeb',
+  midnight: '#2c3e50',
+  black: ' #000',
+};
+const DEFAULT_WIDTH = 10;
+
+let prevButtonId = 'black';
 let isPainting = false;
 let currentMode = 'paint'; // paint | erase | image
 let currentColor = '#000';
 let currentImage = '';
 
-$controls.addEventListener('click', (e) => {
-  const target = e.target;
+function initBrush() {
+  $brush.value = DEFAULT_WIDTH;
+  $brushValue.textContent = DEFAULT_WIDTH;
+  context.lineWidth = DEFAULT_WIDTH;
+}
 
+function changeButtonStyle(target) {
+  document.querySelector(`#${prevButtonId}`).classList.remove('active');
+  prevButtonId = target.id;
+  target.classList.add('active');
+}
+
+function handleClickControls(e) {
+  const target = e.target;
   if (target.tagName === 'BUTTON') {
     // 버튼 로직
     const mode = target.dataset.mode;
     if (mode === 'paint') {
-      const color = target.id;
-      currentColor = color;
-      context.fillStyle = currentColor; // change fill color
-    } else if (mode === 'erase') {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      return;
-    } else {
+      const id = target.id;
+      currentColor = COLOR[id];
+      context.strokeStyle = currentColor; // change stroke color
+    } else if (mode === 'image') {
       const src = `./assets/${target.id}.png`;
       currentImage = src;
+    } else {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      initBrush();
+      return;
     }
     currentMode = mode;
 
-    // 버튼 스타일 변경
-    previousColorButton.classList.remove('active');
-    previousColorButton = target;
-    target.classList.add('active');
+    changeButtonStyle(target);
   }
-});
+}
 
-$brush.addEventListener('input', (e) => {
+function handleChangeBrush(e) {
   const value = e.target.value;
   $brushValue.textContent = value;
-  brushWidth = value;
-});
+  context.lineWidth = value;
+}
 
-canvas.addEventListener('mouseup', () => {
+function handleMouseup() {
   isPainting = false;
-});
-canvas.addEventListener('mousedown', () => {
+}
+function handleMousedown() {
   isPainting = true;
-});
+}
 
-canvas.addEventListener('mousemove', (e) => {
+function handleMousemove(e) {
   const posX = e.offsetX;
   const posY = e.offsetY;
   if (currentMode === 'paint') {
@@ -68,13 +86,27 @@ canvas.addEventListener('mousemove', (e) => {
     $image.src = currentImage;
     context.drawImage($image, posX, posY, 40, 40);
   }
-});
+}
 
-$saveButton.addEventListener('click', () => {
+function handleClickDownload() {
   const url = canvas.toDataURL('image/png', 0.9);
   const $link = document.createElement('a');
   $link.download = 'canvas-image';
   $link.href = url;
   $link.click();
   $link.remove();
-});
+}
+
+function initCanvas() {
+  context.lineWidth = 10;
+
+  $controls.addEventListener('click', handleClickControls);
+  $brush.addEventListener('input', handleChangeBrush);
+  $saveButton.addEventListener('click', handleClickDownload);
+
+  canvas.addEventListener('mouseup', handleMouseup);
+  canvas.addEventListener('mousedown', handleMousedown);
+  canvas.addEventListener('mousemove', handleMousemove);
+}
+
+initCanvas();
