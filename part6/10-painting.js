@@ -22,6 +22,7 @@ $controls.addEventListener('click', (e) => {
     if (mode === 'paint') {
       const color = target.id;
       currentColor = color;
+      context.fillStyle = currentColor; // change fill color
     } else if (mode === 'erase') {
       context.clearRect(0, 0, canvas.width, canvas.height);
       return;
@@ -59,7 +60,6 @@ canvas.addEventListener('mousemove', (e) => {
   if (currentMode === 'paint') {
     context.beginPath();
     context.arc(posX, posY, brushWidth / 2, 0, Math.PI * 2, false);
-    context.fillStyle = currentColor;
     context.fill();
   } else if (currentMode === 'image') {
     const image = new Image();
