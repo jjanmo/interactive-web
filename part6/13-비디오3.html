@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13</title>
+    <style>
+      video {
+        position: absolute;
+        width: 0;
+        height: 0;
+      }
+      .canvas {
+        background-color: #eee;
+      }
+      .button-container {
+        margin-top: 20px;
+      }
+      .button {
+        width: 80px;
+        height: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Video</h1>
+    <video
+      src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+      crossorigin="anonymous"
+      autoplay
+      muted
+      controls
+    ></video>
+    <canvas class="canvas" width="600" height="400"></canvas>
+    <div class="button-container">
+      <button class="button" data-color="red">R</button>
+      <button class="button" data-color="green">G</button>
+      <button class="button" data-color="blue">B</button>
+      <button class="button">RESET</button>
+    </div>
+    <script>
+      // 몇가지 이슈들
+      // 1) 사파리에서는 안나오는 이슈 존재...🤔
+      // 2) cross-orgin 이슈 존재
+      //  → https://developer.mozilla.org/ko/docs/Web/HTML/CORS_enabled_image
+
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+      const $video = document.querySelector('video');
+      const $buttonContainer = document.querySelector('.button-container');
+      const RGB = {
+        red: 0,
+        green: 1,
+        blue: 2,
+      };
+      let color = '';
+
+      $buttonContainer.addEventListener('click', (e) => {
+        const target = e.target;
+        if (target.tagName === 'BUTTON') {
+          color = target.dataset.color;
+        }
+      });
+
+      $video.addEventListener('canplaythrough', filter);
+
+      function filter() {
+        context.drawImage($video, 0, 0, 600, 400);
+
+        const imageData = context.getImageData(0, 0, 600, 400);
+        /*
+        {
+          data: Uint8ClampedArray(960000)
+          colorSpace: "srgb"
+          height: 400
+          width: 600
+        }
+        → data 는 화면(일반적으로 이미지, 비디오의 경우 각 프레임당 화면)의 rgba값을 픽셀 단위로 배열의 숫자로 표현한 값
+          즉, 600px * 400px * 4(rgba 4종류 값) = 960000 개 요소를 가진 배열을 보여준다.
+          이 값을 가지고 화면을 픽셀단위로 조작할 수 있다.
+
+          총 픽셀 개수 = imageData.data / 4
+        */
+
+        const pixelData = imageData.data;
+        for (let i = 0; i < pixelData.length; i++) {
+          if (i % 4 === RGB[color]) pixelData[i] = 255;
+        }
+        context.putImageData(imageData, 0, 0);
+
+        requestAnimationFrame(filter);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11</title>
+    <style>
+      .canvas {
+        background-color: #eee;
+      }
+      video {
+        position: absolute;
+        width: 0;
+        height: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>비디오</h1>
+    <video
+      src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+      autoplay
+      muted
+      controls
+    ></video>
+    <canvas class="canvas" width="600" height="400"></canvas>
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+      const $video = document.querySelector('video');
+      $video.addEventListener('canplaythrough', play);
+
+      function play() {
+        context.drawImage($video, 0, 0, 600, 400);
+        // ※ drawImage 에 들어갈 수 있는 것들(캔버스에서 그릴수 있는 것들) : 이미지, 비디오, 다른 캔버스
+
+        requestAnimationFrame(play);
+      }
+    </script>
+  </body>
+</html>
