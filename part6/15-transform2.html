@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>15</title>
+    <style>
+      .canvas {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Save-Restore 예시</h1>
+    <canvas class="canvas" width="600" height="400"></canvas>
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+
+      // save() - restore() : 마치 stack의 push() 와 pop()과 같은 느낌
+      // → context를 저장하는 공간이 stack 구조
+      // → 아래처럼 순차적으로 저장/복원하여 사용할 수 있다.
+      // → https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/save 참고 (stack에 저장되는 것들)
+
+      context.beginPath();
+      context.arc(300, 200, 100, 0, Math.PI * 2);
+      context.fill();
+
+      context.save(); // 1 저장 : 기본색(검은색)
+
+      context.beginPath();
+      context.arc(300, 200, 80, 0, Math.PI * 2);
+      context.fillStyle = 'skyblue';
+      context.fill();
+
+      context.save(); // 2 저장 : 스카이블루
+
+      context.beginPath();
+      context.arc(300, 200, 60, 0, Math.PI * 2);
+      context.fillStyle = 'tomato';
+      context.fill();
+
+      context.restore(); // 2 복원
+
+      context.beginPath();
+      context.arc(300, 200, 40, 0, Math.PI * 2);
+      context.fill();
+
+      context.restore(); // 1 복원
+
+      context.beginPath();
+      context.arc(300, 200, 20, 0, Math.PI * 2);
+      context.fill();
+    </script>
+  </body>
+</html>

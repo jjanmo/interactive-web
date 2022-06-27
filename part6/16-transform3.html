@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>15</title>
+    <style>
+      .canvas {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Transform3</h1>
+    <canvas class="canvas" width="600" height="400"></canvas>
+    <div class="controls">
+      <button class="animation-button">ANIMATION</button>
+      <button class="toggle-button">STOP</button>
+    </div>
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+      const $animationButton = document.querySelector('.animation-button');
+      const $toggleButton = document.querySelector('.toggle-button');
+      const SCALE_SPEED = 0.01;
+      let scaleValue = 1;
+      let rotateValue = 0;
+      let isIncreasing = true;
+      let isAnimating = true;
+
+      // function drawRect() {
+      //   context.beginPath();
+      //   context.strokeRect(250, 150, 100, 100);
+      //   //... code here
+      // }
+      // → 이렇게 하면 안되는 이유?
+      // 캔버스는 모든 것이 좌측 상단이 기준이기 때문에, 좌측상단 기준으로 그려지고
+      // 나중에 scaling할 때도 이를 기준으로 커진다.
+
+      function convertToRadian(deg) {
+        return (Math.PI / 180) * deg;
+      }
+
+      function drawInitRect() {
+        context.beginPath();
+        context.strokeRect(250, 150, 100, 100);
+      }
+
+      function animate() {
+        if (!isAnimating) return;
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+
+        context.setTransform(1, 0, 0, 1, 0, 0); // context.resetTransform(); 같은의미
+        // → ⭐️ transform 좌표계를 리셋하는 것으로서 transform을 하기 전에 습관적으로 해주는 것이 좋다
+
+        context.translate(300, 200); // 중심점을 이동
+        context.scale(scaleValue, scaleValue);
+        context.rotate(convertToRadian(rotateValue));
+        context.strokeRect(-50, -50, 100, 100);
+
+        isIncreasing
+          ? (scaleValue += SCALE_SPEED)
+          : (scaleValue -= SCALE_SPEED);
+
+        if (scaleValue > 4) isIncreasing = false;
+        else if (scaleValue < 1) isIncreasing = true;
+
+        rotateValue += 1;
+
+        context.restore();
+        requestAnimationFrame(animate);
+      }
+
+      function handleClickToggle() {
+        isAnimating = !isAnimating;
+        animate();
+        if (isAnimating) $toggleButton.textContent = 'STOP';
+        else $toggleButton.textContent = 'PLAY';
+      }
+
+      function handleClickReset() {
+        drawInitRect();
+      }
+
+      $animationButton.addEventListener('click', animate);
+      $toggleButton.addEventListener('click', handleClickToggle);
+
+      drawInitRect();
+    </script>
+  </body>
+</html>

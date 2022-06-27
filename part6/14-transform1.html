@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14</title>
+    <style>
+      .canvas {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Transform1</h1>
+    <canvas class="canvas" width="600" height="400"></canvas>
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+
+      context.fillRect(100, 100, 100, 100);
+      context.fillStyle = 'tomato';
+      context.fillRect(150, 150, 100, 100);
+
+      context.save(); // 현재 상태의 context 저장
+
+      context.beginPath();
+      context.fillStyle = 'dodgerblue';
+      context.arc(300, 300, 50, 0, Math.PI * 2, false);
+      context.fill();
+
+      context.restore(); // 가장 최근에 저장된 context 상태를 복원함
+
+      context.beginPath();
+      context.arc(300, 300, 20, 0, Math.PI * 2, false);
+      context.fill(); // 저장된 context 상태의 색[tomato] 으로 칠해진 원이 그려진다
+    </script>
+  </body>
+</html>
