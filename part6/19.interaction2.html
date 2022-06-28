@@ -20,7 +20,7 @@
       const boxes = [];
       const BOX_COUNT = 10;
 
-      context.font = 'bold 20px serif';
+      context.font = 'bold 30px serif';
 
       class Box {
         constructor(text, x, y, side) {
@@ -28,7 +28,7 @@
           this.x = x;
           this.y = y;
           this.side = side;
-          this.render();
+          this.draw();
         }
 
         setColor() {
@@ -39,17 +39,17 @@
           context.fillStyle = color;
         }
 
-        render() {
+        draw() {
           context.beginPath();
           context.save();
-          context.fillText(this.text, this.x + 20, this.y + 20);
+          context.fillText(this.text, this.x + 10, this.y + 30);
           this.setColor();
           context.fillRect(this.x, this.y, this.side, this.side);
           context.restore();
         }
       }
 
-      function draw() {
+      function init() {
         for (let i = 0; i < BOX_COUNT; i++) {
           const side = Math.floor(Math.random() * 100) + 50;
           const posX = Math.random() * (canvas.width - side);
@@ -76,11 +76,11 @@
           }
         }
 
-        console.log(clickedBox);
+        alert(clickedBox);
       }
 
       canvas.addEventListener('click', handleClickBox);
-      draw();
+      init();
     </script>
   </body>
 </html>
