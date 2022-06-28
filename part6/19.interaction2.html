@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .canvas {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Interaction 2</h1>
+    <canvas class="canvas" width="600" height="400"></canvas>
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+      const boxes = [];
+      const BOX_COUNT = 10;
+
+      context.font = 'bold 20px serif';
+
+      class Box {
+        constructor(text, x, y, side) {
+          this.text = text;
+          this.x = x;
+          this.y = y;
+          this.side = side;
+          this.render();
+        }
+
+        setColor() {
+          const color = `rgba(${Math.floor(Math.random() * 256)},${Math.floor(
+            Math.random() * 256
+          )},${Math.floor(Math.random() * 256)}, 0.5)`;
+
+          context.fillStyle = color;
+        }
+
+        render() {
+          context.beginPath();
+          context.save();
+          context.fillText(this.text, this.x + 20, this.y + 20);
+          this.setColor();
+          context.fillRect(this.x, this.y, this.side, this.side);
+          context.restore();
+        }
+      }
+
+      function draw() {
+        for (let i = 0; i < BOX_COUNT; i++) {
+          const side = Math.floor(Math.random() * 100) + 50;
+          const posX = Math.random() * (canvas.width - side);
+          const posY = Math.random() * (canvas.height - side);
+
+          boxes.push(new Box(i + 1, posX, posY, side));
+        }
+      }
+
+      function handleClickBox(e) {
+        const posX = e.offsetX;
+        const posY = e.offsetY;
+
+        let clickedBox = '';
+        for (let i = 0; i < boxes.length; i++) {
+          const curBox = boxes[i];
+          if (
+            posX >= curBox.x &&
+            posX <= curBox.x + curBox.side &&
+            posY >= curBox.y &&
+            posY <= curBox.y + curBox.side
+          ) {
+            clickedBox = curBox.text;
+          }
+        }
+
+        console.log(clickedBox);
+      }
+
+      canvas.addEventListener('click', handleClickBox);
+      draw();
+    </script>
+  </body>
+</html>

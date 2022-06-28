@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .canvas {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Interaction1</h1>
+    <canvas class="canvas" width="600" height="400"></canvas>
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+      const RECT_SIDE = 100;
+
+      context.fillRect(100, 100, RECT_SIDE, RECT_SIDE);
+      context.fill();
+
+      function handleClickRect(e) {
+        const posX = e.offsetX;
+        const posY = e.offsetY;
+
+        if (
+          posX >= 100 &&
+          posX <= 100 + RECT_SIDE &&
+          posY >= 100 &&
+          posY + RECT_SIDE
+        ) {
+          context.beginPath();
+          context.fillStyle = 'rgb(50, 200, 50)';
+          context.fillRect(100, 100, RECT_SIDE, RECT_SIDE);
+          context.fill();
+        }
+      }
+
+      canvas.addEventListener('click', handleClickRect);
+    </script>
+  </body>
+</html>
