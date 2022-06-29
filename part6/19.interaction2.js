@@ -4,17 +4,16 @@ const $playButton = document.querySelector('.play-button');
 const $cover = document.querySelector('.cover');
 const $score = document.querySelector('.score');
 const boxes = [];
-const BOX_COUNT = 20;
+const BOX_COUNT = 50;
 
 context.font = 'bold 30px serif';
 
 function init() {
   for (let i = 0; i < BOX_COUNT; i++) {
-    const side = Math.floor(Math.random() * 100) + 50;
+    const side = Math.floor(Math.random() * 100) + 60;
     const posX = Math.random() * (canvas.width - side);
     const posY = Math.random() * (canvas.height - side);
-    const speed = Math.random() * 10 + 1;
-    boxes.push(new Box(i + 1, posX, posY, side, speed));
+    boxes.push(new Box(i + 1, posX, posY, side));
   }
 }
 
@@ -22,7 +21,21 @@ function render() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   for (let i = 0; i < boxes.length; i++) {
     const box = boxes[i];
+
+    // x축 이동
     box.x += box.speed;
+    if (box.x > 1200 + box.side) {
+      box.x = -box.side;
+    }
+    // 상자 스케일 변경
+    box.isIncreasing
+      ? (box.scale += box.scaleSpeed)
+      : (box.scale -= box.scaleSpeed);
+    if (box.scale === 1) box.isIncreasing = false;
+    else if (box.scale < 0.2) box.isIncreasing = true;
+    // 상자 각도 변경
+    box.degree += 360 * box.scaleSpeed;
+
     box.draw();
   }
 
@@ -58,7 +71,7 @@ function handleClickStart() {
   setTimeout(() => {
     $cover.classList.add('hidden');
     render();
-  }, 1000);
+  }, 500);
 }
 
 canvas.addEventListener('click', handleClickBox);
