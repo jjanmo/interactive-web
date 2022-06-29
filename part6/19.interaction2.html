@@ -6,81 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <style>
+      .wrapper {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .score-container {
+        font-size: 1.5rem;
+      }
+      .container {
+        position: relative;
+        width: 1200px;
+        height: 600px;
+      }
+      .cover {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        transition: 0.5s;
+      }
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+      }
       .canvas {
         background-color: #eee;
+      }
+      .fadeout {
+        background-color: transparent;
+      }
+      .hidden {
+        display: none;
       }
     </style>
   </head>
   <body>
-    <h1>Interaction 2</h1>
-    <canvas class="canvas" width="600" height="400"></canvas>
-    <script>
-      const canvas = document.querySelector('.canvas');
-      const context = canvas.getContext('2d');
-      const boxes = [];
-      const BOX_COUNT = 10;
-
-      context.font = 'bold 30px serif';
-
-      class Box {
-        constructor(text, x, y, side) {
-          this.text = text;
-          this.x = x;
-          this.y = y;
-          this.side = side;
-          this.draw();
-        }
-
-        setColor() {
-          const color = `rgba(${Math.floor(Math.random() * 256)},${Math.floor(
-            Math.random() * 256
-          )},${Math.floor(Math.random() * 256)}, 0.5)`;
-
-          context.fillStyle = color;
-        }
-
-        draw() {
-          context.beginPath();
-          context.save();
-          context.fillText(this.text, this.x + 10, this.y + 30);
-          this.setColor();
-          context.fillRect(this.x, this.y, this.side, this.side);
-          context.restore();
-        }
-      }
-
-      function init() {
-        for (let i = 0; i < BOX_COUNT; i++) {
-          const side = Math.floor(Math.random() * 100) + 50;
-          const posX = Math.random() * (canvas.width - side);
-          const posY = Math.random() * (canvas.height - side);
-
-          boxes.push(new Box(i + 1, posX, posY, side));
-        }
-      }
-
-      function handleClickBox(e) {
-        const posX = e.offsetX;
-        const posY = e.offsetY;
-
-        let clickedBox = '';
-        for (let i = 0; i < boxes.length; i++) {
-          const curBox = boxes[i];
-          if (
-            posX >= curBox.x &&
-            posX <= curBox.x + curBox.side &&
-            posY >= curBox.y &&
-            posY <= curBox.y + curBox.side
-          ) {
-            clickedBox = curBox.text;
-          }
-        }
-
-        alert(clickedBox);
-      }
-
-      canvas.addEventListener('click', handleClickBox);
-      init();
-    </script>
+    <div class="wrapper">
+      <header>
+        <h1>Interaction 2</h1>
+        <div class="score-container">
+          SCORE :
+          <span class="score">0</span>
+        </div>
+      </header>
+      <div class="container">
+        <div class="cover"></div>
+        <button class="play-button">PLAY</button>
+        <canvas class="canvas" width="1200" height="600"></canvas>
+      </div>
+    </div>
+    <script src="./19-utils.js"></script>
+    <script src="./19-box.js"></script>
+    <script src="./19-panel.js"></script>
+    <script src="./19.interaction2.js"></script>
   </body>
 </html>
