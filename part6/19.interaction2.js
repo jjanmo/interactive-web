@@ -3,14 +3,15 @@ const context = canvas.getContext('2d');
 const $playButton = document.querySelector('.play-button');
 const $cover = document.querySelector('.cover');
 const $score = document.querySelector('.score');
-const BOX_COUNT = 1;
+const BOX_COUNT = 10;
+
 let boxes = [];
 let clickedBox = null;
 let step = 1; // 1 : 게임 시작 + 진행 | 2 : 모달 그려지는 중 | 3: 게임 결과값 노출
-let modal = null;
-let time = 0;
+let time = 0; // 게임 걸리는 시간 전역 변수
 let isEnd = false;
-let rafMethod = null;
+let modal = null; // 점수 결과 모달 객체
+let rafMethod = null; // requestAnimationFrame method
 
 function init() {
   for (let i = 0; i < BOX_COUNT; i++) {
@@ -43,10 +44,14 @@ function render() {
       break;
     }
     case 2: {
-      modal.scaleValue += (1 - modal.scaleValue) * 0.07;
+      context.clearRect(0, 0, canvas.width, canvas.height); // 주석처리하면 다른 효과를 줄 수 있음
+      modal.scaleValue += (1 - modal.scaleValue) * 0.07; // 가속도 효과 부여
+      modal.degree = 720 * modal.scaleValue; // modal.scaleValue에 이미 가속도 효과가 붙어있어서 각도에는 따로 주지 않아도 된다.
       modal.draw();
 
-      if (modal.scaleValue >= 0.99) {
+      if (modal.scaleValue > 0.9999) {
+        modal.scaleValue = 1;
+        modal.degree = 720;
         step = 3;
       }
       break;
@@ -85,7 +90,6 @@ function handleClickBox(e) {
 
     if (boxes.length === 0) {
       utils.clearTimer();
-      console.log(time);
       setTimeout(() => {
         step = 2;
       }, 100);

@@ -3,6 +3,7 @@ class Modal {
     this.cX = canvas.width / 2;
     this.cY = canvas.height / 2;
     this.scaleValue = 0.01;
+    this.degree = 0;
   }
 
   draw() {
@@ -11,6 +12,7 @@ class Modal {
     context.resetTransform();
     context.translate(this.cX, this.cY);
     context.scale(this.scaleValue, this.scaleValue);
+    context.rotate(utils.convertToRadian(this.degree));
     context.translate(-this.cX, -this.cY);
     context.fillStyle = '#f1c40f';
     context.fillRect(this.cX - 200, this.cY - 200, 400, 400);
