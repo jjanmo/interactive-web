@@ -1,9 +1,10 @@
 const canvas = document.querySelector('.canvas');
 const context = canvas.getContext('2d');
 const $playButton = document.querySelector('.play-button');
+const $restartButton = document.querySelector('.restart-button');
 const $cover = document.querySelector('.cover');
 const $score = document.querySelector('.score');
-const BOX_COUNT = 10;
+const BOX_COUNT = 5;
 
 let boxes = [];
 let clickedBox = null;
@@ -60,6 +61,7 @@ function render() {
       modal.draw();
       modal.showResult(time);
       isEnd = true;
+      $restartButton.classList.remove('hidden');
       break;
     }
   }
@@ -90,25 +92,35 @@ function handleClickBox(e) {
 
     if (boxes.length === 0) {
       utils.clearTimer();
-      setTimeout(() => {
-        step = 2;
-      }, 100);
+      step = 2;
     }
   }
 }
 
 function handleClickStart() {
   $playButton.classList.add('hidden');
+  $cover.classList.add('hidden');
   $cover.classList.add('fadeout');
 
   init(); // 게임요소 셋팅
+  render(); // 게임 시작
+  utils.timer(time); // 타이머 시작
+}
 
-  setTimeout(() => {
-    $cover.classList.add('hidden');
-    render(); // 게임 시작
-    utils.timer(time);
-  }, 500);
+function handleClickRestart() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  modal = null;
+  rafMethod = null;
+  clickedBox = null;
+  boxes = [];
+  step = 1;
+  time = 0;
+  isEnd = false;
+
+  $playButton.click();
+  $restartButton.classList.add('hidden');
 }
 
 canvas.addEventListener('click', handleClickBox);
 $playButton.addEventListener('click', handleClickStart);
+$restartButton.addEventListener('click', handleClickRestart);

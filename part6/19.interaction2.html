@@ -12,6 +12,22 @@
         left: 50%;
         transform: translateX(-50%);
       }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .restart-button {
+        padding: 10px;
+        font-size: 1.5rem;
+        color: white;
+        background-color: tomato;
+        border: none;
+        transition: 0.3s;
+      }
+      .restart-button:active {
+        transform: scale(0.9);
+      }
       .container {
         position: relative;
         width: 1200px;
@@ -47,8 +63,10 @@
   </head>
   <body>
     <div class="wrapper">
-      <h1>Interaction 2</h1>
-
+      <div class="header">
+        <h1>Interaction 2</h1>
+        <button class="restart-button hidden">RESTART</button>
+      </div>
       <div class="container">
         <div class="cover"></div>
         <button class="play-button">PLAY</button>
