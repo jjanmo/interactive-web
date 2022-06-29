@@ -12,14 +12,6 @@
         left: 50%;
         transform: translateX(-50%);
       }
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .score-container {
-        font-size: 1.5rem;
-      }
       .container {
         position: relative;
         width: 1200px;
@@ -55,13 +47,8 @@
   </head>
   <body>
     <div class="wrapper">
-      <header>
-        <h1>Interaction 2</h1>
-        <div class="score-container">
-          SCORE :
-          <span class="score">0</span>
-        </div>
-      </header>
+      <h1>Interaction 2</h1>
+
       <div class="container">
         <div class="cover"></div>
         <button class="play-button">PLAY</button>
@@ -69,8 +56,8 @@
       </div>
     </div>
     <script src="./19-utils.js"></script>
+    <script src="./19-modal.js"></script>
     <script src="./19-box.js"></script>
-    <script src="./19-panel.js"></script>
     <script src="./19.interaction2.js"></script>
   </body>
 </html>
