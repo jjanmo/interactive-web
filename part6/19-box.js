@@ -4,7 +4,7 @@ class Box {
     this.x = x;
     this.y = y;
     this.side = side;
-    this.speed = Math.random() * 2 + 1;
+    this.speed = Math.random() * 10 + 1;
     this.color = utils.getColor(0.7);
     this.scale = 1;
     this.scaleSpeed = Math.random() * 0.05;

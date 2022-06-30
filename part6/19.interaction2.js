@@ -4,7 +4,7 @@ const $playButton = document.querySelector('.play-button');
 const $restartButton = document.querySelector('.restart-button');
 const $cover = document.querySelector('.cover');
 const $score = document.querySelector('.score');
-const BOX_COUNT = 5;
+const BOX_COUNT = 15;
 
 let boxes = [];
 let clickedBox = null;

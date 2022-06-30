@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .canvas {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Clip</h1>
+    <p>
+      캔버스 도형 그리기에서 stroke(), fill() + <b>clip()</b>
+      <br />
+      clip() : 현재 그려지는 경로를 현재 잘라내기 경로로 만든다
+    </p>
+    <canvas class="canvas" width="600" height="400"></canvas>
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+      const image = new Image();
+      image.src = './assets/sky.png';
+
+      let posX = 0,
+        posY = 0;
+
+      // function handleMousemove(e) {
+      //   posX = e.offsetX;
+      //   posY = e.offsetY;
+      //   console.log(posX, posY);
+      // }
+
+      // function drawArc() {
+      //   context.clearRect(0, 0, canvas.width, canvas.height);
+      //   context.drawImage(image, 0, 0, 600, 400);
+      //   context.beginPath();
+      //   context.arc(posX, posY, 50, 0, Math.PI * 2, false);
+      //   context.fill();
+
+      //   requestAnimationFrame(drawArc);
+      // }
+
+      // canvas.addEventListener('mousemove', handleMousemove);
+      // drawArc();
+
+      // 1) 내가 원하는 화면과 정반대를 보여줌 → 사진을 보여주고 검은 원을 이미지를 가린다.
+
+      // 2) 이게 내가 원하는 화면
+      // → posX 와 poxY로 움직이고 싶은데, 안됨!! 마우스커서가 움직일때마다 다시 그리면 될 듯한데 안되네...
+      image.addEventListener('load', () => {
+        context.drawImage(image, 0, 0, 600, 400);
+      });
+
+      context.arc(300, 200, 50, 0, Math.PI * 2, false);
+      context.clip();
+    </script>
+  </body>
+</html>
