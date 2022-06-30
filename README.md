@@ -1,14 +1,14 @@
 # Interactive Web
 
-> 자바스크립트를 통해서 `INTERACTIVE`한 웹사이트를 만드는 다양한 방법이 존재한다. 여기서 `INTERACTIVE`라고 하면 엄청 화려하고 비까번쩍(?)한 것을 생각할 수 있다. 표현적으로 그러한 요소들(화려한 디자인, 창의적인 UI 인터랙션)이 들어간다. 의미적으론 `INTERACTIVE`라는 의미 그대로 다양한 기술을 통해서 클라이언트와 역동적이고 효과적으로 상호작용하는 방법을 나타낸다. 이 저장소는 어떠한 방식으로 `INTERACTIVE`함을 표현해야하는지 그 기술, 방법등에 대해 익히고 그 과정을 기록하려고 한다.
+> 나에게 `인터렉티브 웹`라고 하면 동적이고 화려하고 멋있는 웹사이트를 말한다. 이와 동시에 유저가 해당 웹사이트와의 인터렉션을 통해서 뭔가 감동을 얻는다면 그것이야 말로 **진정한 인터렉티브 웹**이 아닐까. 이러한 웹을 만들기 위해서 다양한 방법들이 존재한다. 이 저장소는 어떠한 방식으로 인터렉티브함을 표현해야하는지 그 기술, 방법등에 대해 익히고 실습 과정을 기록하는 중이다.
 
 <details>
-  <summary>🗓 Log</summary>
+  <summary>학습로그 📖</summary>
 
 - 2020년에 시작한 고대(?) 프로젝트로서 2021년에 여러가지 인터렉티브한 것들을 만들어보고자했으나, 생각만 하였다는...😭 2022년에는 꾸준히 업데이트를 해보고자 한다.
-
-- SVG의 시작 💫 : 2022년 3월 말경
-- Part5 시작 : 2022년 5월
+- SVG : 2022년 3월 말경
+- Part5 : 2022년 5월
+- HTML5 Canvas : 2022년 6월
 
 </details>
 
@@ -36,7 +36,7 @@
 
 > SVG Animation 따라만들기 with [Online Tutotorials](https://www.youtube.com/playlist?list=PL5e68lK9hEzd-ZM4Km6xUia-mxQp52G6U)
 
-- [Text Animation](https://devdemodd.github.io/svg-demo-site/text-animation/)
+- [Text Animation](https://devdemodd.github.io/svg-examples/text-animation/)
 
 https://www.freecodecamp.org/news/svg-tutorial-learn-to-code-images/
 
@@ -47,8 +47,6 @@ https://www.youtube.com/channel/UCxhgW0Q5XLvIoXHAfQXg9oQ
 > SVG ~~마스터하기~~ 라고 쓰고 중수정도까지만 💫 되어봅시닷!
 
 > 1분 코딩님의 [SVG 마스터](https://www.inflearn.com/course/mastering-svg) 강의를 실습 및 정리하는 공간입니다.
-
-> [What I Learned](docs/part4.md)
 
 ## Part5
 
