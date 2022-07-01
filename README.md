@@ -24,11 +24,22 @@
 
 ## Part3
 
+> 소소한 인터렉티브 예제들
+
+> [What I Learned](docs/part3.md)
+
+<details>
+  <summary>References ✍🏻</summary>
+
+- [도라에몽 눈알 돌리기](https://www.youtube.com/watch?v=55esdUIdYw0&list=PLe9WXHRkq9p3cOekkBWncPr6pNgcHq0AL&index=1)
+
+</details>
+
 ## Part4 : SVG Master
 
-> SVG ~~마스터하기~~ 라고 쓰고 중수정도까지만 💫 되어봅시닷!
+> SVG ~~마스터하기~~ 라고 쓰고 중수정도까지만 💫 되어보자!
 
-> 1분 코딩님의 [SVG 마스터](https://www.inflearn.com/course/mastering-svg) 강의를 실습 및 정리하는 공간입니다.
+> 1분 코딩님의 [SVG 마스터](https://www.inflearn.com/course/mastering-svg) 강의를 실습 및 정리하는 공간!
 
 <details>
   <summary>SVG Examples 🚀</summary>
@@ -39,13 +50,11 @@
 
 ## Part5
 
-> [몇 줄로 끝내는 인터랙티브 웹 개발 노하우](https://www.inflearn.com/course/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%9E%99%ED%8B%B0%EB%B8%8C-%EC%9B%B9/dashboard) 해당 강의를 실습한 공간입니다.
-
-> 해당 강의는 웹 인터렉티브에 필수적인 몇가지 테마를 바탕으로 설명한다. 여기서는 이에 대한 몇가지 인터렉티브 예제를 직접 만들어보고 기본적인 원리를 이해해보았습니다.
+> [몇 줄로 끝내는 인터랙티브 웹 개발 노하우](https://www.inflearn.com/course/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%9E%99%ED%8B%B0%EB%B8%8C-%EC%9B%B9/dashboard) 해당 강의를 실습한 공간이다. 해당 강의는 웹 인터렉티브에 필수적인 몇가지 테마를 바탕으로 설명한다. 이에 대한 몇가지 인터렉티브 예제를 직접 만들어보고 기본적인 원리를 이해해보자!
 
 > [What I Learned](docs/part5.md)
 
-# Part6
+## Part6
 
 > HTML5 Canvas Tutorials with [1분코딩님](https://www.youtube.com/playlist?list=PLe9WXHRkq9p2Yl0z2zskv-FhP5sinISTc)
 
@@ -56,7 +65,7 @@
 - [클릭게임](https://devdemodd.github.io/canvas-examples/click-game/index.html)
 </details>
 
-# Part7
+## Part7
 
 > [BBC 사이트](https://www.bbc.com/korean/resources/idt-48d3c9a7-4063-4289-9726-611b5ea9d7b5) 클론 코딩 with [1분코딩님](https://www.youtube.com/playlist?list=PLe9WXHRkq9p11MIiI1FnMc8aekiBShq2L) (cf. 저장소 변경 이슈로 인해 기존 `interactive-sths` 저장소에서 옮겨옴. 😅)
 
