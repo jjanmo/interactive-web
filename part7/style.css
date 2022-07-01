@@ -1,0 +1,82 @@
+html {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+	margin: 0;
+}
+div,
+section,
+header,
+footer,
+p,
+h1,
+h2 {
+	box-sizing: border-box;
+}
+a {
+	color: royalblue;
+	text-decoration: none;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+.scene-img {
+	max-height: 100vh;
+}
+.global-width {
+	max-width: 55vw;
+	margin: 0 auto;
+}
+.scroll-graphic {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	overflow: hidden;
+}
+.graphic-item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: 0.6s;
+}
+.scroll-text {
+	position: relative;
+	padding-bottom: 1px;
+}
+.step {
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 10px;
+	padding: 0.2rem 0.8rem;
+	margin-bottom: 60vh;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.visible {
+	opacity: 1;
+}
+[data-index='2'] .bird {
+	position: absolute;
+	top: 20%;
+	left: 0;
+	width: 100px;
+	transform: translateX(-100%);
+	transition: 1.2s 0.3s linear;
+}
+[data-index='5'] .bird {
+	position: absolute;
+	bottom: 20%;
+	left: 45%;
+	width: 100px;
+	transition: 1.2s 0.3s linear;
+}
+.global-footer {
+	width: 100%;
+	text-align: center;
+	padding: 2rem 0;
+}
