@@ -18,35 +18,24 @@
 
 - [What I Learned](docs/part1.md)
 
-## Part2
+## Part2 : CSS 3D Transform
 
-> CSS 3D Transform Animation 따라 만들기
+> 파트1을 만들어가면서 조금 더 인터렉티브함을 주기 위해선 좋은 자바스크립트 실력과 더불어 `3D에 대한 감각`이 중요함을 느꼈다. 특히 CSS를 이용한 `3D Transform`에 대해선 좀 더 경험해볼 필요가 있다고 생각했다. 그래서 [해당 사이트](https://3dtransforms.desandro.com/)의 예제들을 따라 만들어보면서 3D 경험과 시야를 넑혀보고자 한다.
 
-> [참고 사이트](https://3dtransforms.desandro.com/)를 바탕으로 실습하였다.
-
-파트1을 만들어가면서 조금 더 인터렉티브함을 주기 위해선 좋은 자바스크립트 실력과 더불어 3D에 대한 감각이 중요함을 느꼈다. 거기에는 CSS를 이용한 `3D Transform`이 있다고 생각한다. 그리고 3D공간에 대한 이해는 많이 경험해보는 것이 좋은 것 같다. 그래서 3D Transform을 이용하여 몇가지를 만들어 보고자 한다.
-
-- 3D Cube
-- 3D Box
-- 3D Carousel
-- Card flip
-  ![flip-card](screenshots/part2_flipcard.gif)
-
-## Part3 : SVG Tutorials
-
-> SVG Animation 따라만들기 with [Online Tutotorials](https://www.youtube.com/playlist?list=PL5e68lK9hEzd-ZM4Km6xUia-mxQp52G6U)
-
-- [Text Animation](https://devdemodd.github.io/svg-examples/text-animation/)
-
-https://www.freecodecamp.org/news/svg-tutorial-learn-to-code-images/
-
-https://www.youtube.com/channel/UCxhgW0Q5XLvIoXHAfQXg9oQ
+## Part3
 
 ## Part4 : SVG Master
 
 > SVG ~~마스터하기~~ 라고 쓰고 중수정도까지만 💫 되어봅시닷!
 
 > 1분 코딩님의 [SVG 마스터](https://www.inflearn.com/course/mastering-svg) 강의를 실습 및 정리하는 공간입니다.
+
+<details>
+  <summary>SVG Examples 🚀</summary>
+
+- [Linus Torvalds Saying](https://devdemodd.github.io/svg-examples/linus-torvalds/index.html)
+
+</details>
 
 ## Part5
 
@@ -58,4 +47,17 @@ https://www.youtube.com/channel/UCxhgW0Q5XLvIoXHAfQXg9oQ
 
 # Part6
 
-> HTML5 Canvas Tutorials with [1분코딩 YT](https://www.youtube.com/playlist?list=PLe9WXHRkq9p2Yl0z2zskv-FhP5sinISTc)
+> HTML5 Canvas Tutorials with [1분코딩님](https://www.youtube.com/playlist?list=PLe9WXHRkq9p2Yl0z2zskv-FhP5sinISTc)
+
+<details>
+  <summary>Canvas Examples 🚀</summary>
+
+- [그림판](https://devdemodd.github.io/canvas-examples/painting/index.html)
+- [클릭게임](https://devdemodd.github.io/canvas-examples/click-game/index.html)
+</details>
+
+# Part7
+
+> [BBC 사이트](https://www.bbc.com/korean/resources/idt-48d3c9a7-4063-4289-9726-611b5ea9d7b5) 클론 코딩 with [1분코딩님](https://www.youtube.com/playlist?list=PLe9WXHRkq9p11MIiI1FnMc8aekiBShq2L) (cf. 저장소 변경 이슈로 인해 기존 `interactive-sths` 저장소에서 옮겨옴. 😅)
+
+> [What I Learned](docs/part7.md)
