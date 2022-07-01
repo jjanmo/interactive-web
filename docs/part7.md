@@ -139,7 +139,7 @@
 - 인접해 있는 block요소들끼리만 일어난다.
 - 상하단의 마진에만 해당한다.
 
-![margin1](image/margin1.png)
+![margin1](../screenshots/margin1.png)
 
 > 위 이미지를 보면, A의 bottom 마진, B의 top 마진이 각각 10px로 설정되어 `총 20px`이 되어야하지만 `10px`만 표현되었다. 이렇게 마진이 합쳐지는 현상이 `마진병합현상`이다.
 
