@@ -5,6 +5,7 @@ class Ball {
     this.dx = dx;
     this.dy = dy;
     this.radius = radius;
+    this.originalRadius = radius;
     this.bgColor = getColor();
   }
 
