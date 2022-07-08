@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../default.css" />
+    <style>
+      .flex-container {
+        /* display: flex; */
+        display: inline-flex;
+        /* block과 inline-block의 관계와 유사  */
+
+        flex-direction: row;
+        /* row 기본값
+        (flex item이 위치하는 축)메인축을 설정하는 속성
+        column / row-reverse / column-reverse
+        */
+
+        flex-wrap: wrap;
+        /* nowrap 기본값 - 컨테이너가 줄어도 아이템은 그 상태 유지
+        flex-item의 줄넘김 처리 설정
+        wrap / wrap-reverse 
+        */
+
+        flex-flow: row wrap;
+        /* flex-direction + flex-wrap 두 속성을 연속해서 사용하는 법(축약형)*/
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">Hello</div>
+      <div class="flex-item">World</div>
+      <div class="flex-item">JJanmo~~~~~~🚀</div>
+    </div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illum neque
+    error, voluptatum nam doloribus maxime, illo minima inventore voluptate
+  </body>
+</html>
