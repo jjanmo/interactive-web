@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../default.css" />
+    <style>
+      .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .flex-item {
+        box-sizing: border-box;
+        flex: 1 auto;
+        /* flex: 1;   
+        원하는 UI ❌
+        (flex : 1 1 0 으로 되기때문에 기본적으로 점유하는 크기(basis가 0)이기때문에 flex-wrap 속성이 먹지않음)
+        */
+
+        /*
+        flex : 1;
+        → flex-grow: 1; flex-shrink: 1; flex-basis: 0%;
+        → 축약형 : flex-grow flex-shrink flex-basis 순으로 인식
+      
+        flex: 1 auto;
+        → flex-grow: 1; (flex-shrink : 1 <기본값으로 들어감>) flex-basis: 0; 
+
+
+        ✅ flex-grow
+        flex-item이 늘어나는 비율을 설정하는 속성
+        0 : 늘어나지 않음! <기본값> : 기본적으로 아이템 컨텐츠만큼만 차지하게 됨
+        1 : 아이템들의 늘어나는 비율이 모두 1로 일정
+        물론 아이템마다 다르게 설정 가능
+
+        ✅ flex-shrink
+        flex-item이 줄어드는 비율을 설정하는 속성
+        1 : <기본값>
+        0 : flex-basis 값 이하로는 줄어들지 않음
+
+        ✅ flex-basis
+        flex-item의 기본크기를 설정, 기본값은 auto(width값으로 설정)
+        100px로 설정되면 기본으로 100px로 유지됨, 100px를 넘어가면 넘어가는대로 유지됨
+        */
+      }
+      .flex-item:nth-child(1) {
+        width: 25%;
+      }
+      .flex-item:nth-child(2) {
+        width: 50%;
+      }
+      .flex-item:nth-child(3) {
+        width: 25%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste minima
+          eos quos facilis. Lorem ipsum, dolor sit amet consectetur adipisicing
+          elit. Eos aliquam aperiam, explicabo a, nisi ullam perferendis
+          quisquam ex quo nesciunt quaerat labore alias Lorem ipsum dolor sit
+          amet, consectetur adipisicing elit. Nam repellat eaque
+        </p>
+      </div>
+      <div class="flex-item">Hello World🚀Hello World🚀Hello World🚀</div>
+      <div class="flex-item">jjanmo⭐️~~asdasdsadasdasd</div>
+      <div class="flex-item">AA</div>
+    </div>
+  </body>
+</html>

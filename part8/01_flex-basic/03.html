@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../default.css" />
+    <style>
+      .flex-container {
+        display: flex;
+        width: 500px;
+        height: 500px;
+
+        /* flex-wrap: wrap; */
+        /* align-content: space-between; */
+        align-content: space-around;
+
+        /*
+        align-content은 
+        flex-wrap: wrap 으로 설정되었을 때 
+        flex-item이 두 줄이상 되었을 때의 item을 어떻게 나열할지를 설정하는 값
+        stretch(기본값) | flex-start | flex-end | center | space-between
+        */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">Hello World ~~~🚀~~~~asdasdsadasdsa</div>
+      <div class="flex-item">Hello World ~~~🦊 jjanmo~~~</div>
+      <div class="flex-item">Hello World ~~~⭐️~~asdasdsadasdasd</div>
+    </div>
+  </body>
+</html>
