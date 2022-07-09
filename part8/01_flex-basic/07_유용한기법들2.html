@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>고정 컬럼 만들기</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../default.css" />
+    <style>
+      /*
+        양쪽 고정 컬럼 만들기
+      */
+      .flex-container {
+        padding: 0;
+        display: flex;
+      }
+      .flex-item:nth-child(1) {
+        width: 200px;
+        flex-shrink: 0;
+        /* 너비가 변해서 줄어들지 않게 설정 */
+      }
+      .flex-item:nth-child(2) {
+        flex-grow: 1;
+        /* 항상 너비 만큼 늘어나게 설정 */
+      }
+      .flex-item:nth-child(3) {
+        width: 300px;
+        flex-shrink: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">200px 고정</div>
+      <div class="flex-item">언제나 가득차게!! 🦊</div>
+      <div class="flex-item">300px 고정</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>margin auto</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../default.css" />
+    <style>
+      .flex-container {
+        padding: 0;
+        display: flex;
+      }
+      .flex-item {
+        width: 100px;
+      }
+      .flex-item:nth-child(3) {
+        margin-left: auto;
+        /*
+        마지막 아이템 하나만 끝으로 옮길 때
+        남은 마진을 이용한다!!
+        */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C 이것만 끝으로 이동</div>
+    </div>
+  </body>
+</html>

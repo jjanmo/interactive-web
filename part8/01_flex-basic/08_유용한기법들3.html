@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>footer 하단으로 내리기</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../default.css" />
+    <style>
+      /*
+        footer 하단으로 내리기
+      */
+      .page {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .content {
+        flex: 1 auto;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header flex-item">Header</header>
+      <section class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est veritatis
+        necessitatibus unde voluptatibus, sint laborum reiciendis distinctio
+        sunt corrupti accusamus quam deleniti consequatur officiis odit nesciunt
+        saepe autem fuga eius.
+      </section>
+      <footer class="footer flex-item">Footer</footer>
+    </div>
+  </body>
+</html>
