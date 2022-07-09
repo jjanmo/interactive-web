@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../default.css" />
+    <style>
+      .flex-container {
+        display: flex;
+        height: 200px;
+        padding: 5rem;
+        align-items: center;
+      }
+      .flex-item:nth-child(1) {
+        order: 3;
+        transform: scale(1.2);
+      }
+      .flex-item:nth-child(2) {
+        order: 1;
+        transform: scale(3);
+        z-index: 10;
+      }
+      .flex-item:nth-child(3) {
+        order: 2;
+        transform: scale(2);
+      }
+
+      /*
+      order는 시각적인 부분에서만 순서를 바꿈
+      실제적인 돔 요소에서는 변화하지 않음
+      → 위에서 보여지기는 BBB가 먼저 보여지지만 실제적인 요소는 nth-child(2)임
+      */
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">AAAAAAAAAAAAA</div>
+      <div class="flex-item">BBB</div>
+      <div class="flex-item">CCCCCCC</div>
+    </div>
+  </body>
+</html>
