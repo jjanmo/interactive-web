@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../default.css" />
+    <style>
+      /*
+      모바일 1단 컬럼
+      600px이상 2단 컬럼
+      900px이상 2단 컬럼
+
+      */
+      .flex-container {
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .flex-item {
+        flex: 1 auto; /* 부모 넓이에 맞춰서 알아서 쭉 늘어남 | flex-basis : 0 → flex : 1 auto 선호 */
+      }
+      @media (min-width: 600px) {
+        .flex-container {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+        .flex-item {
+          width: 50%;
+          flex: 1 auto;
+        }
+      }
+      @media (min-width: 900px) {
+        .flex-item {
+          width: 30%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">AAAAAAAAAAAA</div>
+      <div class="flex-item">BB</div>
+      <div class="flex-item">CCCCCC</div>
+      <div class="flex-item">AAAAAAAAAAAA</div>
+      <div class="flex-item">BB</div>
+      <div class="flex-item">CCCCCC</div>
+      <div class="flex-item">AAAAAAAAAAAA</div>
+      <div class="flex-item">BB</div>
+      <div class="flex-item">CCCCCC</div>
+      <div class="flex-item">AAAAAAAAAAAA</div>
+      <div class="flex-item">BB</div>
+      <div class="flex-item">AAAAAAAAAAAA</div>
+      <div class="flex-item">BB</div>
+      <div class="flex-item">CCCCCC</div>
+      <div class="flex-item">AAAAAAAAAAAA</div>
+      <div class="flex-item">BB</div>
+      <div class="flex-item">CCCCCC</div>
+    </div>
+  </body>
+</html>
