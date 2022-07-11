@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bullet UI</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        width: 400px;
+        padding: 1rem;
+      }
+      .item {
+        display: flex;
+        position: relative;
+        list-style: none;
+        padding-left: 30px;
+        margin: 10px 0;
+      }
+      .item::before {
+        content: '👉🏼';
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <!-- Q. bullet ui가 flex와 무슨 연관이 있을까?? 🤔 solution을 통해 확인해보자.-->
+  <body>
+    <ul>
+      <li class="item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </li>
+      <li class="item">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores
+        tempora a culpa dolor ipsa, voluptas laborum! Soluta, voluptatibus
+        quaerat qui mollitia nesciunt quidem facere iure doloribus beatae
+        dolorem et. Quisquam.
+      </li>
+      <li class="item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus rerum,
+        laudantium et quasi ratione consequatur vitae impedit iste totam fugit
+      </li>
+      <li class="item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet corporis
+        aperiam, ipsa dignissimos commodi sunt, atque esse porro similique
+        perferendis mollitia, voluptates odio numquam eum? Earum, amet!
+        Dignissimos, quo reprehenderit?
+      </li>
+    </ul>
+  </body>
+</html>
