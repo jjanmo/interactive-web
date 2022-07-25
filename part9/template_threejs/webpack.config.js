@@ -19,6 +19,16 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/i,
+        exclude: /node_modules/,
+        use: [
+          process.env.NODE_ENV === 'production'
+            ? MiniCssExtractPlugin.loader
+            : 'style-loader',
+          'css-loader',
+        ],
+      },
     ],
   },
   plugins: [
@@ -33,6 +43,7 @@ module.exports = {
           : false,
     }),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({ filename: `style.css` }),
   ],
   devServer: {
     liveReload: true,
