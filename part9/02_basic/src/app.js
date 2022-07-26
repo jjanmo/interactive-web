@@ -17,19 +17,40 @@ renderer.setSize(window.innerWidth, window.innerHeight)
 
 const scene = new THREE.Scene()
 
-const camera = new THREE.PerspectiveCamera(
-  75, // 시야각
-  window.innerWidth / window.innerHeight, // 종횡비(화면의 가로세로비율) aspect
+// 카메라 2종류
+// 원근카메라 PerspectiveCamera : ✅ 원근적용 O : 우리가 주로 사용할 카메라
+// 직교카메라 OrthographicCamera : 원근적용 X → 쿼터뷰(숄더뷰) 게임들 ex. LOL, 디아블로 ... 특정목적이 있을때 사용
+// https://stackoverflow.com/questions/36573283/from-perspective-picture-to-orthographic-picture
+
+//1)
+// const camera = new THREE.PerspectiveCamera(
+//   75, // 시야각
+//   window.innerWidth / window.innerHeight, // 종횡비(화면의 가로세로비율) aspect
+//   0.1, // near
+//   1000 // far
+// )
+// camera.position.x = 2
+// camera.position.y = 1
+// camera.position.z = 5
+// 단위는 개념적으로 우리가 만들고자 하는 공간에서의 단위로 상상하면 된다.
+
+// 2)
+const camera = new THREE.OrthographicCamera(
+  -(window.innerWidth / window.innerHeight), // left
+  window.innerWidth / window.innerHeight, //right
+  1, // top
+  -1, // bottom
   0.1, // near
   1000 // far
 )
-camera.position.x = 2
-camera.position.y = 1
+camera.position.x = 1
+camera.position.y = 2
 camera.position.z = 5
-// 단위는 개념적으로 우리가 만들고자 하는 공간에서의 단위로 상상하면 된다.
-
+// OrthographicCamera에서 줌을 조절하려면 z 축의 위치가 아니라 zoom을 조절하고 적용시켜준다!
+camera.lookAt(0, 0, 0)
+camera.zoom = 0.7
+camera.updateProjectionMatrix()
 scene.add(camera)
-console.log(scene)
 
 const geometry = new THREE.BoxGeometry(1, 1, 1)
 const material = new THREE.MeshBasicMaterial({
