@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-export default function example01() {
+export default function example() {
   // 1)
   // 렌더러 : 화면에 그려주는 역할
   // const renderer = new THREE.WebGLRenderer()

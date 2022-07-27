@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-export default function example02() {
+export default function example() {
   const canvas = document.querySelector('#three-canvas')
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true })
   renderer.setSize(window.innerWidth, window.innerHeight)
