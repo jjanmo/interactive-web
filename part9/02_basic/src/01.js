@@ -49,7 +49,7 @@ export default function example() {
   // OrthographicCamera에서 줌을 조절하려면 z 축의 위치가 아니라 zoom을 조절하고 적용시켜준다!
   camera.lookAt(0, 0, 0)
   camera.zoom = 0.7
-  camera.updateProjectionMatrix()
+  camera.updateProjectionMatrix() // 줌바꿨기때문에 카메라 업데이트!
   scene.add(camera)
 
   const geometry = new THREE.BoxGeometry(1, 1, 1)

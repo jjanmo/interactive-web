@@ -20,8 +20,6 @@ export default function example() {
   camera.position.z = 5
 
   camera.lookAt(0, 0, 0)
-  camera.updateProjectionMatrix()
-  scene.add(camera)
 
   const geometry = new THREE.BoxGeometry(1, 1, 1)
   const material = new THREE.MeshBasicMaterial({
