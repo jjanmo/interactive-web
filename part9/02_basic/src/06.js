@@ -28,17 +28,38 @@ export default function example() {
   scene.add(cube)
 
   let d = 0
-  const draw = () => {
-    // 각도는 라디안 단위(각도로 나타내는 60분법이 아니다)
-    // 360도 = 2파이
 
-    // cube.rotation.x += 0.1
-    cube.rotation.x += THREE.MathUtils.degToRad(2) // 우리가 아는 각도 개념을 넣어서 사용할 수 있는 유틸함수
+  // 애니메이션 최적화
+  // → 디바이스(브라우저, 컴퓨터) 환경에 따라서 속도가 달라지지 않게 할 수 있는 방법
+
+  const clock = new THREE.Clock()
+
+  let oldTime = Date.now()
+
+  const draw = () => {
+    // 성능최적화 1)
+    // const time = clock.getElapsedTime() // 시계가 작동한 총 (경과시간)시간, 절대시간의 개념, 모든 기기에서 같은 값 → 이것을 애니메이션에 이용함
+    // console.log(time)
+
+    // 성능최적화 2)
+    // const delta = clock.getDelta()
+    // draw함수가 실행되는 간격(1번째 draw함수에서의 time과 2번째 draw함수에서의 time의 차)
+    // !!주의 getElapsedTime과 getDelta를 같이 사용하면 안됨! 내부적으로 값이 꼬이는 현상(?)이 생김
+
+    // 성능최적화 3) : JS Date 이용
+    // → 장점  : 일반 캔버스 앱에서도 활용 가능, requestAnimationFrame를 사용하는 곳에서는 어느 곳에서나 사용가능
+    const newTime = Date.now()
+    const deltaTime = newTime - oldTime
+    oldTime = newTime
+
+    // cube.rotation.x = time // 1)
+    // cube.rotation.x += delta * 2 // 2)
+    cube.rotation.x += deltaTime * 0.002 // 3)
 
     if (cube.position.y > 4) {
-      d = -0.05
+      d = -(deltaTime * 0.003)
     } else if (cube.position.y <= 0) {
-      d = 0.05
+      d = deltaTime * 0.003
     }
 
     cube.position.y += d
