@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import gsap from 'gsap'
 
 export default function example() {
   const canvas = document.querySelector('#three-canvas')
@@ -13,8 +14,9 @@ export default function example() {
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 
+  camera.position.x = 1
   camera.position.y = 1
-  camera.position.z = 7
+  camera.position.z = 5
   scene.add(camera)
 
   const light = new THREE.DirectionalLight('#dff9fb', 5)
@@ -25,33 +27,27 @@ export default function example() {
 
   const geometry = new THREE.BoxGeometry(1, 1, 1)
   const material = new THREE.MeshStandardMaterial({
-    color: '#2c3e50',
+    color: '#8e44ad',
   })
 
-  const cubes = []
-  for (let i = 0; i < 8; i++) {
-    const cube = new THREE.Mesh(geometry, material)
-    cube.position.x = Math.random() * 6 - 3
-    cube.position.y = Math.random() * 2 - 1
-    cube.position.z = Math.random() * 6 - 3
-    scene.add(cube)
+  const cube = new THREE.Mesh(geometry, material)
+  scene.add(cube)
 
-    cubes.push(cube)
-  }
-
-  const clock = new THREE.Clock()
+  // How to use GSAP(animation library)
+  // https://greensock.com/gsap/
 
   const draw = () => {
-    const delta = clock.getDelta()
-
-    cubes.forEach((cube) => {
-      cube.rotation.y += delta * 2
-    })
-
     renderer.render(scene, camera)
 
     requestAnimationFrame(draw)
   }
+
+  gsap.to(cube.position, {
+    duration: 1,
+    x: 3,
+    y: 3,
+    z: 2,
+  })
 
   const setCanvas = () => {
     camera.aspect = window.innerWidth / window.innerHeight
