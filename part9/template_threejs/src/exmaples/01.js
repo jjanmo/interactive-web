@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import * as dat from 'dat.gui'
 
 export default function example() {
   const canvas = document.getElementById('my-canvas')
@@ -12,6 +13,9 @@ export default function example() {
   const scene = new THREE.Scene()
   scene.background = new THREE.Color('#ecf0f1')
 
+  const axesHelper = new THREE.AxesHelper(5)
+  scene.add(axesHelper)
+
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
   camera.position.x = 1
   camera.position.y = 2
@@ -19,7 +23,7 @@ export default function example() {
   camera.lookAt(0, 0, 0)
   scene.add(camera)
 
-  const light = new THREE.DirectionalLight(' 0xffffff', 1)
+  const light = new THREE.DirectionalLight('#eee', 1)
   light.position.y = 2
   light.position.z = 5
   scene.add(light)
@@ -31,10 +35,17 @@ export default function example() {
 
   renderer.render(scene, camera)
 
+  const gui = new dat.GUI()
+  gui.add(camera.position, 'x', -5, 5, 0.01).name('Camera X')
+  gui.add(camera.position, 'y', -5, 5, 0.01).name('Camera Y')
+  gui.add(camera.position, 'z', -5, 5, 0.01).name('Camera Z')
+
   const clock = new THREE.Clock()
   const draw = () => {
     const time = clock.getDelta()
     cube.rotation.y += THREE.MathUtils.degToRad(time * 100)
+
+    camera.lookAt(cube.position)
 
     renderer.render(scene, camera)
     requestAnimationFrame(draw)
