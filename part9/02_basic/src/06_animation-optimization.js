@@ -32,7 +32,7 @@ export default function example() {
   // 애니메이션 최적화
   // → 디바이스(브라우저, 컴퓨터) 환경에 따라서 속도가 달라지지 않게 할 수 있는 방법
 
-  const clock = new THREE.Clock()
+  // const clock = new THREE.Clock()
 
   let oldTime = Date.now()
 
