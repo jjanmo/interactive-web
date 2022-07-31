@@ -14,20 +14,31 @@ export default function example() {
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
   camera.position.x = 1
-  camera.position.y = 2
-  camera.position.z = 5
-  camera.lookAt(0, 0, 0)
+  camera.position.y = 1
+  camera.position.z = 0
   scene.add(camera)
 
-  const light = new THREE.DirectionalLight(' 0xffffff', 1)
-  light.position.y = 2
-  light.position.z = 5
-  scene.add(light)
+  // AxesHelper
+  const axesHelper = new THREE.AxesHelper(3) // 축 생성 (크기)
+  scene.add(axesHelper)
+
+  // GridHelper
+  const gridHelper = new THREE.GridHelper(5)
+  scene.add(gridHelper)
+
+  const ambientLight = new THREE.AmbientLight('#eee', 0.5) // 은은한 조명 추가
+  scene.add(ambientLight)
+  const directionalLight = new THREE.DirectionalLight('#eee', 1)
+  directionalLight.position.y = 2
+  directionalLight.position.z = 5
+  scene.add(directionalLight)
 
   const geometry = new THREE.BoxGeometry(1, 1, 1)
   const matarial = new THREE.MeshStandardMaterial({ color: '#3498db' })
   const cube = new THREE.Mesh(geometry, matarial)
   scene.add(cube)
+
+  camera.lookAt(cube.position) // 큐브의 위치에서 바라보게하는 방법 : lookAt
 
   renderer.render(scene, camera)
 
