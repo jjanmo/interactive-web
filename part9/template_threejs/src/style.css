@@ -3,3 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+#my-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
