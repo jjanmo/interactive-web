@@ -1,7 +1,8 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   mode: 'development',
@@ -23,9 +24,7 @@ module.exports = {
         test: /\.css$/i,
         exclude: /node_modules/,
         use: [
-          process.env.NODE_ENV === 'production'
-            ? MiniCssExtractPlugin.loader
-            : 'style-loader',
+          process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
         ],
       },
@@ -65,4 +64,4 @@ module.exports = {
       chunks: 'all',
     },
   },
-};
+}
