@@ -47,20 +47,24 @@ flatShading : 3d 컴퓨터 그래픽스의 라이팅 기법으로 다각형의 �
 
   // console.log(geometry.attributes.position.array)
   // 각각의 vertex의 값의 모임(3개씩 끊어서[x,y,z 좌표] 1개의 vertex의 위치를 나타낸다.)
-  const positionArray = geometry.attributes.position.array
-  for (let i = 0; i < positionArray.length; i++) {
-    const r = i % 3
-    if (r === 0) positionArray[i] += (Math.random() - 0.5) * 0.1
-    if (r === 1) positionArray[i] += (Math.random() - 0.5) * 0.1
-    if (r === 2) positionArray[i] += (Math.random() - 0.5) * 0.1
-  }
+  const randomArray = []
+  // 💡 랜덤값을 미리 담는 이유
+  // → 우리가 하고 싶은 것은 일정한 패턴을 가진 랜덤성이다. 그렇기때문에 draw할때 랜덤을 불러오는 것이 아니라
+  // 미리 일정 패턴이 있는 랜덤을 가지고 이를 계속 이용하는 것!!
+  // draw 안에서 랜덤을 불러오면 일정한 패턴을 가질수 없음
 
-  // ※ 강의에선 아래처럼 함
-  // for (let i = 0; i < positionArray.length; i += 3) {
-  //   positionArray[i] += (Math.random() - 0.5) * 0.1
-  //   positionArray[i + 1] += (Math.random() - 0.5) * 0.1
-  //   positionArray[i + 2] += (Math.random() - 0.5) * 0.1
-  // }
+  const positionArray = geometry.attributes.position.array
+
+  // 내 생각 : 여기서는 3씩 잘라서 생각하지 않아도 되는듯하다. 어차피 랜덤으로 들어가는 값이 3을 기준으로 규칙성을 띠는것이 아니기 때문!
+  for (let i = 0; i < positionArray.length; i++) {
+    positionArray[i] += (Math.random() - 0.5) * 0.1
+    // positionArray[i + 1] += (Math.random() - 0.5) * 0.1
+    // positionArray[i + 2] += (Math.random() - 0.5) * 0.1
+
+    randomArray[i] = (Math.random() - 0.5) * 0.1
+    // randomArray[i + 1] = (Math.random() - 0.5) * 0.1
+    // randomArray[i + 2] = (Math.random() - 0.5) * 0.1
+  }
 
   renderer.render(scene, camera)
 
@@ -71,7 +75,20 @@ flatShading : 3d 컴퓨터 그래픽스의 라이팅 기법으로 다각형의 �
 
   const clock = new THREE.Clock()
   const draw = () => {
-    const delta = clock.getDelta()
+    const time = clock.getElapsedTime() * 5
+
+    // sin함수 or cos함수 : 진동이나 일정 반복 효과를 줄때 사용하면 좋다(꾸물꾸물 느낌!!)
+    // 그래프의 x축과 y축을 생각하자!(x는 각도) ⭐️
+    // → 움직이는 속도를 빠르게 하고 싶다면, x값이 빠르게 변하면 된다.(즉, time이 빨리 커지면 된다)
+    // → 급격한 변화, 소심한(?) 변화는 y값의 크기를 조절하면 된다.(진폭의 크기 조절)
+
+    for (let i = 0; i < positionArray.length; i++) {
+      positionArray[i] += Math.sin(time + randomArray[i] * 100) * 0.002
+      // positionArray[i + 1] += Math.sin(time + randomArray[i + 1] * 100) * 0.003
+      // positionArray[i + 2] += Math.sin(time + randomArray[i + 2] * 100) * 0.003
+    }
+
+    geometry.attributes.position.needsUpdate = true // geometry의 position값이 업데이트가 된다.!
 
     renderer.render(scene, camera)
     requestAnimationFrame(draw)
