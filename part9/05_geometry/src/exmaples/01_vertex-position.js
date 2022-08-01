@@ -36,14 +36,27 @@ flatShading : 3d 컴퓨터 그래픽스의 라이팅 기법으로 다각형의 �
 시각적으로 한 객체(물체)안에서 각각의 벡터?(부분)에 광원이 비치는것을 표현하는 방법, 그래서 뭔가 울퉁불퉁해 보인다.
 */
 
-  const geometry = new THREE.SphereGeometry(5, 70, 70)
+  // 구 표현
+  // const geometry = new THREE.SphereGeometry(5, 70, 70)
+  // const material = new THREE.MeshStandardMaterial({
+  //   color: '#f9ca24',
+  //   side: THREE.DoubleSide, // three.js에선 물체 안으로 들어가면 기본적으로 아무것도 없다. 해당 속성을 주면 실제 안으로 들어간 효과를 준다.
+  //   flatShading: true,
+  // })
+  // const sphere = new THREE.Mesh(geometry, material)
+  // scene.add(sphere)
+
+  // 다양한 geometry에 적용가능
+  // → 바다 or 초원 지평선 표현
+  const geometry = new THREE.PlaneGeometry(10, 10, 40, 40)
   const material = new THREE.MeshStandardMaterial({
-    color: '#f9ca24',
+    // color: '#456789', // 바다
+    color: 'seagreen', // 초원
     side: THREE.DoubleSide, // three.js에선 물체 안으로 들어가면 기본적으로 아무것도 없다. 해당 속성을 주면 실제 안으로 들어간 효과를 준다.
     flatShading: true,
   })
-  const sphere = new THREE.Mesh(geometry, material)
-  scene.add(sphere)
+  const plain = new THREE.Mesh(geometry, material)
+  scene.add(plain)
 
   // console.log(geometry.attributes.position.array)
   // 각각의 vertex의 값의 모임(3개씩 끊어서[x,y,z 좌표] 1개의 vertex의 위치를 나타낸다.)
