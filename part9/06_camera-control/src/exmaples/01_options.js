@@ -24,12 +24,24 @@ export default function example() {
   camera.lookAt(0, 0, 0)
   scene.add(camera)
 
-  const light = new THREE.DirectionalLight('#eee', 1)
-  light.position.y = 2
-  light.position.z = 5
+  const light = new THREE.DirectionalLight('white', 1)
+
+  light.position.x = 1
+  light.position.z = 2
   scene.add(light)
 
   const controls = new OrbitControls(camera, renderer.domElement)
+  // controls options
+  controls.enableDamping = true // 컨트롤을 부드럽게 해주는 옵션 → draw함수(애니메이션 일어나는 곳)에서 update() 추가 필요
+  // controls.enableZoom = false
+  // controls.maxDistance = 10
+  // controls.minDistance = 2
+  // controls.minPolarAngle = Math.PI / 4 // 수직방향으로 회전하는 각도
+  // controls.minPolarAngle = THREE.MathUtils.degToRad(45) // 위와 같은 표현
+  // controls.maxPolarAngle = THREE.MathUtils.degToRad(135) // 위와 같은 표현
+  // controls.target.set(2, 2, 2) // 컨트롤 회전의 중심점을 설정
+  // controls.autoRotate = true
+  // controls.autoRotateSpeed = 10
 
   const geometry = new THREE.BoxGeometry(1, 1, 1)
   let mesh, material
@@ -58,6 +70,8 @@ export default function example() {
   const clock = new THREE.Clock()
   const draw = () => {
     const delta = clock.getDelta()
+
+    controls.update()
 
     renderer.render(scene, camera)
     requestAnimationFrame(draw)
