@@ -2,6 +2,17 @@ import * as THREE from 'three'
 import * as dat from 'dat.gui'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
+/*
+3D object 
+vertex(점)
+edge(선)
+face(면)
+
+
+
+
+*/
+
 export default function example() {
   const canvas = document.getElementById('my-canvas')
   const renderer = new THREE.WebGLRenderer({
@@ -20,8 +31,7 @@ export default function example() {
   // MeshBasicMaterial를 제외하곤 모두 빛이 필요하다, 빛이 없으면 안보임
   const ambientLight = new THREE.AmbientLight('#eee', 0.5)
   const directionalLight = new THREE.DirectionalLight('#eee', 1)
-  directionalLight.position.y = 1
-  directionalLight.position.z = 5
+  directionalLight.position.set(1, 1, 5)
   scene.add(directionalLight, ambientLight)
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
@@ -40,12 +50,15 @@ export default function example() {
     color: 'orangered',
     roughness: 0.2, // 반질반질한 정도 (0: 최고 반질반질)
     metalness: 0.4, // 금속성 정도
+    flatShading: true,
+    // flatShading → 로우폴리 느낌
   })
 
   // [Left] MeshPhongMaterial : 하이라이트,반사광이 표현이 잘되는 재질
   const material2 = new THREE.MeshPhongMaterial({
     color: 'orangered',
     shininess: 1000,
+    flatShading: true,
   })
 
   const shpere1 = new THREE.Mesh(geometry, material1)
