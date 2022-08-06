@@ -34,6 +34,7 @@ export default function example() {
   const bottomTexture = textureLoader.load(bottom)
 
   const materials = [
+    // 순서 : x,y,z축 +-
     new THREE.MeshBasicMaterial({ map: rightTexture }),
     new THREE.MeshBasicMaterial({ map: leftTexture }),
     new THREE.MeshBasicMaterial({ map: topTexture }),
