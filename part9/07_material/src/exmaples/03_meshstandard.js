@@ -2,17 +2,6 @@ import * as THREE from 'three'
 import * as dat from 'dat.gui'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
-/*
-3D object 
-vertex(점)
-edge(선)
-face(면)
-
-
-
-
-*/
-
 export default function example() {
   const canvas = document.getElementById('my-canvas')
   const renderer = new THREE.WebGLRenderer({

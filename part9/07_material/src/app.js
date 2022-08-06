@@ -5,6 +5,7 @@ import './style.css'
 // import example from './exmaples/04_side'
 // import example from './exmaples/05_texture-load'
 // import example from './exmaples/06_loading-manager'
-import example from './exmaples/07_texture-transform'
+// import example from './exmaples/07_texture-transform'
+import example from './exmaples/08_multiple-face-cube'
 
 example()
