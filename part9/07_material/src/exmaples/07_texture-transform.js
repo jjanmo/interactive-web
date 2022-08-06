@@ -1,14 +1,6 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import baseColor from '../assets/brick/basecolor.jpg'
-import ambientOcclusion from '../assets/brick/ambientOcclusion.jpg'
-import height from '../assets/brick/height.png'
-import normal from '../assets/brick/normal.jpg'
-import roughness from '../assets/brick/roughness.jpg'
-
-// loading manager
-// → 여러 개의 텍스쳐 이미지를 로드할 때 사용 가능
-// → 받드시 사용해야하는 것은 아니고, 여러 개의 이미지에 대한 이벤트 처리를 하기 쉽게 해준다.
+import baseColor from '../assets/skull/baseColor.jpg'
 
 export default function example() {
   const loadingManager = new THREE.LoadingManager()
@@ -18,11 +10,24 @@ export default function example() {
   loadingManager.onError = () => console.log('로딩 에러')
 
   const textureLoader = new THREE.TextureLoader(loadingManager)
-  const baseColorTx = textureLoader.load(baseColor)
-  const ambientOcclusionTx = textureLoader.load(ambientOcclusion)
-  const heightTx = textureLoader.load(height)
-  const normalTx = textureLoader.load(normal)
-  const roughnessTx = textureLoader.load(roughness)
+  const texture = textureLoader.load(baseColor)
+
+  // wrapS(horizontal) | wrapT(vertical) 이미지 이동시 끝점이 늘어나서 이미지가 깨진 것처럼 보인다.
+  // → 이를 보완하기 위해서 아래와 같은 속성을 사용
+  texture.wrapS = THREE.RepeatWrapping
+  texture.wrapT = THREE.RepeatWrapping
+
+  // texture.offset.x = 0.2
+  // texture.offset.y = 0.2
+
+  // texture.repeat.x = 4
+  // texture.repeat.y = 4
+
+  texture.rotation = Math.PI * 0.25 // THREE.MathUtils.degToRad(45)
+
+  // 기준 설정(중앙)
+  texture.center.x = 0.5
+  texture.center.y = 0.5
 
   const canvas = document.getElementById('my-canvas')
   const renderer = new THREE.WebGLRenderer({
@@ -44,7 +49,7 @@ export default function example() {
   scene.add(directionalLight, ambientLight)
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
-  camera.position.set(1, 2, 8)
+  camera.position.set(1, 2, 4)
   scene.add(camera)
 
   const controls = new OrbitControls(camera, renderer.domElement)
@@ -54,7 +59,7 @@ export default function example() {
 
   const material = new THREE.MeshStandardMaterial({
     side: THREE.DoubleSide,
-    map: baseColorTx,
+    map: texture,
   })
   const cube = new THREE.Mesh(geometry, material)
   scene.add(cube)
