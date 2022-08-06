@@ -2,6 +2,7 @@ import './style.css'
 // import example from './exmaples/01_meshbasicmaterial'
 // import example from './exmaples/02_lambert-phong'
 // import example from './exmaples/03_meshstandard'
-import example from './exmaples/04_side'
+// import example from './exmaples/04_side'
+import example from './exmaples/05_texture-load'
 
 example()
