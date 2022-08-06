@@ -8,6 +8,7 @@ import './style.css'
 // import example from './exmaples/07_texture-transform'
 // import example from './exmaples/08_multiple-face-cube'
 // import example from './exmaples/09_meshtoon'
-import example from './exmaples/10_meshnormal'
+// import example from './exmaples/10_meshnormal'
+import example from './exmaples/11_meshmatcap'
 
 example()
