@@ -9,6 +9,7 @@ import './style.css'
 // import example from './exmaples/08_multiple-face-cube'
 // import example from './exmaples/09_meshtoon'
 // import example from './exmaples/10_meshnormal'
-import example from './exmaples/11_meshmatcap'
+// import example from './exmaples/11_meshmatcap'
+import example from './exmaples/12_effect-meshstandardmaterial'
 
 example()
