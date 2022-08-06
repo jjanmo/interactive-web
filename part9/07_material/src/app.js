@@ -10,6 +10,9 @@ import './style.css'
 // import example from './exmaples/09_meshtoon'
 // import example from './exmaples/10_meshnormal'
 // import example from './exmaples/11_meshmatcap'
-import example from './exmaples/12_effect-meshstandardmaterial'
+// import example from './exmaples/12_effect-meshstandardmaterial'
+// import example from './exmaples/13_envmap'
+// import example from './exmaples/14_skybox'
+import example from './exmaples/15_skybox-envmap'
 
 example()

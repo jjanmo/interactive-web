@@ -7,6 +7,9 @@ import ny from '../assets/cubemap/ny.png'
 import pz from '../assets/cubemap/pz.png'
 import nz from '../assets/cubemap/nz.png'
 
+// skybox : envmap의 반대되는 개념??
+// → 쉽게 배경을 큐브맵(이미지)으로 만든다(도배한다)라는 개념, 해당 이미지가 배경이 된다라는 의미
+
 export default function example() {
   const canvas = document.getElementById('my-canvas')
   const renderer = new THREE.WebGLRenderer({
@@ -17,7 +20,6 @@ export default function example() {
   renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1)
 
   const scene = new THREE.Scene()
-  scene.background = new THREE.Color('white')
 
   const ambientLight = new THREE.AmbientLight('#eee', 0.5)
   const directionalLight = new THREE.DirectionalLight('#eee', 1)
@@ -25,46 +27,26 @@ export default function example() {
   scene.add(directionalLight, ambientLight)
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
-  camera.position.set(0, 0, 12)
+  camera.position.set(1, 2, 3)
   scene.add(camera)
 
   //helper
-  const axis = new THREE.AxesHelper(14)
+  const axis = new THREE.AxesHelper(10)
   scene.add(axis)
   const controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true
 
   const cubeTextureLoader = new THREE.CubeTextureLoader()
-  const cubeTexture = cubeTextureLoader.load([
-    // (x y z 축 | + -) 순서
-    px,
-    nx,
-    py,
-    ny,
-    pz,
-    nz,
-  ])
-  // cubeTextureLoader.setPath('assets/cubemap').load(['nx.png',~])
-  // → : webpack에서는 모듈로 이미지를 읽어드릴 수 있음, 이런식으로 하려면 웹팩 설정을 다르게(강의처럼) 해야함
+  scene.background = cubeTextureLoader.load([px, nx, py, ny, pz, nz])
 
-  const boxGeometry = new THREE.BoxGeometry(10, 10, 10)
-  // const material = new THREE.MeshBasicMaterial({
-  const material = new THREE.MeshStandardMaterial({
-    // 큐브 6면에 주위 공간이 비추는 것처럼 구현하는 방식
-    envMap: cubeTexture,
-    // MeshStandardMaterial : roughness, metalness 둘이 적절히 조화를 이루어야...잘보임. 난 아래 설정이 가장 잘보이는듯
-    roughness: 0, //default 1 : 이때는 너무 밝아서 보이지 않는 듯
-    metalness: 1, //default 0 : 이때도 안보임
-    side: THREE.DoubleSide,
-  })
+  const boxGeometry = new THREE.BoxGeometry(2, 2, 2)
+  const material = new THREE.MeshStandardMaterial()
 
   const mesh = new THREE.Mesh(boxGeometry, material)
   scene.add(mesh)
   renderer.render(scene, camera)
 
-  const clock = new THREE.Clock()
   const draw = () => {
-    const delta = clock.getDelta()
     controls.update()
     renderer.render(scene, camera)
     requestAnimationFrame(draw)
