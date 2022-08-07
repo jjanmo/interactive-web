@@ -2,11 +2,11 @@ import * as THREE from 'three'
 import { AxesHelper } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import * as dat from 'dat.gui'
+// RectAreaLightHelper는 따로 import 필요
+import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper'
 
-// hemisphere-light
-// ambientlight처럼 전체적으로 은은하게 뿌려주는 빛
-// ambientlight처럼 그림자가 없는 빛 : 그림자 설정 삭제 필요!
-// 2가지 색을 설정하는데, 2가지 색의 빛이 서로 다른 방향(반대방향?) 에서 쏴주는 느낌의 빛
+// rectarea-light
+// 사각형 영역에서 뿜어내는 조명
 
 export default function example() {
   const canvas = document.getElementById('my-canvas')
@@ -30,12 +30,13 @@ export default function example() {
   const axesHelper = new AxesHelper(5)
   scene.add(axesHelper)
 
-  const ambientLight = new THREE.AmbientLight('#eee', 0.1)
-  const light = new THREE.HemisphereLight('pink', 'lime', 1) // 2가지 색깔이 들어감
-  light.position.set(0, 3, 0)
-  scene.add(light, ambientLight)
+  const ambientLight = new THREE.AmbientLight('#eee', 0.5)
+  scene.add(ambientLight)
+  const light = new THREE.RectAreaLight('orange', 10, 3, 3) // 사각형 크기에 따라서 빛의 범위가 달라지는 듯
+  light.position.set(0, 3, 3)
+  scene.add(light)
 
-  const lightHelper = new THREE.HemisphereLightHelper(light)
+  const lightHelper = new RectAreaLightHelper(light)
   scene.add(lightHelper)
 
   // GUI를 이용해서 빛의 위치 조정
