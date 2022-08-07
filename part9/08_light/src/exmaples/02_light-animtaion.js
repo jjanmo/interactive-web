@@ -13,7 +13,6 @@ export default function example() {
   renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1)
 
   const scene = new THREE.Scene()
-  // scene.background = new THREE.Color('#ecf0f1')
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
   camera.position.set(1, 2, 5)
@@ -24,9 +23,8 @@ export default function example() {
   const axesHelper = new AxesHelper(5)
   scene.add(axesHelper)
 
-  // 빛, 조명, 광원 모두 같은 용어
-  const ambientLight = new THREE.AmbientLight('#eee', 0.5) // 은은한 광(전체적으로 뿌려주기때문에 위치가 따로 필요하지 않다)
-  const light = new THREE.DirectionalLight('#eee', 1) // 태양광같은 느낌
+  const ambientLight = new THREE.AmbientLight('#eee', 0.5)
+  const light = new THREE.DirectionalLight('tomato', 1)
   light.position.set(0, 3, 0)
   scene.add(ambientLight, light)
 
@@ -59,7 +57,22 @@ export default function example() {
 
   renderer.render(scene, camera)
 
+  const clock = new THREE.Clock()
+
   const draw = () => {
+    const time = clock.getElapsedTime()
+
+    // 삼각함수를 사용했더니 원운동을 하네?? How?? Why??
+    // x,y 평면에서 직각삼각형을 그리면,
+    // cos = 밑변 / 빗변
+    // sin = 높이 / 빗변
+    // → 빗변이 1이라고 하면 cos 밑변 = x, sin 높이 = y 가 된다.
+    // → 직각삼각형의 각도의 변화에 따라서 cos, sin의 값이 변하고(x, y값의 변화) 이를 연결하면 원운동을 하게 된다.
+    // 이처럼 x,y 평면이 아니라 x,z평면이라고 생각하면 똑같이 원운동을 하게 됨을 이해할수 있다.
+
+    light.position.x = Math.cos(time) * 3
+    light.position.z = Math.sin(time) * 3
+
     controls.update()
     renderer.render(scene, camera)
     requestAnimationFrame(draw)
