@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SearchForm</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #eee;
+      }
+      .search-form {
+        display: flex;
+        /* 
+        1)
+        flex 아이템들은 align-item 속성이 기본적으로 stretch 값을 갖는다 
+        그래서 부모 속성의 높이 만큼 쭉 퍼질수 있다.
+        or
+        2)
+        높이를 주지 않고, 폼과 버튼에 패딩이나 높이를 줘서 맞출수도 있다.
+        */
+        height: 30px;
+
+      }
+      .search-form input[type='search'] {
+        flex: 1;
+        /* 
+        flex-grow: 1;   
+        // 기본값 0,0이면 원래 크기보다 커지지않는다. 0보다 큰 값이 셋팅되면 원래크기보다 커지면서 빈 공간을 메우게 된다.
+        // flex-grow의 값이 아이템의 flex-basis를 제외한 비율을 나눠가지게 되는 것
+        flex-shrink: 1; 
+        // 기본값  1,
+        flex-basis: 0%; 
+        */
+
+        margin-right: 10px;
+        border : none;
+        border-radius: 0.3em;
+        font-size: 1rem;
+      }
+      .search-form input[type="submit"] {
+        width : 4em;
+        border : none;
+        border-radius: 0.3em;
+        font-size: 1rem;
+        background-color: gold;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="search-form">
+      <input type="search" name="search" maxlength="30" />
+      <input type="submit" class="search-button" value="찾기"></input>
+    </form>
+  </body>
+</html>
