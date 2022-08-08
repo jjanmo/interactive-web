@@ -32,10 +32,15 @@
         /* 
         flex-grow: 1;   
         // 기본값 0,0이면 원래 크기보다 커지지않는다. 0보다 큰 값이 셋팅되면 원래크기보다 커지면서 빈 공간을 메우게 된다.
-        // flex-grow의 값이 아이템의 flex-basis를 제외한 비율을 나눠가지게 되는 것
+        // flex-grow의 값이 아이템의 flex-basis를 제외한 여백을 비율대로 나눠가지게 되는 것
+        // 만약 영역을 특정 비율로 나누고 싶다면 flex-basis를 0으로 설정하면 된다.
+        // ex. flex : 1, flex : 2 이런식으로 사용하면, flex-basis가 0으로 셋팅되기 때문에 아이템들이 영역 자체를 해당 값의 비율로 나눠서 갖게 된다.
         flex-shrink: 1; 
-        // 기본값  1,
+        // 기본값 1, 0보다 큰값이 세팅되면 flex-basis보다 작아질 수 있다
+        // flex-shrink를 0으로 셋팅하면 flex-basis보다 작아지지 않기때문에 이 속성을 이용해 고정폭 컬럼을 구현할 수 있다.
         flex-basis: 0%; 
+        // 기본값 auto, flex-basis는 flex-item의 기본크기 설정
+        // 기본값 auto는 아이템의 width값을 사용, width가 없다면 컨텐츠 크기
         */
 
         margin-right: 10px;
