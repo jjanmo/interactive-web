@@ -62,6 +62,7 @@ export default function example() {
     const delta = clock.getDelta()
 
     controls.update()
+    renderer.render(scene, camera)
     requestAnimationFrame(draw)
   }
   draw()
