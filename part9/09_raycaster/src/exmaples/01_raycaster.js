@@ -85,7 +85,7 @@ export default function example() {
     const intersections = raycaster.intersectObjects(meshes) // 충돌한 메쉬를 감지하여 배열을 리턴함
     // → 움직임이 없을때, length가 2인 배열 리턴 : 광선이 하나의메쉬를 지나가지만 면 앞/뒤에 충돌하기때문에
     intersections.forEach((item) => {
-      console.log(item.object.name)
+      // console.log(item.object.name) // 부딪친 메쉬의 이름 출력
       item.object.material.color.set('gold')
     })
 
