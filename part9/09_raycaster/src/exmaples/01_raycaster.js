@@ -45,23 +45,50 @@ export default function example() {
   const boxGeometry = new THREE.BoxGeometry(1, 1, 1)
   const boxMaterial = new THREE.MeshStandardMaterial({ color: 'plum' })
   const box = new THREE.Mesh(boxGeometry, boxMaterial)
+  box.name = 'box' // mesh에 이름 세팅
   scene.add(box)
 
   const torusGeometry = new THREE.TorusGeometry(2, 0.4, 16, 100)
   const torusMaterial = new THREE.MeshStandardMaterial({ color: 'tomato' })
   const torus = new THREE.Mesh(torusGeometry, torusMaterial)
+  torus.name = 'torus'
   scene.add(torus)
 
   const meshes = [box, torus]
 
   renderer.render(scene, camera)
 
+  // raycaster 생성
+  const raycaster = new THREE.Raycaster()
+
   const clock = new THREE.Clock()
 
   const draw = () => {
-    const delta = clock.getDelta()
+    const time = clock.getElapsedTime()
 
-    controls.update()
+    box.position.y = Math.sin(time) * 3
+    box.material.color.set('plum')
+    torus.rotation.y = time
+    torus.material.color.set('tomato')
+
+    // raycaster 세팅
+    const origin = new THREE.Vector3(0, 0, 100) // 광선의 시작점
+    const direction = new THREE.Vector3(0, 0, -1) // 광선의 방향 → 정규화(1단위로 만드는과정?)하여 적어야함
+
+    // 방향의 정규화
+    // const direction = new THREE.Vector3(0, 0, -100)
+    // direction.normalize() // 실제 사용한 값을 사용하기 위해선 normalize() 필수! 안하면 작동안함
+
+    raycaster.set(origin, direction)
+
+    // raycaster를 이용해서 물체와의 충돌체크
+    const intersections = raycaster.intersectObjects(meshes) // 충돌한 메쉬를 감지하여 배열을 리턴함
+    // → 움직임이 없을때, length가 2인 배열 리턴 : 광선이 하나의메쉬를 지나가지만 면 앞/뒤에 충돌하기때문에
+    intersections.forEach((item) => {
+      console.log(item.object.name)
+      item.object.material.color.set('gold')
+    })
+
     renderer.render(scene, camera)
     requestAnimationFrame(draw)
   }
