@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import PreventDragControl from './PreventDragControl'
 
 export default function example() {
   const canvas = document.getElementById('my-canvas')
@@ -27,7 +28,7 @@ export default function example() {
 
   // 광선에 맞을 물체
   const boxGeometry = new THREE.BoxGeometry(1, 1, 1)
-  const boxMaterial = new THREE.MeshStandardMaterial({ color: 'plum' })
+  const boxMaterial = new THREE.MeshStandardMaterial({ color: 'tomato' })
   const box = new THREE.Mesh(boxGeometry, boxMaterial)
   box.name = 'box' // mesh에 이름 세팅
   scene.add(box)
@@ -45,16 +46,23 @@ export default function example() {
   // raycaster 생성
   const raycaster = new THREE.Raycaster()
   const mouse = new THREE.Vector2() // 마우스 클릭은 2차원 좌표에서 일어나는 것(vector2 사용)
-  console.log(mouse)
+  let intersections
 
   const clock = new THREE.Clock()
   const draw = () => {
     const time = clock.getElapsedTime()
 
-    // box.position.y = Math.sin(time) * 3
+    box.position.y = Math.sin(time) * 3
     box.material.color.set('plum')
-    // torus.rotation.y = time
+    torus.rotation.y = time
     torus.material.color.set('tomato')
+
+    if (intersections) {
+      for (let item of intersections) {
+        item.object.material.color.set('gold')
+        break
+      }
+    }
 
     renderer.render(scene, camera)
     requestAnimationFrame(draw)
@@ -66,21 +74,23 @@ export default function example() {
     // 카메라 시점에서 광선을 쏜다는 의미
     // → 카메라 지점 = origin / 클릭한 지점 = direction (그래서 아래에서 1단위로 정규화한 것인듯...)
 
-    const intersections = raycaster.intersectObjects(meshes)
+    intersections = raycaster.intersectObjects(meshes)
     // console.log(intersections) // 클릭한 곳에 있는 모든 mesh object 리턴
 
     // 1)
     // loop 방식의 장점 : loop 안에서 감지되는 여부에 따라서 특정 로직을 처리할 수 있다
     // for (let item of intersections) {
-    //   console.log(item.object.name)
-    //   break // 최초로 클릭한 것만 감지하고 싶다면,
+    //   item.object.material.color.set('gold')
+    //   break
     // }
 
     // 2) 클릭한 최초 앞에 있는 mesh를 감지하고 싶다면 아래 코드처럼도 가능 (결국 위와 동일한 코드)
-    if (intersections[0]) {
-      console.log(intersections[0].object.name)
-    }
+    // if (intersections[0]) {
+    //   console.log(intersections[0].object)
+    // }
   }
+
+  const preventDragControl = new PreventDragControl(canvas)
 
   const handleResizeCanvas = () => {
     camera.aspect = window.innerWidth / window.innerHeight
@@ -89,17 +99,8 @@ export default function example() {
     renderer.render(scene, camera)
   }
 
-  // 클릭인지 드래그인지 판별
-  let isClicked = false
-  // 드래드 여부를 판별하기 위해 필요한 것 : x,y축의 길이차와 시간차를 통해서 알 수 있다.
-  let start = {
-    x: 0,
-    y: 0,
-    time: 0,
-  }
-
   const handleClickCanvas = (e) => {
-    if (isClicked) {
+    if (preventDragControl.isClicked) {
       // 가운데를 (0, 0) 좌표로 하여 맞추는 방법
       // 화면 중앙부터 끝까지는 각각 +방향 0 ~ 1 / -방향 0 ~ -1 사이의 값으로 맞춘다
       // → 클릭한 위치와 캔버스 전체 크기를 나눠서 비율을 구한다.
@@ -116,25 +117,6 @@ export default function example() {
     }
   }
 
-  const handleMousedown = (e) => {
-    start.x = e.clientX
-    start.y = e.clienty
-    start.time = Date.now()
-  }
-
-  const handleMouseup = (e) => {
-    const diffX = Math.abs(start.x - e.clientX)
-    const diffY = Math.abs(start.x - e.clientX)
-    const diffTime = Math.abs(start.time - Date.now())
-
-    if (diffX < 5 && diffY < 5 && diffTime < 200) {
-      isClicked = true
-      return
-    }
-  }
-
   window.addEventListener('resize', handleResizeCanvas)
   canvas.addEventListener('click', handleClickCanvas)
-  window.addEventListener('mousedown', handleMousedown)
-  window.addEventListener('mouseup', handleMouseup)
 }
