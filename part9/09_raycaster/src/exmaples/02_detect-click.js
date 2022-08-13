@@ -89,22 +89,52 @@ export default function example() {
     renderer.render(scene, camera)
   }
 
-  const handleClickCanvas = (e) => {
-    // 가운데를 (0, 0) 좌표로 하여 맞추는 방법
-    // 화면 중앙부터 끝까지는 각각 +방향 0 ~ 1 / -방향 0 ~ -1 사이의 값으로 맞춘다
-    // → 클릭한 위치와 캔버스 전체 크기를 나눠서 비율을 구한다.
-    // → *2는 총 width와 height의 최대치가 2이기 때문에 2를 곱한다
-    // → -1을 빼는 것은 중앙을 (0,0)으로 표시하기 때문에
-    // → 기본적으로 웹과 threejs에서의 y축 방향이 반대이다 : 웹 y축 아래 방향이 + / threejs y축 위 방향이 - → 최종 y값에 -를 붙여줘야함
-    // → 위 과정은 일종의 마우스 클릭 좌표를 1단위로 정규화 시킨 것!
-    const x = (e.clientX / canvas.clientWidth) * 2 - 1
-    const y = -((e.clientY / canvas.clientHeight) * 2 - 1)
-    mouse.x = x
-    mouse.y = y
+  // 클릭인지 드래그인지 판별
+  let isClicked = false
+  // 드래드 여부를 판별하기 위해 필요한 것 : x,y축의 길이차와 시간차를 통해서 알 수 있다.
+  let start = {
+    x: 0,
+    y: 0,
+    time: 0,
+  }
 
-    checkIntersects()
+  const handleClickCanvas = (e) => {
+    if (isClicked) {
+      // 가운데를 (0, 0) 좌표로 하여 맞추는 방법
+      // 화면 중앙부터 끝까지는 각각 +방향 0 ~ 1 / -방향 0 ~ -1 사이의 값으로 맞춘다
+      // → 클릭한 위치와 캔버스 전체 크기를 나눠서 비율을 구한다.
+      // → *2는 총 width와 height의 최대치가 2이기 때문에 2를 곱한다
+      // → -1을 빼는 것은 중앙을 (0,0)으로 표시하기 때문에
+      // → 기본적으로 웹과 threejs에서의 y축 방향이 반대이다 : 웹 y축 아래 방향이 + / threejs y축 위 방향이 - → 최종 y값에 -를 붙여줘야함
+      // → 위 과정은 일종의 마우스 클릭 좌표를 1단위로 정규화 시킨 것!
+      const x = (e.clientX / canvas.clientWidth) * 2 - 1
+      const y = -((e.clientY / canvas.clientHeight) * 2 - 1)
+      mouse.x = x
+      mouse.y = y
+
+      checkIntersects()
+    }
+  }
+
+  const handleMousedown = (e) => {
+    start.x = e.clientX
+    start.y = e.clienty
+    start.time = Date.now()
+  }
+
+  const handleMouseup = (e) => {
+    const diffX = Math.abs(start.x - e.clientX)
+    const diffY = Math.abs(start.x - e.clientX)
+    const diffTime = Math.abs(start.time - Date.now())
+
+    if (diffX < 5 && diffY < 5 && diffTime < 200) {
+      isClicked = true
+      return
+    }
   }
 
   window.addEventListener('resize', handleResizeCanvas)
   canvas.addEventListener('click', handleClickCanvas)
+  window.addEventListener('mousedown', handleMousedown)
+  window.addEventListener('mouseup', handleMouseup)
 }
