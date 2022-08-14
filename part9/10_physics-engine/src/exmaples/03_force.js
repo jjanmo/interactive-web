@@ -113,6 +113,7 @@ export default function example() {
     sphereBody.angularVelocity.x *= 0.98
     sphereBody.angularVelocity.y *= 0.98
     sphereBody.angularVelocity.z *= 0.98
+    // 점차 0으로 수렴하게됨!
 
     renderer.render(scene, camera)
     requestAnimationFrame(draw)
@@ -130,6 +131,7 @@ export default function example() {
 
   canvas.addEventListener('click', (e) => {
     if (preventDragControl.isClicked) {
+      // 클릭을 계속하면 힘이 중첩되는데, 아래 같은 코드는 클릭시 힘을 리셋시키고 다시 적용하기때문에 힘의 중첩현상이 사라짐
       sphereBody.velocity.x = 0
       sphereBody.velocity.y = 0
       sphereBody.velocity.z = 0
@@ -139,8 +141,9 @@ export default function example() {
 
       const sphereX = sphereBody.position.x / canvas.clientWidth
       const clickedX = (e.clientX / canvas.clientWidth) * 2 - 1
+      // 위 코드는 내가 생각한 코드 : 클릭한 쪽 반대로 움직이게 하는 방법은??
       // 현재는 x축으로밖에 못움직임..
-      // 클릭하는쪽 반대편으로 어느 방향에서든 움직이게 못할까??
+      // 벡터 방향을 모두 계산해서 힘을 지정해줘야하나??
 
       sphereBody.applyForce(new CANNON.Vec3((sphereX - clickedX) * 200, 0, 0), sphereBody.position)
     }
