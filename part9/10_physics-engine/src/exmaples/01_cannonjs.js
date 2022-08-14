@@ -30,8 +30,8 @@ export default function example() {
   controls.enableDamping = true
 
   // 물리엔진이 적용될 월드 생성
-  const connonWorld = new CANNON.World()
-  connonWorld.gravity.set(0, -10, 0)
+  const cannonWorld = new CANNON.World()
+  cannonWorld.gravity.set(0, -10, 0)
 
   const ambientLight = new THREE.AmbientLight('#eee', 0.5)
   scene.add(ambientLight)
