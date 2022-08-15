@@ -5,9 +5,6 @@ import PreventDragControl from './PreventDragControl'
 import MySphere from './MySphere'
 import collideSound from '../sounds/boing.mp3'
 
-// 충돌이벤트 + 충돌사운드
-// → 충동이벤트 : cannonbody에서 일어나는 것
-
 export default function example() {
   const canvas = document.getElementById('my-canvas')
   const renderer = new THREE.WebGLRenderer({
@@ -65,12 +62,6 @@ export default function example() {
   scene.add(light)
   light.castShadow = true
 
-  // Q. 표면 전방위적인 그림자는 어떻게 생성해야지??
-  // 빛을 바꿔야하나?
-
-  // const helper = new THREE.CameraHelper(light.shadow.camera)
-  // scene.add(helper)
-
   const floorMesh = new THREE.Mesh(
     new THREE.PlaneGeometry(50, 50),
     new THREE.MeshStandardMaterial({
@@ -122,8 +113,6 @@ export default function example() {
   }
 
   const handleCollide = (e) => {
-    // 충돌의 강도에 관계없이 소리가 똑같이 나는 현상을 수정하기 위해서
-    // 충돌시 일어나는 속도를 가지고 이를 제어할 수 있다.
     const velocity = e.contact.getImpactVelocityAlongNormal()
     if (velocity > 4) {
       sound.currentTime = 0
@@ -146,13 +135,31 @@ export default function example() {
       defaultMaterial,
     })
 
-    // 충돌이벤트
     sphere.body.addEventListener('collide', handleCollide)
 
     spheres.push(sphere)
   }
 
-  window.addEventListener('resize', handleResizeCanvas)
+  const handleClickRemove = () => {
+    spheres.forEach((sphere) => {
+      scene.remove(sphere.mesh) // mesh 삭제
+      cannonWorld.removeBody(sphere.body) // body 삭제
+      sphere.body.removeEventListener('collide', handleCollide)
+    })
+  }
 
+  window.addEventListener('resize', handleResizeCanvas)
   canvas.addEventListener('click', handleGenerateSphere)
+
+  const button = makeButton(document.querySelector('body'))
+  button.addEventListener('click', handleClickRemove)
+}
+
+function makeButton(target) {
+  const button = document.createElement('button')
+  button.textContent = 'REMOVE'
+  button.style.cssText = 'position: absolute; top: 5px; left: 5px'
+  target.append(button)
+
+  return button
 }
