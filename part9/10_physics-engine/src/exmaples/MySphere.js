@@ -1,4 +1,4 @@
-import { Mesh } from 'three'
+import { Mesh, ReinhardToneMapping } from 'three'
 import { Body, Sphere, Vec3 } from 'cannon-es'
 
 export default class MySphere {
@@ -11,6 +11,7 @@ export default class MySphere {
     this.posY = data.posY
     this.posZ = data.posZ
     this.scale = data.scale
+    this.defaultMaterial = data.defaultMaterial
 
     this.mesh = this.#setMesh()
     this.body = this.#setCannonBody()
@@ -31,6 +32,7 @@ export default class MySphere {
       mass: 1,
       position: new Vec3(this.posX, this.posY, this.posZ),
       shape,
+      material: this.defaultMaterial,
     })
     this.cannonWorld.addBody(body)
 
