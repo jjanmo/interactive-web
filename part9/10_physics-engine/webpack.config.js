@@ -32,6 +32,10 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/,
         loader: 'file-loader',
       },
+      {
+        test: /\.(mp3|ogg|wav)$/,
+        loader: 'file-loader',
+      },
     ],
   },
   plugins: [
