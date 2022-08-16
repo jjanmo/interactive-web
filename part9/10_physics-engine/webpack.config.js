@@ -36,6 +36,10 @@ module.exports = {
         test: /\.(mp3|ogg|wav)$/,
         loader: 'file-loader',
       },
+      {
+        test: /\.(glb|gltf)$/,
+        loader: 'file-loader',
+      },
     ],
   },
   plugins: [

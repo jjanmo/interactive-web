@@ -1,9 +1,8 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as CANNON from 'cannon-es'
-import PreventDragControl from './PreventDragControl'
-import MySphere from './MySphere'
-import collideSound from '../sounds/boing.mp3'
+import Domino from './Domino'
 
 export default function example() {
   const canvas = document.getElementById('my-canvas')
@@ -16,18 +15,17 @@ export default function example() {
   renderer.shadowMap.enabled = true
   renderer.shadowMap.enabled = THREE.PCFSoftShadowMap
 
-  const preventDragControl = new PreventDragControl(canvas)
-  const sound = new Audio(collideSound)
-
   const scene = new THREE.Scene()
   scene.background = new THREE.Color('#ecf0f1')
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
-  camera.position.set(0, 30, 50)
+  camera.position.set(0, 10, 10)
   scene.add(camera)
 
   const controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true
+
+  const gltfLoader = new GLTFLoader()
 
   // cannon world
   const cannonWorld = new CANNON.World()
@@ -58,7 +56,7 @@ export default function example() {
   const ambientLight = new THREE.AmbientLight('#eee', 0.5)
   scene.add(ambientLight)
   const light = new THREE.DirectionalLight('#eee', 1)
-  light.position.set(2, 10, 5)
+  light.position.set(2, 2, 5)
   scene.add(light)
   light.castShadow = true
 
@@ -76,6 +74,18 @@ export default function example() {
   renderer.render(scene, camera)
 
   const clock = new THREE.Clock()
+
+  const domimos = []
+  for (let i = 1; i <= 20; i++) {
+    const domino = new Domino({
+      scene,
+      cannonWorld,
+      z: -i * 0.8, // z축의 음의 방향(안쪽으로)
+      gltfLoader,
+    })
+
+    domimos.push(domino)
+  }
 
   const draw = () => {
     const delta = clock.getDelta()
