@@ -19,7 +19,7 @@ export default function example() {
   scene.background = new THREE.Color('#ecf0f1')
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
-  camera.position.set(0, 10, 10)
+  camera.position.set(2, 8, 8)
   scene.add(camera)
 
   const controls = new OrbitControls(camera, renderer.domElement)
@@ -80,16 +80,25 @@ export default function example() {
     const domino = new Domino({
       scene,
       cannonWorld,
+      // y: 2,
       z: -i * 0.8, // z축의 음의 방향(안쪽으로)
       gltfLoader,
+      rotationY: Math.random() * (Math.PI / 2) - 45,
     })
 
     domimos.push(domino)
   }
-
+  console.log(domimos)
   const draw = () => {
     const delta = clock.getDelta()
     cannonWorld.step(1 / 60, delta, 3)
+
+    domimos.forEach((domino) => {
+      if (domino.modelMesh) {
+        domino.modelMesh.position.copy(domino.body.position)
+        domino.modelMesh.quaternion.copy(domino.body.quaternion)
+      }
+    })
 
     renderer.render(scene, camera)
     requestAnimationFrame(draw)
