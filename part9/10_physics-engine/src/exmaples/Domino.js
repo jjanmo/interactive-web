@@ -5,6 +5,7 @@ export default class Domino {
   constructor(data) {
     this.scene = data.scene
     this.cannonWorld = data.cannonWorld
+    this.name = data.name
     this.width = data.width || 0.6
     this.height = data.height || 1
     this.depth = data.depth || 0.2
@@ -21,6 +22,7 @@ export default class Domino {
     loader.load(glb, (glb) => {
       this.modelMesh = glb.scene.children[0]
       this.modelMesh.castShadow = true
+      this.modelMesh.name = this.name
       this.modelMesh.position.set(this.x, this.y, this.z)
       this.scene.add(this.modelMesh)
     })

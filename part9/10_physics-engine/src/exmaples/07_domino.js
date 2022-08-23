@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as CANNON from 'cannon-es'
 import Domino from './Domino'
+import { Raycaster } from 'three'
 
 export default function example() {
   const canvas = document.getElementById('my-canvas')
@@ -78,6 +79,7 @@ export default function example() {
   const domimos = []
   for (let i = 1; i <= 20; i++) {
     const domino = new Domino({
+      name: `DOMINO-${i}`,
       scene,
       cannonWorld,
       // y: 2,
@@ -88,7 +90,7 @@ export default function example() {
 
     domimos.push(domino)
   }
-  console.log(domimos)
+
   const draw = () => {
     const delta = clock.getDelta()
     cannonWorld.step(1 / 60, delta, 3)
@@ -105,6 +107,30 @@ export default function example() {
   }
   draw()
 
+  const raycaster = new THREE.Raycaster()
+  const mouse = new THREE.Vector2()
+
+  const checkIntersects = () => {
+    raycaster.setFromCamera(mouse, camera)
+
+    // 1)
+    // const meshes = domimos.map((domino) => domino.modelMesh)
+    // const intersections = raycaster.intersectObjects(meshes)
+
+    // 2)
+    const intersections = raycaster.intersectObjects(scene.children) // scene.children : scene 아래 모든 객체
+    console.log(intersections)
+  }
+
+  const handleClickCanavs = (e) => {
+    const posX = (e.clientX / canvas.clientWidth) * 2 - 1
+    const posY = -((e.clientY / canvas.clientHeight) * 2 - 1) // threejs에서 방향이 일반좌표와 y축이 반대
+    mouse.x = posX
+    mouse.y = posY
+
+    checkIntersects()
+  }
+
   const handleResizeCanvas = () => {
     camera.aspect = window.innerWidth / window.innerHeight
     camera.updateProjectionMatrix()
@@ -113,4 +139,5 @@ export default function example() {
   }
 
   window.addEventListener('resize', handleResizeCanvas)
+  canvas.addEventListener('click', handleClickCanavs)
 }
