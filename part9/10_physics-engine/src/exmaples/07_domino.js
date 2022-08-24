@@ -3,7 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as CANNON from 'cannon-es'
 import Domino from './Domino'
-import { Raycaster } from 'three'
+import PreventDragControl from './PreventDragControl'
 
 export default function example() {
   const canvas = document.getElementById('my-canvas')
@@ -34,8 +34,8 @@ export default function example() {
 
   const defaultMaterial = new CANNON.Material('default')
   const defaultContactMaterial = new CANNON.ContactMaterial(defaultMaterial, defaultMaterial, {
-    friction: 0.5,
-    restitution: 0.3,
+    friction: 0.01,
+    restitution: 0.7,
   })
   cannonWorld.defaultContactMaterial = defaultContactMaterial
   cannonWorld.allowSleep = true
@@ -79,13 +79,13 @@ export default function example() {
   const domimos = []
   for (let i = 1; i <= 20; i++) {
     const domino = new Domino({
-      name: `DOMINO-${i}`,
+      index: i,
       scene,
       cannonWorld,
       // y: 2,
       z: -i * 0.8, // z축의 음의 방향(안쪽으로)
       gltfLoader,
-      rotationY: Math.random() * (Math.PI / 2) - 45,
+      // rotationY: Math.random() * (Math.PI / 2) - 45,
     })
 
     domimos.push(domino)
@@ -109,6 +109,7 @@ export default function example() {
 
   const raycaster = new THREE.Raycaster()
   const mouse = new THREE.Vector2()
+  const preventDragControl = new PreventDragControl(canvas)
 
   const checkIntersects = () => {
     raycaster.setFromCamera(mouse, camera)
@@ -118,11 +119,22 @@ export default function example() {
     // const intersections = raycaster.intersectObjects(meshes)
 
     // 2)
-    const intersections = raycaster.intersectObjects(scene.children) // scene.children : scene 아래 모든 객체
-    console.log(intersections)
+    const objectCannonBodies = domimos.map((domino) => domino.body)
+    const intersections = raycaster.intersectObjects(scene.children)
+    // scene.children : scene 아래 모든 객체
+
+    const clickedIndex = intersections[0].object.name - 1
+    if (objectCannonBodies[clickedIndex])
+      objectCannonBodies[clickedIndex].applyForce(new CANNON.Vec3(0, 0, -100))
+
+    // 힘은 cannonbody에 줘야함
+    // 나는 도미노들의 객체 안에서 body만 파싱해서 사용하였지만,
+    // 반대로 객체 생성시 객체 안에 body를 직접 넣어서 사용할수도 있음(수업에서 한 방식)
   }
 
   const handleClickCanavs = (e) => {
+    if (!preventDragControl.isClicked) return
+
     const posX = (e.clientX / canvas.clientWidth) * 2 - 1
     const posY = -((e.clientY / canvas.clientHeight) * 2 - 1) // threejs에서 방향이 일반좌표와 y축이 반대
     mouse.x = posX

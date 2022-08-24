@@ -5,7 +5,7 @@ export default class Domino {
   constructor(data) {
     this.scene = data.scene
     this.cannonWorld = data.cannonWorld
-    this.name = data.name
+    this.name = data.index
     this.width = data.width || 0.6
     this.height = data.height || 1
     this.depth = data.depth || 0.2
