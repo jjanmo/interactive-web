@@ -14,7 +14,7 @@ export default function example() {
   const scene = new THREE.Scene()
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
-  camera.position.set(1, 2, 5)
+  camera.position.set(1, 2, 15)
   scene.add(camera)
 
   const controls = new OrbitControls(camera, renderer.domElement)
@@ -25,10 +25,14 @@ export default function example() {
   scene.add(light)
 
   const geometry = new THREE.BufferGeometry()
-  const count = 5000
+  const count = 3000
+
+  // 랜덤 위치 생성 | 랜덤 색 생성
   const positions = new Float32Array(count * 3) // geometry 파트 참고
+  const colors = new Float32Array(count * 3)
   for (let i = 0; i < positions.length; i++) {
     positions[i] = (Math.random() - 0.5) * 20
+    colors[i] = Math.random()
   }
 
   // image loader
@@ -37,6 +41,9 @@ export default function example() {
 
   // 랜덤 위치 적용
   geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3)) // 3 : 3(x, y, z)개씩 반복된다는 의미
+  // 랜덤 색 적용
+  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3)) //
+
   const material = new THREE.PointsMaterial({
     size: 0.5,
     map: particleTexture,
@@ -44,6 +51,8 @@ export default function example() {
     transparent: true,
     alphaMap: particleTexture,
     depthWrite: false,
+    // 랜덤 색 적용
+    vertexColors: true,
   })
   const particles = new THREE.Points(geometry, material)
   scene.add(particles)
