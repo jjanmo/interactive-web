@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import * as dat from 'dat.gui'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 export default function example() {
@@ -12,7 +11,7 @@ export default function example() {
   renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1)
 
   const scene = new THREE.Scene()
-  scene.background = new THREE.Color('#ecf0f1')
+  // scene.background = new THREE.Color('#ecf0f1')
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
   camera.position.set(1, 2, 5)
@@ -22,20 +21,19 @@ export default function example() {
   controls.enableDamping = true
 
   const light = new THREE.DirectionalLight('#eee', 1)
-  light.position.set(0, 2, 10)
+  light.position.set(0, 5, 10)
   scene.add(light)
 
-  const geometry = new THREE.BoxGeometry(1, 1, 1)
-  const matarial = new THREE.MeshStandardMaterial({ color: '#3498db' })
-  const cube = new THREE.Mesh(geometry, matarial)
-  scene.add(cube)
+  // PointsMaterial와 Point를 사용하여 기본 Geometry에 파티클 효과를 만들 수 있음
+  const geometry = new THREE.SphereGeometry(1, 64, 64)
+  const matarial = new THREE.PointsMaterial({
+    size: 0.02,
+    // sizeAttenuation: false, // 원근에 관계없이 균일하게 보이게 하는 것 defualt true
+  }) // particle을 사용할 수 있는 material
+  const points = new THREE.Points(geometry, matarial)
+  scene.add(points)
 
   renderer.render(scene, camera)
-
-  // const gui = new dat.GUI()
-  // gui.add(camera.position, 'x', -5, 5, 0.01).name('Camera X')
-  // gui.add(camera.position, 'y', -5, 5, 0.01).name('Camera Y')
-  // gui.add(camera.position, 'z', -5, 5, 0.01).name('Camera Z')
 
   const clock = new THREE.Clock()
   const draw = () => {
