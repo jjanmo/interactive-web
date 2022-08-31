@@ -4,11 +4,13 @@ export default class Buttons {
     document.body.append(wrapper)
     this.wrapper = wrapper
     this.#createButtons()
+    this.#addEvent()
   }
 
   #createButtons() {
     const randomBtn = document.createElement('button')
     randomBtn.textContent = 'RANDOM'
+    randomBtn.style.marginRight = '5px'
     const sphereBtn = document.createElement('button')
     sphereBtn.textContent = 'SPHERE'
     this.wrapper.append(randomBtn, sphereBtn)
@@ -20,5 +22,9 @@ export default class Buttons {
     `
   }
 
-  #addEvent() {}
+  #addEvent() {
+    this.wrapper.addEventListener((e) => {
+      console.log(e)
+    })
+  }
 }

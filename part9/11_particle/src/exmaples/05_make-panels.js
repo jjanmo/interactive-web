@@ -15,15 +15,17 @@ import ImagePanel from './ImagePanel'
 
 export default function example() {
   const canvas = document.getElementById('my-canvas')
+  canvas.style.background = `linear-gradient(to right, #4da0b0, #d39d38)`
   const renderer = new THREE.WebGLRenderer({
     canvas,
     antialias: true,
+    alpha: true,
   })
   renderer.setSize(window.innerWidth, window.innerHeight)
   renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1)
+  renderer.autoClear = false
 
   const scene = new THREE.Scene()
-  scene.background = new THREE.Color('#2c3e50')
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
   camera.position.set(1, 2, 4)
