@@ -10,6 +10,7 @@ import sydney from '../assets/sydney.jpg'
 import valletta from '../assets/valletta.jpg'
 import vancouver from '../assets/vancouver.jpg'
 import zurich from '../assets/zürich.jpg'
+import Buttons from './Button'
 import ImagePanel from './ImagePanel'
 
 export default function example() {
@@ -22,6 +23,7 @@ export default function example() {
   renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1)
 
   const scene = new THREE.Scene()
+  scene.background = new THREE.Color('#2c3e50')
 
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
   camera.position.set(1, 2, 4)
@@ -76,4 +78,5 @@ export default function example() {
   }
 
   window.addEventListener('resize', handleResizeCanvas)
+  const buttons = new Buttons()
 }
