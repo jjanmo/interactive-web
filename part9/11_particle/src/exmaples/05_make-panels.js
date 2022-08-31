@@ -43,9 +43,8 @@ export default function example() {
 
   const sphereGeometry = new SphereGeometry(1, 8, 8)
   const sphereGeometryPosition = sphereGeometry.attributes.position.array
-  console.log(sphereGeometry)
 
-  let panel
+  let panel = []
   for (let i = 0; i < sphereGeometryPosition.length; i += 3) {
     panel = new ImagePanel({
       scene,
@@ -58,8 +57,6 @@ export default function example() {
     })
 
     panels.push(panel)
-    // plane.lookAt(0, 0, 0)
-    // scene.add(plane)
   }
 
   const clock = new THREE.Clock()
