@@ -36,10 +36,19 @@ export default class Buttons {
       if (type === 'random') {
         this.imagePanels.forEach((panel, index) => {
           gsap.to(panel.mesh.position, {
-            duration: 1.5,
+            duration: 1,
             x: this.randomPosition[index * 3],
             y: this.randomPosition[index * 3 + 1],
             z: this.randomPosition[index * 3 + 2],
+          })
+        })
+
+        this.imagePanels.forEach((panel) => {
+          gsap.to(panel.mesh.rotation, {
+            duration: 2,
+            x: 0,
+            y: 0,
+            z: 0,
           })
         })
 
@@ -48,10 +57,19 @@ export default class Buttons {
         // 이미지 패널이 원으로 이동
         this.imagePanels.forEach((panel, index) => {
           gsap.to(panel.mesh.position, {
-            duration: 2,
+            duration: 1,
             x: this.spherePosition[index * 3],
             y: this.spherePosition[index * 3 + 1],
             z: this.spherePosition[index * 3 + 2],
+          })
+        })
+
+        this.imagePanels.forEach((panel) => {
+          gsap.to(panel.mesh.rotation, {
+            duration: 2,
+            x: panel.sphereRotation[0],
+            y: panel.sphereRotation[1],
+            z: panel.sphereRotation[2],
           })
         })
       }

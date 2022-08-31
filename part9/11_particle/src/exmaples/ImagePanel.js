@@ -12,6 +12,9 @@ export default class ImagePanel {
     this.mesh.position.set(data.posX, data.posY, data.posZ)
     this.mesh.lookAt(0, 0, 0)
 
+    // 회전 정보 저장
+    this.sphereRotation = [this.mesh.rotation.x, this.mesh.rotation.y, this.mesh.rotation.z]
+
     data.scene.add(this.mesh)
   }
 }
