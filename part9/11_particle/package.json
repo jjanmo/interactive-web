@@ -11,8 +11,9 @@
   "author": "jjanmo",
   "license": "ISC",
   "dependencies": {
-    "three": "^0.142.0",
-    "dat.gui": "^0.7.9"
+    "dat.gui": "^0.7.9",
+    "gsap": "^3.11.0",
+    "three": "^0.142.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.9",

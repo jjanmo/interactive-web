@@ -15,7 +15,7 @@ import ImagePanel from './ImagePanel'
 
 export default function example() {
   const canvas = document.getElementById('my-canvas')
-  canvas.style.background = `linear-gradient(to right, #4da0b0, #d39d38)`
+  canvas.style.background = `linear-gradient(to bottom, #114357, #bf9291)`
   const renderer = new THREE.WebGLRenderer({
     canvas,
     antialias: true,
@@ -23,7 +23,7 @@ export default function example() {
   })
   renderer.setSize(window.innerWidth, window.innerHeight)
   renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1)
-  renderer.autoClear = false
+  renderer.autoClear = false // ?
 
   const scene = new THREE.Scene()
 
@@ -41,21 +41,22 @@ export default function example() {
   renderer.render(scene, camera)
 
   const textureLoader = new THREE.TextureLoader()
-  const panelGeometry = new THREE.PlaneGeometry(0.3, 0.3)
+  const panelGeometry = new THREE.PlaneGeometry(0.5, 0.5)
   const images = [prague, riodejaneiro, rome, sydney, valletta, vancouver, zurich]
   const panels = []
 
-  const sphereGeometry = new SphereGeometry(1, 8, 8)
-  const sphereGeometryPosition = sphereGeometry.attributes.position.array
+  const sphereGeometry = new SphereGeometry(1.5, 8, 8)
+  const spherePosition = sphereGeometry.attributes.position.array
+  const randomPosition = generateRandomPosition(spherePosition.length)
 
   let panel = []
-  for (let i = 0; i < sphereGeometryPosition.length; i += 3) {
+  for (let i = 0; i < spherePosition.length; i += 3) {
     panel = new ImagePanel({
       scene,
       geometry: panelGeometry,
-      posX: sphereGeometryPosition[i],
-      posY: sphereGeometryPosition[i + 1],
-      posZ: sphereGeometryPosition[i + 2],
+      posX: spherePosition[i],
+      posY: spherePosition[i + 1],
+      posZ: spherePosition[i + 2],
       textureLoader,
       image: images[Math.floor(Math.random() * images.length)],
     })
@@ -80,5 +81,18 @@ export default function example() {
   }
 
   window.addEventListener('resize', handleResizeCanvas)
-  const buttons = new Buttons()
+  new Buttons({
+    imagePanels: panels,
+    spherePosition,
+    randomPosition,
+  })
+}
+
+function generateRandomPosition(total) {
+  const positions = []
+  for (let i = 0; i < total; i++) {
+    positions.push((Math.random() - 0.5) * 10)
+  }
+
+  return positions
 }
