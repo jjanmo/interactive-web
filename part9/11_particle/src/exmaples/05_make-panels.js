@@ -64,9 +64,15 @@ export default function example() {
     panels.push(panel)
   }
 
+  const group = new THREE.Group()
+  panels.forEach((panel) => group.add(panel.mesh))
+  scene.add(group)
+
   const clock = new THREE.Clock()
   const draw = () => {
     const delta = clock.getDelta()
+
+    group.rotation.y += delta * 0.2
 
     renderer.render(scene, camera)
     requestAnimationFrame(draw)

@@ -51,10 +51,7 @@ export default class Buttons {
             z: 0,
           })
         })
-
-        // 이미지 패널이 랜덤하게 이동
       } else if (type === 'sphere') {
-        // 이미지 패널이 원으로 이동
         this.imagePanels.forEach((panel, index) => {
           gsap.to(panel.mesh.position, {
             duration: 1,
