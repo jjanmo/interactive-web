@@ -77,6 +77,11 @@ export default function example() {
     renderer.render(scene, camera)
     requestAnimationFrame(draw)
   }
+
+  // 추가 기능
+  // raycaster -> 사진 확대 + rotation stop
+  // canvas -> 원복 + rotaion start
+
   draw()
 
   const handleResizeCanvas = () => {
