@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User List</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .user-list {
+        list-style: none;
+        margin: 1rem;
+      }
+      .user {
+        display: flex;
+        align-items: center;
+      }
+      .user + .user {
+        margin-top: 1em;
+      }
+      .avatar {
+        width: 4rem;
+        height: 4rem;
+        margin-right: 1em;
+        border-radius: 50%;
+        border: 2px solid black;
+
+        flex-shrink: 0;
+
+        background-color: gold;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 150%;
+      }
+      .name {
+        /* 넘치면 자동 말줄임표 (width 설정하면 그 값을 넘으면 말줄임표, 현재는 너비가 줄면 말줄임표) */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="user-list">
+      <li class="user">
+        <figure
+          class="avatar"
+          style="background-image: url('../images//ilbuni.png')"
+        ></figure>
+        <p class="name">Neela Jolene Neela Jolene</p>
+      </li>
+      <li class="user">
+        <figure
+          class="avatar"
+          style="background-image: url('../images//ilbuni.png')"
+        ></figure>
+        <p class="name">Vienna Johnston Vienna Johnston</p>
+      </li>
+      <li class="user">
+        <figure
+          class="avatar"
+          style="background-image: url('../images//ilbuni.png')"
+        ></figure>
+        <p class="name">Callie Chae Pyken Callie Chae Pyken</p>
+      </li>
+    </ul>
+  </body>
+</html>

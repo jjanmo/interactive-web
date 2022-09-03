@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message List</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .list {
+        list-style: none;
+        margin: 1rem;
+      }
+      .item {
+        display: flex;
+      }
+      .item + .item {
+        margin-top: 1em;
+      }
+      .avatar {
+        width: 4rem;
+        height: 4rem;
+        margin-right: 1em;
+        border-radius: 50%;
+        border: 2px solid black;
+
+        /* 
+        기본값이 1이기 때문에 옆의 text의 양에 따라서 자동적으로 줄어들게된다.
+        이를 막기 위해서 0으로 설정하면 항상 해당 요소의 크기를 유지하게 된다.(줄지않는다!)
+        */
+        flex-shrink: 0;
+
+        background-color: gold;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="list">
+      <li class="item">
+        <figure
+          class="avatar"
+          style="background-image: url('../images//ilbuni.png')"
+        ></figure>
+        <p class="message">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat,
+          facere architecto perspiciatis magni harum hic unde facilis dolorem
+          laboriosam incidunt, ratione animi non aliquid molestiae earum iusto
+          iure ab ducimus. Lorem ipsum, dolor sit amet consectetur adipisicing
+          elit. Sapiente, quisquam porro! Ullam quaerat assumenda consectetur
+          harum cumque sit illo ab vitae dignissimos temporibus beatae, at
+          reprehenderit, qui, incidunt fugit fuga?
+        </p>
+      </li>
+      <li class="item">
+        <figure
+          class="avatar"
+          style="background-image: url('../images//ilbuni.png')"
+        ></figure>
+        <p class="message">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat,
+          facere architecto perspiciatis magni harum hic unde facilis dolorem
+          laboriosam incidunt, ratione animi non aliquid molestiae earum iusto
+          iure ab ducimus.
+        </p>
+      </li>
+      <li class="item">
+        <figure
+          class="avatar"
+          style="background-image: url('../images//ilbuni.png')"
+        ></figure>
+        <p class="message">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat,
+          facere architecto perspiciatis magni harum hic unde facilis dolorem
+          laboriosam incidunt, ratione animi non aliquid molestiae earum iusto
+          iure ab ducimus.
+        </p>
+      </li>
+    </ul>
+  </body>
+</html>

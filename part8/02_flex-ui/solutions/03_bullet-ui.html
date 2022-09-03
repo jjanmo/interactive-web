@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bullet UI</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .info-list {
+        margin: 1rem;
+        list-style: none;
+      }
+      .info-list-item {
+        /* item안에 flex를 통해서 before element 와 text 사이를 구역을 나누게 된다 */
+        display: flex;
+      }
+      .info-list-item + .info-list-item {
+        margin-top: 1em;
+      }
+      .info-list-item::before {
+        content: '👉🏼';
+        margin-right: 0.6em;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="info-list">
+      <li class="info-list-item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+        mollitia corrupti magni ut nesciunt autem eligendi placeat, eum
+        reprehenderit ipsam, sapiente corporis magnam consectetur tenetur maxime
+        in quod rem ipsa!
+      </li>
+      <li class="info-list-item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste molestiae
+        debitis repudiandae aliquam voluptatibus, nulla sequi alias laboriosam,
+        quibusdam et inventore ullam. Accusantium quod incidunt, placeat
+        veritatis corrupti mollitia minima.
+      </li>
+      <li class="info-list-item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+        iusto! Sed error provident corporis nisi temporibus vitae quam
+        voluptatibus architecto suscipit eum? Et reprehenderit temporibus quis
+        fugiat provident assumenda iure!
+      </li>
+    </ul>
+  </body>
+</html>
