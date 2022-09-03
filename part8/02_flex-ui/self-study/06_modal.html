@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .container {
+      width: 500px;
+      height: auto;
+      padding: 2em;
+      border-radius: 1rem;
+      background-color: #eee;
+    }
+    .header {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+    .body {
+      font-size: 18px;
+    }
+  </style>
+  <body>
+    <div class="overlay">
+      <div class="container">
+        <h2 class="header">이것은 모달입니다.</h2>
+        <div class="body">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero
+          suscipit officiis odit sit rem earum aliquid ad vel dolore id eligendi
+          quod, atque recusandae error quibusdam. Sed quod doloribus a. Lorem
+          ipsum dolor sit amet consectetur, adipisicing elit. Vero suscipit
+          officiis odit sit rem earum aliquid ad vel dolore id eligendi quod,
+          atque recusandae error quibusdam. Sed quod doloribus a.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
