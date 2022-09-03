@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card List</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #eee;
+    }
+    .card-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+    .title {
+      height: 0;
+      padding-bottom: 60%; /* 비율이 일정한 높이의 박스를 만드는 방법 : padding은 width 기준으로 늘어난다! */
+      font-size: 2rem;
+      font-weight: bold;
+      position: relative;
+    }
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .detail {
+      flex-grow: 1; /* 늘어날수 있는 만큼 꽉 채우게 됨 */
+      padding: 1em;
+      background-color: white;
+    }
+
+    @media (min-width: 600px) {
+      .card-list {
+        /* negative margin 활용법 */
+        margin: 0 -1rem;
+      }
+      .card {
+        width: 50%;
+        padding: 0 1rem;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .card-list {
+        margin: 0 -1rem;
+      }
+      .card {
+        padding: 0 1rem;
+        width: 33.33333%;
+      }
+    }
+  </style>
+  <body>
+    <ul class="card-list">
+      <li class="card">
+        <div class="title">
+          타이틀 들어가는 공간
+          <figure class="bg"></figure>
+        </div>
+        <div class="detail">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et laborum
+          consequuntur cumque odit ullam, molestiae, necessitatibus quisquam
+          assumenda similique modi placeat quo vel soluta quas saepe at, in aut
+          veniam.
+        </div>
+      </li>
+      <li class="card">
+        <div class="title">
+          타이틀 들어가는 공간
+          <figure class="bg"></figure>
+        </div>
+        <div class="detail">Lorem ipsum dolor</div>
+      </li>
+      <li class="card">
+        <div class="title">
+          타이틀 들어가는 공간
+          <figure class="bg"></figure>
+        </div>
+        <div class="detail">Lorem ipsum dolor</div>
+      </li>
+      <li class="card">
+        <div class="title">
+          타이틀 들어가는 공간
+          <figure class="bg"></figure>
+        </div>
+        <div class="detail">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et laborum
+          consequuntur cumque odit ullam, molestiae, necessitatibus quisquam
+        </div>
+      </li>
+      <li class="card">
+        <div class="title">
+          타이틀 들어가는 공간
+          <figure class="bg"></figure>
+        </div>
+        <div class="detail">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et laborum
+          consequuntur cumque odit ullam,
+        </div>
+      </li>
+      <li class="card">
+        <div class="title">
+          타이틀 들어가는 공간
+          <figure class="bg"></figure>
+        </div>
+        <div class="detail">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et laborum
+          consequuntur cumque odit ullam, molestiae, necessitatibus quisquam
+          veniam.
+        </div>
+      </li>
+      <li class="card">
+        <div class="title">
+          타이틀 들어가는 공간
+          <figure class="bg"></figure>
+        </div>
+        <div class="detail">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et laborum
+          consequuntur cumque odit ullam, molestiae, necessitatibus quisquam
+        </div>
+      </li>
+      <li class="card">
+        <div class="title">
+          타이틀 들어가는 공간
+          <figure class="bg"></figure>
+        </div>
+        <div class="detail">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et laborum
+          consequuntur cumque odit ullam, molestiae, necessitatibus quisquam
+        </div>
+      </li>
+      <li class="card">
+        <div class="title">
+          타이틀 들어가는 공간
+          <figure class="bg"></figure>
+        </div>
+        <div class="detail">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et laborum
+          consequuntur cumque odit ullam, molestiae, necessitatibus quisquam
+        </div>
+      </li>
+      <li class="card">
+        <div class="title">
+          타이틀 들어가는 공간
+          <figure class="bg"></figure>
+        </div>
+        <div class="detail">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et laborum
+          consequuntur cumque odit ullam, molestiae, necessitatibus quisquam
+        </div>
+      </li>
+    </ul>
+    <script>
+      const bgs = document.querySelectorAll('.bg');
+      console.log(bgs);
+      bgs.forEach((bg) => {
+        bg.style.backgroundImage = `url('../images/bg${Math.floor(
+          Math.random() * 3 + 1
+        )}.jpg')`;
+      });
+    </script>
+  </body>
+</html>
