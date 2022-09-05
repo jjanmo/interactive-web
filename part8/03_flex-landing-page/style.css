@@ -113,8 +113,82 @@ a {
   flex-grow: 1;
 }
 
-@media (min-width: 800px) {
-  .card {
-    width: 50%;
-  }
+/* bullet-list */
+.bullet-list {
+  padding: 1rem;
+  list-style: none;
+}
+.item {
+  display: flex;
+
+  font-size: 18px;
+}
+.item + .item {
+  margin-top: 1rem;
+}
+.item::before {
+  content: '✅';
+  margin-right: 0.5rem;
+}
+
+/* user-list */
+.user-list {
+  padding: 1rem;
+  list-style: none;
+}
+.user {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid lightblue;
+  background-color: white;
+}
+.user + .user {
+  margin-top: 1rem;
+}
+.profile-image {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 2px solid lightblue;
+  background-image: url('./images/default_avatar.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.name {
+  font-size: 20px;
+}
+
+/* message-list */
+.message-list-section {
+  background-color: #34495e;
+  padding: 2rem 1rem;
+}
+.message-item {
+  display: flex;
+  color: white;
+}
+.message-item + .message-item {
+  margin-top: 1.5rem;
+}
+.message {
+  font-size: 20px;
+}
+.avatar {
+  flex-shrink: 0;
+  width: 5rem;
+  height: 5rem;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 2px solid #eee;
+  background-color: gold;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 150%;
+}
+section + section {
+  margin-top: 20px;
 }
