@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="default.css" />
+    <title></title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        /* 최소/최대 지정 : 높이가 최소 100px 최대는 컨텐츠양만큼 */
+        /* grid-template-rows: repeat(3, minmax(100px, auto)); */
+
+        /*
+        컬럼의 개수를 미리 지정하지않고 설정된 너비가 허용하는 한 최대한의 셀을 채움
+        auto-fill, auto-fit
+        → 단, auto-fit의 경우는 셀이 모자라도, 알아서 채운다
+        → 그리드를 이용해서 반응형스럽게(?) 만들수 있다.
+        */
+        grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ipsam
+        delectus voluptas accusamus maxime aperiam,delectus voluptas accusamus
+        maxime aperiamdelectus voluptas accusamus maxime aperiam delectus
+        voluptas accusamus maxime aperiam
+      </div>
+      <div class="grid-item">22</div>
+      <div class="grid-item">33</div>
+      <div class="grid-item">
+        ducimus fugit hic aliquid nulla, pariatur amet numquam dolorem in qui
+      </div>
+      <div class="grid-item">55</div>
+      <div class="grid-item">66</div>
+      <div class="grid-item">77</div>
+      <div class="grid-item">88</div>
+      <div class="grid-item">99</div>
+    </div>
+  </body>
+</html>

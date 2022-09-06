@@ -8,9 +8,9 @@
   background-color: lightgrey;
 }
 .grid-item {
-  padding: 1em;
+  padding: 10px;
   border: 3px solid #20bf6b;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   color: black;
   background-color: #fed330;
 }
