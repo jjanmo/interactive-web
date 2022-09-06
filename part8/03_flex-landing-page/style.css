@@ -77,6 +77,9 @@ a {
 }
 
 /* card-list */
+.card-list-section {
+  background-color: #dfe6e9;
+}
 .card-list {
   width: 100%;
   list-style: none;
@@ -113,6 +116,9 @@ a {
   flex-grow: 1;
 }
 
+.left-section {
+  background-color: #bdc3c7;
+}
 /* bullet-list */
 .bullet-list {
   padding: 1rem;
@@ -189,8 +195,11 @@ a {
   background-repeat: no-repeat;
   background-size: 150%;
 }
-section + section {
-  margin-top: 20px;
+.footer {
+  width: 100%;
+  padding: 1.5em 0;
+  background-color: #b2bec3;
+  text-align: center;
 }
 
 @media (min-width: 800px) {
@@ -234,5 +243,8 @@ section + section {
   .message-list-section {
     width: 20%;
     order: 3;
+  }
+  .footer {
+    order: 4;
   }
 }
