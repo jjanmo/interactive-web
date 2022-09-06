@@ -12,18 +12,33 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <label for="fake-github">
+      <img src="./images/github.png" alt="github-logo" />
+    </label>
+    <input type="checkbox" id="fake-github" />
+
+    <div class="modal-overlay">
+      <div class="modal-container">
+        <h2 class="modal-header">This is Fake Github Link.</h2>
+        <div class="modal-body">
+          In fact, this is Modal 🚀
+          <br />
+          hahahahhhahhahahahhhahhahahahhhahhahahahhhah
+          hahahahhhahhahahahhhahhahahahhhahhahahahhhah
+          hahahahhhahhahahahhhahhahahahhhah
+        </div>
+      </div>
+    </div>
+
     <div class="app">
       <header class="header">
         <div class="logo">
           <a href="#">JJanmo</a>
         </div>
-        <div class="search-bar">
+        <form class="search-bar">
           <input type="text" />
           <button class="search-button">찾기</button>
-        </div>
-        <a class="github" href="https://github.com/jjanmo" target="_blank">
-          <img src="./images/github.png" alt="github-logo" />
-        </a>
+        </form>
       </header>
 
       <nav class="navigation">

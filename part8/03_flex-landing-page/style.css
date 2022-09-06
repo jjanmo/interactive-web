@@ -28,7 +28,7 @@ a {
 
 .search-bar {
   display: flex;
-  margin-right: 1em;
+  margin-right: 4rem;
 }
 .search-bar input {
   padding: 0.5em 1em;
@@ -44,15 +44,6 @@ a {
   border-radius: 5px;
   background-color: #00b894;
   color: white;
-}
-.github {
-  width: 1.5rem;
-  height: 1.5rem;
-  cursor: pointer;
-}
-.github img {
-  width: 100%;
-  height: 100%;
 }
 
 /* navigation */
@@ -247,4 +238,54 @@ a {
   .footer {
     order: 4;
   }
+}
+
+/* modal */
+/* 
+combinator를 통해서 모달을 컨트롤 할 수도 있구나 에 대해서 알아두자
+사실, JS를 통해서 모달을 컨트롤하는 방법이 일반적이닷! 
+*/
+#fake-github:checked + .modal-overlay {
+  display: flex;
+}
+#fake-github {
+  display: none;
+}
+label {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 100;
+}
+label img {
+  width: 1.5rem;
+  height: 1.5rem;
+  z-index: 100;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  overflow: hidden;
+}
+.modal-container {
+  width: 500px;
+  height: auto;
+  padding: 2em;
+  border-radius: 1rem;
+  background-color: #eee;
+}
+.modal-header {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 0.5em;
 }
