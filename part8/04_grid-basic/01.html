@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="default.css" />
+    <title></title>
+    <style>
+      .grid-container {
+        /* grid는 기본적으로 해당 컨테이너를 꽉 채워서 그리드를 만든다 */
+        display: grid;
+
+        /* grid-template-columns: 100px 200px 300px 400px; */
+        /* grid-template-columns: repeat(2, 100px 200px 300px); */
+        /* grid-template-columns: 1fr 1fr 1fr; 아래와 동일*/
+        grid-template-columns: repeat(3, 1fr);
+
+        /* 정해준 row까지만 적용된다. 그 외는 기본값 */
+        grid-template-rows: 1fr 1fr;
+        /* grid-template-rows: 1fr 1fr auto; 위와 동일 */
+
+        height: 70vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">11</div>
+      <div class="grid-item">22</div>
+      <div class="grid-item">33</div>
+      <div class="grid-item">44</div>
+      <div class="grid-item">55</div>
+      <div class="grid-item">66</div>
+      <div class="grid-item">77</div>
+      <div class="grid-item">88</div>
+      <div class="grid-item">99</div>
+    </div>
+  </body>
+</html>

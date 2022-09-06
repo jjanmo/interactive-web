@@ -1,0 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.grid-container {
+  padding: 1em;
+  background-color: lightgrey;
+}
+.grid-item {
+  padding: 1em;
+  border: 3px solid #20bf6b;
+  font-size: 1.5rem;
+  color: black;
+  background-color: #fed330;
+}
