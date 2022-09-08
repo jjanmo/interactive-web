@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="default.css" />
+    <title></title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* grid-template-rows: repeat(3, minmax(10px, 200px)); */
+        /* grid-template-rows: repeat(auto-fill, minmax(10px, 200px)); */
+        grid-auto-rows: minmax(100px, auto);
+
+        /*
+        통제에 벗어난 트랙의 크기를 지정
+        row를 미리 알 수 있다면, 위에처럼 사용하지만, 유동적으로 row가 몇번 반복할지 모른다면??
+        grid-auto-rows를 통해서 row가 minmax에 맞춰서 알아서 처리되게 된다.
+
+        + grid-template-rows: repeat(auto-fill, minmax(10px, 200px)) 을 사용한다면?
+        → 02파일에서 설명했지만, auto-fill은 너비/높이에 맞춰서 알아서 늘어난것,
+        그렇기 때문에 높이를 지정하지않는다면 or 아이템을 기준으로 한다면 적절하지않은듯.
+        */
+
+        /*
+        예전 gap 방식
+        column-gap: 1rem;
+        row-gap: 1rem;
+        */
+
+        gap: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ipsam
+        delectus voluptas accusamus maxime aperiam,delectus voluptas accusamus
+        maxime aperiamdelectus voluptas accusamus maxime aperiam delectus
+        voluptas accusamus maxime aperiam
+      </div>
+      <div class="grid-item">22</div>
+      <div class="grid-item">33</div>
+      <div class="grid-item">
+        ducimus fugit hic aliquid nulla, pariatur amet numquam dolorem in qui
+      </div>
+      <div class="grid-item">55</div>
+      <div class="grid-item">66</div>
+      <div class="grid-item">77</div>
+      <div class="grid-item">88</div>
+      <div class="grid-item">99</div>
+      <div class="grid-item">77</div>
+      <div class="grid-item">88</div>
+      <div class="grid-item">99</div>
+      <div class="grid-item">77</div>
+      <div class="grid-item">88</div>
+      <div class="grid-item">99</div>
+      <div class="grid-item">88</div>
+    </div>
+  </body>
+</html>
