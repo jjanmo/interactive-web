@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="default.css" />
+    <title></title>
+    <style>
+      /* 
+      grid-auto-flow
+      그리드 아이템 자동배치 
+      row : 각 행을 차례로 채우고 필요에 따라 새 행을 추가하는 자동 배치 알고리즘
+      column : 각 열을 차례로 채우고 필요에 따라 새 열을 추가하는 자동 배치 알고리즘
+
+      dense : 배치 중 나중에 크기가 작은 아이템이 존재할 경우, 그리드 영역 앞부분의 남은 공간에 자동 배치하는 알고리즘
+              → 기준이 row 냐 column이냐에 따라 구분
+      row dense
+      column dense 
+
+      */
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 100px);
+
+        /* 기본값 */
+        /* grid-auto-flow: row; */
+        /* grid-auto-flow: column; */
+        /* grid-auto-flow: dense row; */
+        grid-auto-flow: dense column;
+      }
+      .grid-item:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1 / 3;
+      }
+      .grid-item:nth-child(5) {
+        grid-column: 4;
+        grid-row: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">item-a</div>
+      <div class="grid-item">item-b</div>
+      <div class="grid-item">item-c</div>
+      <div class="grid-item">item-d</div>
+      <div class="grid-item">item-e</div>
+    </div>
+  </body>
+</html>
