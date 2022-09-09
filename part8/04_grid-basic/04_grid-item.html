@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="default.css" />
+    <title></title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(100px, auto);
+        gap: 1rem;
+      }
+
+      .grid-item:nth-child(1) {
+        grid-column: 1 / 3;
+
+        /* 시작 row 1부터 4까지를 의미하는 표현 */
+
+        /* 
+        1)
+        grid-row-start: 1;
+        grid-row-end: 4; 
+        */
+
+        /* 
+        2)
+        grid-row: 1 / 4; 
+        */
+
+        /* 3) 1줄부터 시작해서 3칸을 차지한다라는 의미 */
+        grid-row: 1 / span 3;
+
+        /* 1 ~ 3 모두 같은 의미 */
+      }
+      .grid-item:nth-child(4) {
+        /* 생략하면 1칸을 의미 */
+        grid-column: 3;
+        /* grid-column: 3 / 4; */
+
+        grid-row: 2 / 6;
+        opacity: 0.5;
+        text-align: right;
+        color: red;
+        font-weight: bold;
+      }
+      .grid-item:nth-child(3) {
+        /*
+         C 아이템과 D아이템을 중복된 칸에 위치시키고 싶다면, row와 column 을 모두 적어주면 된다.
+         → 모두 적어주면 중복되는 칸에 위치 가능
+         */
+        grid-column: 3;
+        grid-row: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">A</div>
+      <div class="grid-item">B</div>
+      <div class="grid-item">C</div>
+      <div class="grid-item">D</div>
+      <div class="grid-item">E</div>
+      <div class="grid-item">F</div>
+      <div class="grid-item">G</div>
+      <div class="grid-item">H</div>
+      <div class="grid-item">I</div>
+      <div class="grid-item">J</div>
+      <div class="grid-item">K</div>
+      <div class="grid-item">L</div>
+      <div class="grid-item">M</div>
+      <div class="grid-item">N</div>
+      <div class="grid-item">O</div>
+      <div class="grid-item">P</div>
+    </div>
+  </body>
+</html>
