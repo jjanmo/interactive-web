@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="default.css" />
+    <title></title>
+    <style>
+      .grid-container {
+        display: grid;
+        /* 첫번째 컬럼 설정 */
+        grid-template-columns: 50px;
+        /* 두번째 컬럼부터 자동으로 1:2의 비율로 설정됨 */
+        grid-auto-columns: 1fr 2fr;
+        gap: 1rem;
+      }
+
+      .grid-item:nth-child(1) {
+        grid-column: 2;
+      }
+      .grid-item:nth-child(2) {
+        grid-column: 3;
+      }
+      .grid-item:nth-child(3) {
+        grid-column: 4;
+      }
+      .grid-item:nth-child(4) {
+        grid-column: 5;
+      }
+      .grid-item:nth-child(5) {
+        grid-column: 6;
+      }
+      .grid-item:nth-child(6) {
+        grid-column: 7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">A</div>
+      <div class="grid-item">B</div>
+      <div class="grid-item">C</div>
+      <div class="grid-item">D</div>
+      <div class="grid-item">E</div>
+      <div class="grid-item">F</div>
+      <div class="grid-item">G</div>
+      <div class="grid-item">H</div>
+      <div class="grid-item">I</div>
+      <div class="grid-item">J</div>
+      <div class="grid-item">K</div>
+      <div class="grid-item">L</div>
+      <div class="grid-item">M</div>
+      <div class="grid-item">N</div>
+      <div class="grid-item">O</div>
+      <div class="grid-item">P</div>
+    </div>
+  </body>
+</html>
