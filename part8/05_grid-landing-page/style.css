@@ -72,12 +72,15 @@ a {
   background-color: #dfe6e9;
 }
 .card-list {
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+
   list-style: none;
   padding: 1em;
 }
 .card {
   width: 100%;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
@@ -194,56 +197,29 @@ a {
     display: grid;
     grid-template-columns: 20% 1fr 20%;
   }
-
   .header {
     grid-column: 1 / 4;
     grid-row: 1 / 2;
   }
-
   .navigation {
     grid-column: 1 / 4;
     grid-row: 2 / 3;
   }
-
   .card-list-section {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
   }
-  .card-list {
-    padding: 0;
-  }
-
   .left-section {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
   }
-
   .message-list-section {
     grid-column: 3 / 4;
     grid-row: 3 / 4;
   }
-
   .footer {
     grid-column: 1 / 4;
     grid-row: 4 / 5;
-  }
-
-  .card-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .card {
-    width: 50%;
-    padding: 1em;
-    margin-bottom: 0;
-  }
-  .card .card-image {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  .card .description {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
   }
 }
 @media (min-width: 1200px) {
@@ -253,10 +229,6 @@ a {
 } */
 
 /* modal */
-/* 
-combinator를 통해서 모달을 컨트롤 할 수도 있구나 에 대해서 알아두자
-사실, JS를 통해서 모달을 컨트롤하는 방법이 일반적이닷! 
-*/
 #fake-github:checked + .modal-overlay {
   display: flex;
 }
@@ -317,48 +289,23 @@ label img {
   .header {
     grid-area: header;
   }
-
   .navigation {
     grid-area: nav;
   }
-
   .card-list-section {
     grid-area: card;
   }
-  .card-list {
-    padding: 0;
-  }
-
   .left-section {
     grid-area: left;
   }
-
   .message-list-section {
     grid-area: message;
   }
-
   .footer {
     grid-area: footer;
   }
-
-  .card-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .card {
-    width: 50%;
-    padding: 1em;
-    margin-bottom: 0;
-  }
-  .card .card-image {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  .card .description {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
 }
+
 @media (min-width: 1200px) {
   .app {
     grid-template-columns: 300px 1fr 300px;
