@@ -1,0 +1,303 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #eee;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* header */
+.header {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  flex: 1;
+  font-size: large;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.search-bar {
+  display: flex;
+  margin-right: 4rem;
+}
+.search-bar input {
+  padding: 0.5em 1em;
+  margin-right: 5px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+.search-bar .search-button {
+  flex-shrink: 0;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #00b894;
+  color: white;
+}
+
+/* navigation */
+.navigation {
+  width: 100%;
+  background-color: #55efc4;
+  display: flex;
+}
+.nav-item {
+  width: 25%;
+  padding: 1em;
+  color: #00b894;
+  text-transform: capitalize;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.nav-item:hover {
+  width: 35%;
+  color: white;
+  background-color: #00b894;
+}
+
+/* card-list */
+.card-list-section {
+  background-color: #dfe6e9;
+}
+.card-list {
+  width: 100%;
+  list-style: none;
+  padding: 1em;
+}
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.image-wrapper {
+  position: relative;
+  height: 0;
+  padding-bottom: 70%;
+}
+.card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.description {
+  width: 100%;
+  font-size: 18px;
+  padding: 1em;
+  background-color: white;
+  flex-grow: 1;
+}
+
+.left-section {
+  background-color: #bdc3c7;
+}
+/* bullet-list */
+.bullet-list {
+  padding: 1rem;
+  list-style: none;
+}
+.item {
+  display: flex;
+
+  font-size: 18px;
+}
+.item + .item {
+  margin-top: 1rem;
+}
+.item::before {
+  content: '✅';
+  margin-right: 0.5rem;
+}
+
+/* user-list */
+.user-list {
+  padding: 1rem;
+  list-style: none;
+}
+.user {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid lightblue;
+  background-color: white;
+}
+.user + .user {
+  margin-top: 1rem;
+}
+.profile-image {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 2px solid lightblue;
+  background-image: url('./images/default_avatar.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* message-list */
+.message-list-section {
+  background-color: #34495e;
+  padding: 2rem 1rem;
+}
+.message-item {
+  display: flex;
+  color: white;
+}
+.message-item + .message-item {
+  margin-top: 1.5rem;
+}
+.avatar {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 2px solid #eee;
+  background-color: gold;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 150%;
+}
+.footer {
+  width: 100%;
+  padding: 1.5em 0;
+  background-color: #b2bec3;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .app {
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
+  }
+
+  .header {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+  }
+
+  .navigation {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+  }
+
+  .card-list-section {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+  .card-list {
+    padding: 0;
+  }
+
+  .left-section {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  .message-list-section {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+  }
+
+  .footer {
+    grid-column: 1 / 4;
+    grid-row: 4 / 5;
+  }
+
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 50%;
+    padding: 1em;
+    margin-bottom: 0;
+  }
+  .card .card-image {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .card .description {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .app {
+    grid-template-columns: 300px 1fr 300px;
+  }
+}
+
+/* modal */
+/* 
+combinator를 통해서 모달을 컨트롤 할 수도 있구나 에 대해서 알아두자
+사실, JS를 통해서 모달을 컨트롤하는 방법이 일반적이닷! 
+*/
+#fake-github:checked + .modal-overlay {
+  display: flex;
+}
+#fake-github {
+  display: none;
+}
+label {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 100;
+}
+label img {
+  width: 1.5rem;
+  height: 1.5rem;
+  z-index: 100;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  overflow: hidden;
+}
+.modal-container {
+  width: 500px;
+  height: auto;
+  padding: 2em;
+  border-radius: 1rem;
+  background-color: #eee;
+}
+.modal-header {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
