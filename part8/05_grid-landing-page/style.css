@@ -188,7 +188,8 @@ a {
   text-align: center;
 }
 
-@media (min-width: 900px) {
+/* sol1) */
+/* @media (min-width: 900px) {
   .app {
     display: grid;
     grid-template-columns: 20% 1fr 20%;
@@ -245,12 +246,11 @@ a {
     border-bottom-right-radius: 10px;
   }
 }
-
 @media (min-width: 1200px) {
   .app {
     grid-template-columns: 300px 1fr 300px;
   }
-}
+} */
 
 /* modal */
 /* 
@@ -300,4 +300,67 @@ label img {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 0.5em;
+}
+
+/* sol2) grid template area */
+@media (min-width: 900px) {
+  .app {
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
+    grid-template-areas:
+      'header header header'
+      'nav    nav    nav'
+      'left   card   message'
+      'footer footer footer';
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .navigation {
+    grid-area: nav;
+  }
+
+  .card-list-section {
+    grid-area: card;
+  }
+  .card-list {
+    padding: 0;
+  }
+
+  .left-section {
+    grid-area: left;
+  }
+
+  .message-list-section {
+    grid-area: message;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 50%;
+    padding: 1em;
+    margin-bottom: 0;
+  }
+  .card .card-image {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .card .description {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+@media (min-width: 1200px) {
+  .app {
+    grid-template-columns: 300px 1fr 300px;
+  }
 }
