@@ -14,49 +14,34 @@ body {
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
 }
 
-.button-container {
-  grid-column: 1 / 5;
-  grid-row: 1;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.button-container label {
+label {
   padding: 0.5em 1em;
   font-size: 1.5rem;
   text-transform: uppercase;
+  cursor: pointer;
 }
-.button-container input {
-  display: none;
-}
-.button-container input:checked + label {
+input:checked + label {
   background-color: #485460;
   color: white;
 }
-.button-container label:nth-of-type(1) {
-  grid-column: 1 / 2;
-}
-.button-container label:nth-of-type(2) {
-  grid-column: 2 / 3;
+input[name='checkbox'] {
+  display: none;
 }
 
 .header {
   grid-column: 1 / 5;
-  grid-row: 2;
 
-  margin-bottom: 0.5em;
+  /* 
+  grid-row를 지정하게 되면 grid-auto-flow row dense가 발동하는 것처럼 보임.
+  그래서 다른 곳들도 다 지정을 해줘야 하는 것 
+  → 지정을 안하면 순서대로 들어가다가 들어갈 자리가 없으면 알아서 다음 row로 배치되는 것
+  */
+  /* grid-row: 2; */
   font-size: 5rem;
   color: #808e9b;
-}
-.card-list {
-  grid-column: 1 / 5;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
 }
 
 .card {
@@ -94,10 +79,28 @@ body {
 
 .footer {
   grid-column: 1 / 5;
-  grid-row: 4;
 
   margin-top: 1em;
   padding: 1em 2em;
   background-color: #808e9b;
   text-align: center;
+}
+
+/* 
+css logic
+→ 사실 js로 하는 것이 맞다고 생각함 
+→ css로도 할 수 있음을 인지하자!
+*/
+
+#category:checked ~ .java {
+  grid-row: 3/4;
+}
+#category:checked ~ .card.python {
+  grid-row: 4 / 5;
+}
+#category:checked ~ .card.typescript {
+  grid-row: 5 / 6;
+}
+#category:checked ~ .card.c-sharp {
+  grid-row: 6 / 7;
 }
