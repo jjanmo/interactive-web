@@ -1,0 +1,17 @@
+.grid-container {
+  width: 30rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+
+  margin: 4rem;
+}
+.grid-item {
+  padding: 30px 20px;
+  border-radius: 10px;
+
+  font-weight: 700;
+  font-size: 26px;
+  background-color: #444;
+  color: white;
+}
