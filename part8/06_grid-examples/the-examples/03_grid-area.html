@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="common.style.css" />
+    <title>03</title>
+    <style>
+      .a {
+        /* row-start/column-start/row-end/column-end */
+        grid-area: 1 / 2 / 2 / 3;
+      }
+      .b {
+        grid-area: 2 / 2;
+      }
+      .c {
+        grid-area: 2 / 3;
+      }
+      .d {
+        grid-area: 1 / 1;
+      }
+      .e {
+        grid-area: 2 / 1;
+      }
+      .f {
+        grid-area: 1 / 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item a">A</div>
+      <div class="grid-item b">B</div>
+      <div class="grid-item c">C</div>
+      <div class="grid-item d">D</div>
+      <div class="grid-item e">E</div>
+      <div class="grid-item f">F</div>
+    </div>
+  </body>
+</html>

@@ -8,16 +8,19 @@
     <title>02</title>
     <style>
       .a {
+        /* end 생략하면 1칸 */
         grid-column-start: 2;
         grid-column-end: 2;
         grid-row-start: 1;
         grid-row-end: 1;
       }
       .b {
-        grid-column: 2;
-        grid-row: 2;
+        /* shorthand */
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
       }
       .c {
+        /* 생략하면 column과 row가 1칸 */
         grid-column: 3;
         grid-row: 2;
       }
