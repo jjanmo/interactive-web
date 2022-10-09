@@ -93,7 +93,7 @@ css logic
 */
 
 #category:checked ~ .java {
-  grid-row: 3/4;
+  grid-row: 3 / 4;
 }
 #category:checked ~ .card.python {
   grid-row: 4 / 5;
