@@ -3,3 +3,76 @@
   margin: 0;
   box-sizing: border-box;
 }
+:root {
+  font-size: 10px;
+}
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  font-family: 'Playfair Display', serif;
+
+  perspective: 1000px;
+}
+.leftlet {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  width: 25vw;
+  height: 25vw;
+  margin: auto;
+  outline: 5px solid black;
+
+  transform-style: preserve-3d;
+}
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  transform-style: preserve-3d;
+  transition: all 0.5s ease-in-out;
+  outline: 1px solid magenta;
+}
+.page:nth-child(1) {
+  z-index: 2;
+  transform-origin: left;
+}
+.page:nth-child(2) {
+  z-index: 0;
+}
+.page:nth-child(3) {
+  z-index: 1;
+  transform-origin: right;
+}
+.page:nth-child(1):hover {
+  transform: rotateY(-150deg);
+}
+.page:nth-child(3):hover {
+  transform: rotateY(150deg);
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+
+  background: cornsilk;
+  transform-style: preserve-3d;
+
+  backface-visibility: hidden;
+}
+.face.front {
+}
+.face.back {
+  transform: rotateY(180deg);
+}
