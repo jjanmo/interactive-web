@@ -26,7 +26,7 @@ body {
 
   transform-style: preserve-3d;
 
-  transition: all 0.5s;
+  transition: all 0.8s ease-in-out;
 }
 .page {
   position: absolute;
@@ -62,6 +62,11 @@ body {
   border: 1px solid #e17055;
 }
 
+.page:nth-child(1) .back,
+.page:nth-child(3) .back {
+  z-index: 0;
+}
+
 /* page2 */
 .page:nth-child(2) {
   z-index: 0;
@@ -93,7 +98,7 @@ body {
   font-size: 2rem;
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  padding: 2rem;
+  padding: 1rem 2rem;
 }
 .face.front {
   background: cornsilk;
@@ -123,41 +128,53 @@ em {
 }
 .lecture {
   width: 100%;
-  height: 100%;
+  height: 90%;
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+
+  transform-style: preserve-3d;
 }
 .lecture-title {
   font-size: 24px;
   font-weight: 500;
-  margin-bottom: 24px;
   transition: all 0.5s ease-in-out;
 }
 .lecture-detail {
-  position: relative;
-  margin-bottom: 24px;
+  width: 80%;
   font-size: 16px;
   font-weight: 400;
   color: rgb(100, 105, 110);
   transition: all 0.5s ease-in-out;
 }
+.image-wrapper {
+  position: relative;
+  margin-top: 1rem;
+  transform-style: preserve-3d;
+}
 .lecture-image {
+  display: block;
   width: 100%;
+  height: 100%;
   border-radius: 10px;
   cursor: pointer;
+
+  transform-style: preserve-3d;
 }
-button {
+.back-button {
+  background-color: red;
   all: unset;
   position: absolute;
-  bottom: -16px;
+  top: -25px;
   right: 10px;
-  font-size: 16px;
+  font-size: 12px;
   color: black;
-}
 
-/* global css */
+  transform-style: preserve-3d;
+
+  cursor: pointer;
+}
 
 .hidden {
   display: none;
