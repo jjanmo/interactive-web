@@ -1,0 +1,65 @@
+/*
+한글 : SUIT
+(overriding)영문, 숫자 폰트 - SofiaPro
+*/
+
+@font-face {
+  font-family: 'SUIT';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: local('SUIT-Regular'), url('../fonts/SUIT-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SUIT';
+  font-style: normal;
+  font-weight: 500;
+  font-display: fallback;
+  src: local('SUIT-Medium'), url('../fonts/SUIT-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SUIT';
+  font-style: normal;
+  font-weight: 600;
+  font-display: fallback;
+  src: local('SUIT-SemiBold'),
+    url('../fonts/SUIT-SemiBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SUIT';
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: local('SUIT-Bold'), url('../fonts/SUIT-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'SofiaPro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: local('SofiaProRegular'),
+    url('../fonts/SofiaProRegular.woff') format('woff2');
+
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: 'SofiaPro';
+  font-style: normal;
+  font-weight: 600;
+  font-display: fallback;
+  src: local('SofiaProSemiBold'),
+    url('../fonts/SofiaProSemiBold.woff') format('woff2');
+
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: 'SofiaPro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: local('SofiaProBold'), url('../fonts/SofiaProBold.woff') format('woff2');
+
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
