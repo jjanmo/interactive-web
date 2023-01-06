@@ -9,7 +9,7 @@ body {
   background: url('../assets/tablewood.jpg');
   background-size: auto 130px;
 
-  perspective: 2000px;
+  perspective: 1800px;
 
   word-break: keep-all;
 }
@@ -25,7 +25,8 @@ body {
   margin: auto;
 
   transform-style: preserve-3d;
-  cursor: pointer;
+
+  transition: all 0.5s;
 }
 .page {
   position: absolute;
@@ -130,20 +131,41 @@ em {
 }
 .lecture-title {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 24px;
+  transition: all 0.5s ease-in-out;
 }
 .lecture-detail {
+  position: relative;
   margin-bottom: 24px;
   font-size: 16px;
   font-weight: 400;
   color: rgb(100, 105, 110);
+  transition: all 0.5s ease-in-out;
 }
 .lecture-image {
   width: 100%;
   border-radius: 10px;
+  cursor: pointer;
 }
+button {
+  all: unset;
+  position: absolute;
+  bottom: -16px;
+  right: 10px;
+  font-size: 16px;
+  color: black;
+}
+
+/* global css */
 
 .hidden {
   display: none;
+}
+.zoom-in .lecture-title,
+.zoom-in .lecture-detail {
+  opacity: 0;
+}
+.selected {
+  opacity: 1;
 }
