@@ -9,7 +9,9 @@ body {
   background: url('../assets/tablewood.jpg');
   background-size: auto 130px;
 
-  perspective: 1500px;
+  perspective: 2000px;
+
+  word-break: keep-all;
 }
 .leftlet {
   position: absolute;
@@ -18,8 +20,8 @@ body {
   left: 0;
   right: 0;
 
-  width: 28vw;
-  height: 28vw;
+  width: 30vw;
+  height: 30vw;
   margin: auto;
 
   transform-style: preserve-3d;
@@ -35,7 +37,6 @@ body {
 }
 
 /* page1 */
-
 .page:nth-child(1) {
   z-index: 2;
   transform-origin: left;
@@ -58,11 +59,6 @@ body {
   bottom: 10px;
   right: 10px;
   border: 1px solid #e17055;
-}
-.page:nth-child(1) .front .from {
-  font-family: 'Courgette', cursive;
-  font-size: 30px;
-  margin-top: 10px;
 }
 
 /* page2 */
@@ -96,6 +92,7 @@ body {
   font-size: 2rem;
   transform-style: preserve-3d;
   backface-visibility: hidden;
+  padding: 2rem;
 }
 .face.front {
   background: cornsilk;
@@ -105,37 +102,48 @@ body {
   background: white;
 }
 
-/* list-item */
-.list {
+/* lecture */
+em {
+  font-style: normal;
+  font-weight: 600;
+  color: rgb(255, 76, 119);
+}
+.en {
+  font-family: 'SofiaPro';
+}
+.kr {
+  font-family: 'SUIT';
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 400;
+}
+.lecture {
+  width: 100%;
+  height: 100%;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  transform-style: preserve-3d;
+  justify-content: center;
 }
-.item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  transform-style: preserve-3d;
-  font-size: 1px;
+.lecture-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
 }
-.item + .item {
-  margin-top: 1rem;
-}
-.item img {
-  flex-shrink: 1;
-  height: 76px;
-  margin-right: 1rem;
-  border-radius: 50%;
-}
-.item .title {
+.lecture-detail {
+  margin-bottom: 24px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
+  color: rgb(100, 105, 110);
 }
-.item button {
-  all: unset;
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 14px;
+.lecture-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
 }
