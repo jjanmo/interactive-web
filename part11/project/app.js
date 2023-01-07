@@ -5,6 +5,14 @@
 
 (function () {
   const $leftlet = document.querySelector('.leftlet');
+  const $cursor = document.querySelector('.cursor');
+  const position = {
+    curX: 0,
+    curY: 0,
+    destX: 0,
+    destY: 0,
+  };
+  let { curX, curY, destX, destY } = position;
   let $selectedImage = null;
 
   const getTarget = (element, targetName) => {
@@ -58,12 +66,14 @@
     $leftlet.style.transform = `translate3d(0, 0, 0)`;
     document.body.classList.remove('zoom-in');
     $selectedImage.classList.remove('selected');
+    $selectedImage = null;
   };
 
   const closeLeftlet = () => {
     const [$left, , $right] = document.querySelectorAll('.page');
 
-    zoomOut();
+    if ($selectedImage) zoomOut();
+
     $right.style.transform = 'rotateY(0)';
     setTimeout(() => {
       $left.style.transform = 'rotateY(0)';
@@ -72,6 +82,16 @@
     document.body.classList.remove('fully-opened');
     $selectedImage = null;
   };
+
+  const renderCursor = () => {
+    curX = curX + (destX - curX) * 0.1;
+    curY = curY + (destY - curY) * 0.1;
+
+    $cursor.style.transform = `translate3d(${curX}px, ${curY}px, 0)`;
+
+    requestAnimationFrame(renderCursor);
+  };
+  renderCursor();
 
   const handleClickLeftlet = (e) => {
     const pageElem = getTarget(e.target, 'page');
@@ -95,5 +115,11 @@
     }
   };
 
+  const handleMousemove = (e) => {
+    destX = e.clientX;
+    destY = e.clientY;
+  };
+
   $leftlet.addEventListener('click', handleClickLeftlet);
+  window.addEventListener('mousemove', handleMousemove);
 })();
