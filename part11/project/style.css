@@ -26,7 +26,9 @@ body {
 
   transform-style: preserve-3d;
 
-  transition: all 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
+
+  animation: start-rotating 0.8s ease-in-out forwards;
 }
 .page {
   position: absolute;
@@ -178,11 +180,11 @@ em {
   all: unset;
   display: none;
   position: absolute;
-  top: -20px;
-  right: 0;
+  top: -30px;
+  right: 10px;
 
   color: white;
-  font-size: 16px;
+  font-size: 20px;
 
   transform-style: preserve-3d;
   cursor: pointer;
@@ -206,6 +208,11 @@ em {
   position: absolute;
   z-index: 10;
   pointer-events: none;
+  top: 40%;
+  left: 20%;
+
+  opacity: 0;
+  animation: start-opacity 1s 0.5s ease-in-out forwards;
 }
 .cursor-image {
   width: 150px;
@@ -213,7 +220,25 @@ em {
   transition: all 0.6s ease-in-out;
   transform-origin: left top;
 }
-.zoom-in .cursor .cursor-image {
+.zoom-in .cursor-image {
   transform: scale(2);
   opacity: 0.5;
+}
+
+@keyframes start-rotating {
+  0% {
+    transform: translate(-100%, 100%) rotate(-540deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+@keyframes start-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

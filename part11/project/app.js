@@ -84,10 +84,10 @@
   };
 
   const renderCursor = () => {
-    curX = curX + (destX - curX) * 0.1;
-    curY = curY + (destY - curY) * 0.1;
+    curX = curX + (destX - curX) * 0.05;
+    curY = curY + (destY - curY) * 0.05;
 
-    $cursor.style.transform = `translate3d(${curX}px, ${curY}px, 0)`;
+    $cursor.style.transform = `translate3d(${curX + 30}px, ${curY + 30}px, 0)`;
 
     requestAnimationFrame(renderCursor);
   };
@@ -116,10 +116,15 @@
   };
 
   const handleMousemove = (e) => {
-    destX = e.clientX;
-    destY = e.clientY;
+    destX = e.clientX - window.innerWidth * 0.2;
+    destY = e.clientY - window.innerHeight * 0.4;
+  };
+
+  const handleLeftletAnimationend = () => {
+    $leftlet.style.animation = 'none';
   };
 
   $leftlet.addEventListener('click', handleClickLeftlet);
+  $leftlet.addEventListener('animationend', handleLeftletAnimationend);
   window.addEventListener('mousemove', handleMousemove);
 })();
