@@ -38,11 +38,11 @@ body {
 }
 
 /* page1 */
-.page:nth-child(1) {
+.page:nth-of-type(1) {
   z-index: 2;
   transform-origin: left;
 }
-.page:nth-child(1) .front {
+.page:nth-of-type(1) .front {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -51,8 +51,8 @@ body {
   font-size: 20px;
   font-weight: 300;
 }
-.page:nth-child(1) .front::before,
-.page:nth-child(3) .front::before {
+.page:nth-of-type(1) .front::before,
+.page:nth-of-type(3) .front::before {
   content: '';
   position: absolute;
   top: 10px;
@@ -62,25 +62,25 @@ body {
   border: 1px solid #e17055;
 }
 
-.page:nth-child(1) .back,
-.page:nth-child(3) .back {
+.page:nth-of-type(1) .back,
+.page:nth-of-type(3) .back {
   z-index: 0;
 }
 
 /* page2 */
-.page:nth-child(2) {
+.page:nth-of-type(2) {
   z-index: 0;
 }
-.page:nth-child(2) .front {
+.page:nth-of-type(2) .front {
   background: white;
 }
 
 /* page3 */
-.page:nth-child(3) {
+.page:nth-of-type(3) {
   z-index: 1;
   transform-origin: right;
 }
-.page:nth-child(3) .front {
+.page:nth-of-type(3) .front {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,6 +176,7 @@ em {
 }
 .close-button {
   all: unset;
+  display: none;
   position: absolute;
   top: -20px;
   right: 0;

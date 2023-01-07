@@ -5,7 +5,7 @@
 
 (function () {
   const $leftlet = document.querySelector('.leftlet');
-  let fullyOpened = false;
+  let $selectedImage = null;
 
   const getTarget = (element, targetName) => {
     let target = element;
@@ -18,16 +18,25 @@
     return target;
   };
 
+  const flipCards = (target) => {
+    if (target.dataset.direction === 'left') {
+      target.style.transform = 'rotateY(-150deg)';
+    } else if (target.dataset.direction === 'right') {
+      target.style.transform = 'rotateY(150deg)';
+
+      document.body.classList.add('fully-opened');
+    }
+  };
+
   const zoomIn = (target) => {
     if (document.body.classList.contains('zoom-in')) return;
 
-    const imageWrapperElem = target.parentNode;
+    $selectedImage = target.parentNode;
     const { x, y, width, height } = target.getBoundingClientRect();
     const dx = window.innerWidth / 2 - (x + width / 2);
     const dy = window.innerHeight / 2 - (y + height / 2);
 
     const direction = getTarget(target, 'page').dataset.direction;
-    selectedDirection = direction;
 
     switch (direction) {
       case 'left':
@@ -42,28 +51,32 @@
     }
 
     document.body.classList.add('zoom-in');
-    imageWrapperElem.classList.add('selected');
+    $selectedImage.classList.add('selected');
   };
 
-  const zoomOut = (target) => {
-    const imageWrapperElem = target.parentNode;
-    $leftlet.style.transform = `translate3d(0,0,0)`;
+  const zoomOut = () => {
+    $leftlet.style.transform = `translate3d(0, 0, 0)`;
     document.body.classList.remove('zoom-in');
-    imageWrapperElem.classList.remove('selected');
+    $selectedImage.classList.remove('selected');
   };
 
-  const closeLeftlet = (target) => {
-    console.log(target);
+  const closeLeftlet = () => {
+    const [$left, , $right] = document.querySelectorAll('.page');
+
+    zoomOut();
+    $right.style.transform = 'rotateY(0)';
+    setTimeout(() => {
+      $left.style.transform = 'rotateY(0)';
+    }, 500);
+
+    document.body.classList.remove('fully-opened');
+    $selectedImage = null;
   };
 
   const handleClickLeftlet = (e) => {
     const pageElem = getTarget(e.target, 'page');
     if (pageElem) {
-      if (pageElem.dataset.direction === 'left') {
-        pageElem.style.transform = 'rotateY(-150deg)';
-      } else if (pageElem.dataset.direction === 'right') {
-        pageElem.style.transform = 'rotateY(150deg)';
-      }
+      flipCards(pageElem);
     }
 
     const imageElem = getTarget(e.target, 'lecture-image');
@@ -73,7 +86,7 @@
 
     const backButtonElem = getTarget(e.target, 'back-button');
     if (backButtonElem) {
-      zoomOut(backButtonElem);
+      zoomOut();
     }
 
     const closeButtonElem = getTarget(e.target, 'close-button');
