@@ -13,7 +13,7 @@
     destY: 0,
   };
   let { curX, curY, destX, destY } = position;
-  let $selectedImage = null;
+  let $selectedMedia = null;
 
   const getTarget = (element, targetName) => {
     let target = element;
@@ -39,7 +39,8 @@
   const zoomIn = (target) => {
     if (document.body.classList.contains('zoom-in')) return;
 
-    $selectedImage = target.parentNode;
+    $selectedMedia = target.parentNode;
+    console.log($selectedMedia);
     const { x, y, width, height } = target.getBoundingClientRect();
     const dx = window.innerWidth / 2 - (x + width / 2);
     const dy = window.innerHeight / 2 - (y + height / 2);
@@ -59,20 +60,23 @@
     }
 
     document.body.classList.add('zoom-in');
-    $selectedImage.classList.add('selected');
+    $selectedMedia.classList.add('selected');
   };
 
   const zoomOut = () => {
+    const $video = $selectedMedia.querySelector('.lecture-video');
+    $video.load();
+
     $leftlet.style.transform = `translate3d(0, 0, 0)`;
     document.body.classList.remove('zoom-in');
-    $selectedImage.classList.remove('selected');
-    $selectedImage = null;
+    $selectedMedia.classList.remove('selected');
+    $selectedMedia = null;
   };
 
   const closeLeftlet = () => {
     const [$left, , $right] = document.querySelectorAll('.page');
 
-    if ($selectedImage) zoomOut();
+    if ($selectedMedia) zoomOut();
 
     $right.style.transform = 'rotateY(0)';
     setTimeout(() => {
@@ -80,7 +84,7 @@
     }, 500);
 
     document.body.classList.remove('fully-opened');
-    $selectedImage = null;
+    $selectedMedia = null;
   };
 
   const renderCursor = () => {
