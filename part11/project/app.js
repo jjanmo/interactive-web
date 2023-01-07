@@ -7,8 +7,6 @@
   const $leftlet = document.querySelector('.leftlet');
   let fullyOpened = false;
 
-  let selectedDirection = '';
-
   const getTarget = (element, targetName) => {
     let target = element;
     while (!target.classList.contains(targetName)) {
@@ -23,6 +21,7 @@
   const zoomIn = (target) => {
     if (document.body.classList.contains('zoom-in')) return;
 
+    const imageWrapperElem = target.parentNode;
     const { x, y, width, height } = target.getBoundingClientRect();
     const dx = window.innerWidth / 2 - (x + width / 2);
     const dy = window.innerHeight / 2 - (y + height / 2);
@@ -43,20 +42,18 @@
     }
 
     document.body.classList.add('zoom-in');
-    target.classList.add('selected');
-    document
-      .querySelector(`#${selectedDirection}-back-button`)
-      .classList.remove('hidden');
+    imageWrapperElem.classList.add('selected');
   };
 
   const zoomOut = (target) => {
+    const imageWrapperElem = target.parentNode;
     $leftlet.style.transform = `translate3d(0,0,0)`;
-
     document.body.classList.remove('zoom-in');
-    target.classList.remove('selected');
-    document
-      .querySelector(`#${selectedDirection}-back-button`)
-      .classList.add('hidden');
+    imageWrapperElem.classList.remove('selected');
+  };
+
+  const closeLeftlet = (target) => {
+    console.log(target);
   };
 
   const handleClickLeftlet = (e) => {
@@ -66,7 +63,6 @@
         pageElem.style.transform = 'rotateY(-150deg)';
       } else if (pageElem.dataset.direction === 'right') {
         pageElem.style.transform = 'rotateY(150deg)';
-        fullyOpened = true;
       }
     }
 
@@ -78,6 +74,11 @@
     const backButtonElem = getTarget(e.target, 'back-button');
     if (backButtonElem) {
       zoomOut(backButtonElem);
+    }
+
+    const closeButtonElem = getTarget(e.target, 'close-button');
+    if (closeButtonElem) {
+      closeLeftlet(closeButtonElem);
     }
   };
 

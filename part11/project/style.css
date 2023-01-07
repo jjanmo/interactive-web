@@ -139,14 +139,14 @@ em {
 .lecture-title {
   font-size: 24px;
   font-weight: 500;
-  transition: all 0.5s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
 }
 .lecture-detail {
   width: 80%;
   font-size: 16px;
   font-weight: 400;
   color: rgb(100, 105, 110);
-  transition: all 0.5s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
 }
 .image-wrapper {
   position: relative;
@@ -159,12 +159,12 @@ em {
   height: 100%;
   border-radius: 10px;
   cursor: pointer;
-
+  transition: opacity 0.6s ease-in-out;
   transform-style: preserve-3d;
 }
 .back-button {
-  background-color: red;
   all: unset;
+  display: none;
   position: absolute;
   top: -25px;
   right: 10px;
@@ -172,17 +172,31 @@ em {
   color: black;
 
   transform-style: preserve-3d;
-
   cursor: pointer;
 }
+.close-button {
+  all: unset;
+  position: absolute;
+  top: -20px;
+  right: 0;
 
-.hidden {
-  display: none;
+  color: white;
+  font-size: 16px;
+
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.fully-opened .close-button {
+  display: inline-block;
 }
 .zoom-in .lecture-title,
-.zoom-in .lecture-detail {
+.zoom-in .lecture-detail,
+.zoom-in .image-wrapper:not(.selected) {
   opacity: 0;
 }
 .selected {
   opacity: 1;
+}
+.selected .back-button {
+  display: inline-block;
 }
