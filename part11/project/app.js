@@ -1,8 +1,3 @@
-/**
- * TODO
- * - 맨 앞장 : click me animtaion + 편지봉투 CSS?? 먼가 너한테 보내는 편지 느낌? 열어봐?!
- */
-
 (function () {
   const $leftlet = document.querySelector('.leftlet');
   const $cursor = document.querySelector('.cursor');
@@ -40,7 +35,7 @@
     if (document.body.classList.contains('zoom-in')) return;
 
     $selectedMedia = target.parentNode;
-    console.log($selectedMedia);
+
     const { x, y, width, height } = target.getBoundingClientRect();
     const dx = window.innerWidth / 2 - (x + width / 2);
     const dy = window.innerHeight / 2 - (y + height / 2);
