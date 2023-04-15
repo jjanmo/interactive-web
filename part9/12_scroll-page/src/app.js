@@ -19,6 +19,9 @@ export default function init() {
   camera.position.z = 5
   scene.add(camera)
 
+  const ambientLight = new THREE.AmbientLight('white', 0.5)
+  scene.add(ambientLight)
+
   const spotLight = new THREE.SpotLight('white', 0.7)
   spotLight.position.set(0, 150, 100)
   spotLight.castShadow = true
@@ -27,6 +30,13 @@ export default function init() {
   spotLight.shadow.camera.near = 1
   spotLight.shadow.camera.far = 200
   scene.add(spotLight)
+
+  const floorMesh = new THREE.Mesh(
+    new THREE.PlaneGeometry(100, 100),
+    new THREE.MeshStandardMaterial({ color: 'white' })
+  )
+  floorMesh.rotation.x = -Math.PI / 2
+  scene.add(floorMesh)
 
   const handleResizeCanvas = () => {
     camera.aspect = window.innerWidth / window.innerHeight
