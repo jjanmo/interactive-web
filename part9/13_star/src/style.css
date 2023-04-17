@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.canvas-container {
+  position: fixed;
+  bottom: 80px;
+  right: 50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#my-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+}
+.quaka-container {
+  position: absolute;
+  bottom: 90px;
+  right: 30px;
+  z-index: 1;
+}
+.quaka {
+  transform: scale(3);
+}
+.label {
+  position: absolute;
+  bottom: -130%;
+  left: -18%;
+  width: 80px;
+  height: 26px;
+  background-color: #cfdaff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
