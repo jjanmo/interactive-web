@@ -1,6 +1,6 @@
 # What I Learned in bbc-clone
 
-> 일명 WIL 🙏 프로젝트를 통해서 배운 내용을 간단하기 정리한다.
+> [BBC 사이트](https://www.bbc.com/korean/resources/idt-48d3c9a7-4063-4289-9726-611b5ea9d7b5) 클론 코딩 으로 이 프로젝트를 통해서 배운 내용을 간단하기 정리한다.
 
 ## position : sticky
 
