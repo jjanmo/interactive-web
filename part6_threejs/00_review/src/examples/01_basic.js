@@ -1,8 +1,8 @@
-import './style.css'
+import '../style.css'
 
 import * as THREE from 'three'
 
-class App {
+export class App {
   constructor() {
     const _canvas = document.getElementById('my-canvas')
     this.canvas = _canvas
@@ -75,8 +75,4 @@ class App {
     this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.renderer.render(this.scene, this.camera)
   }
-}
-
-window.onload = function () {
-  new App()
 }
