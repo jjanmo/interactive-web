@@ -1,12 +1,8 @@
-body {
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .roadmap {
-  position: relative;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 700px;
   height: 400px;
   margin: 100px auto;
