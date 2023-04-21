@@ -27,7 +27,6 @@ init();
 
 spots.forEach((spot) => {
   spot.addEventListener('click', (e) => {
-    console.log('aaaa');
     const id = Number(e.target.id);
     order = id;
     const { x, y } = positions[order];
