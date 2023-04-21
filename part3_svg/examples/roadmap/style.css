@@ -1,0 +1,13 @@
+.roadmap {
+  position: relative;
+  width: 700px;
+  height: 400px;
+  margin: 100px auto;
+}
+#quaka {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: -46px;
+  left: 32px;
+}
