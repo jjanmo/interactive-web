@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+h1 {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  white-space: pre-wrap;
+  color: gray;
+}
+.section {
+  width: 100%;
+  height: 200vh;
+  background-color: #fdbf95;
+}
+.image-wrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.image-wrapper img {
+  width: 140px;
+  height: 150px;
+}
