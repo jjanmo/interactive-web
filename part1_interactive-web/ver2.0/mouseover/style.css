@@ -30,13 +30,30 @@ body {
   width: 50%;
   padding: 20px 0;
   border: 1px solid white;
+  cursor: pointer;
 }
+.answer:hover {
+  background-color: white;
+  color: #74b9ff;
+  transition: all 0.2s;
+}
+
+/* 커서 움직이는 부분*/
 .cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+/* 커서 스타일 부분*/
+.circle {
   width: 100px;
   height: 100px;
-  position: absolute;
+
   transform: translate(-50%, -50%);
-  background-color: #a29bfe;
+  transition: all 0.2s;
+
   border-radius: 50%;
-  mix-blend-mode: multiply;
+  background-color: #a29bfe;
 }
