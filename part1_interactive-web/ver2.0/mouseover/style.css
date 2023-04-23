@@ -31,3 +31,12 @@ body {
   padding: 20px 0;
   border: 1px solid white;
 }
+.cursor {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: #a29bfe;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+}
