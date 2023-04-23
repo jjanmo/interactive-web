@@ -22,4 +22,5 @@ h1 {
 .image-wrapper img {
   width: 140px;
   height: 150px;
+  opacity: 0.8;
 }
