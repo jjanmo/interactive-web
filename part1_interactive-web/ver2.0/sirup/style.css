@@ -9,6 +9,8 @@
   height: 100vh;
   background: url('../images/sirup-bg.webp') center center / cover no-repeat;
   overflow: hidden;
+
+  perspective: 1000px;
 }
 .logo {
   padding: 2rem 0;
@@ -24,9 +26,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transform-style: preserve-3d;
 }
 .panel img {
   width: 750px;
+
+  transform-style: preserve-3d;
 }
 
 .artist {
