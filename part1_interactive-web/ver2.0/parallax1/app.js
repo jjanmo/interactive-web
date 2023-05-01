@@ -2,29 +2,46 @@ const $progress = document.querySelector('.progress');
 const $filled = document.querySelector('.filled');
 const $depth = document.querySelector('.depth');
 const animals = document.querySelectorAll('.animal');
+const $submarine = document.querySelector('.submarine');
+const $octopus = document.querySelector('.octopus');
 
+const SUBMARINE_WIDTH = 400;
 const directionMap = {
   0: 'left',
   1: 'center',
   2: 'right',
 };
 
-function renderDepth() {
-  const depth = Math.ceil(window.scrollY / 10);
+function handleScroll() {
+  const scrollY = window.scrollY;
+  const currentRatio =
+    scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+
+  $filled.style.width = `${100 * currentRatio}%`;
+
+  renderDepth(scrollY);
+  moveForwardSubmarine(scrollY);
+  moveUpOctopus(scrollY);
+}
+
+function renderDepth(scrollY) {
+  const depth = Math.ceil(scrollY / 10);
   if (depth > 10) {
     $depth.style.opacity = 1;
     $depth.querySelector('.value').textContent = `${depth}`;
   } else $depth.style.opacity = 0;
 }
 
-function handleScroll() {
-  const currentRatio =
-    window.scrollY /
-    (document.documentElement.scrollHeight - window.innerHeight);
+function moveForwardSubmarine(scrollY) {
+  const height = document.documentElement.scrollHeight;
+  let distance = scrollY / 4;
 
-  $filled.style.width = `${100 * currentRatio}%`;
+  $submarine.style.transform = `translateX(${distance}px)`;
+  $submarine.style.opacity = (height - scrollY) / height;
+}
 
-  renderDepth();
+function moveUpOctopus(scrollY) {
+  $octopus.style.transform = `translateY(${-scrollY / 9}px)`;
 }
 
 function init() {
@@ -38,7 +55,6 @@ function init() {
   });
 
   window.addEventListener('scroll', handleScroll);
-  renderDepth();
 }
 
 init();

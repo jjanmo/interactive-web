@@ -42,7 +42,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(180deg, #009ffd 0%, #2a2a72 64%, #10102b 100%);
+  background: linear-gradient(
+    180deg,
+    #009ffd 0%,
+    #2a2a72 64%,
+    #1a1a4e 84%,
+    #10102b 100%
+  );
 }
 .sea-container .left {
   align-self: flex-start;
@@ -80,7 +86,7 @@
   padding-bottom: 10px;
   color: white;
   white-space: pre-wrap;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 
   opacity: 0;
 }
@@ -88,14 +94,17 @@
 .submarine {
   position: fixed;
   top: 20%;
-  left: -5%;
+  left: 0;
+  z-index: 1;
+  transition: transform 0.4s ease-out;
 }
 .submarine img {
-  width: 300px;
+  width: 350px;
 }
 .octopus {
   position: fixed;
-  bottom: -450px;
+  bottom: -400px;
   right: 0;
   opacity: 0.4;
+  transition: transform 0.5s ease-out;
 }
