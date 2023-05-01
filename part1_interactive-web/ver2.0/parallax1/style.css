@@ -3,19 +3,66 @@
   margin: 0;
   box-sizing: border-box;
 }
-
-body {
-  background-color: rgba(0, 184, 148, 0.6);
-  height: 200vh;
-}
 .progress {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 10px;
+  height: 8px;
+  background-color: white;
 }
 .filled {
+  width: 0%;
   height: 100%;
-  background-color: #01a3a4;
+  background-color: #2e86de;
+}
+.percent {
+  position: fixed;
+  bottom: 5rem;
+  left: 5rem;
+  color: white;
+  font-size: 4rem;
+}
+.sky-container {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #130f40;
+  background: linear-gradient(180deg, #a3e1f9 0%, #bfe5e2 50%, #e3e9c4 100%);
+}
+.title {
+  font-size: 3rem;
+}
+.subtitle {
+  font-size: 1.8rem;
+}
+.sea-container {
+  height: 500vh;
+  padding: 0 16%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, #009ffd 0%, #2a2a72 64%, #10102b 100%);
+}
+.sea-container .left {
+  align-self: flex-start;
+}
+.sea-container .right {
+  align-self: flex-end;
+}
+.animal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.name {
+  margin-top: 2rem;
+  font-size: 1.8rem;
+  color: #eee;
+}
+.name span {
+  font-size: 1.4rem;
 }
