@@ -84,3 +84,18 @@
 
   opacity: 0;
 }
+
+.submarine {
+  position: fixed;
+  top: 20%;
+  left: -5%;
+}
+.submarine img {
+  width: 300px;
+}
+.octopus {
+  position: fixed;
+  bottom: -450px;
+  right: 0;
+  opacity: 0.4;
+}
