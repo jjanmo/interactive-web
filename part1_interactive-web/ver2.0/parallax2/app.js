@@ -1,38 +1,24 @@
 const header = document.querySelector('.header');
-const brunch = document.querySelector('.brunch');
 const filled = document.querySelector('.filled');
-const overlay = document.querySelector('.overlay');
-const logoLink = document.querySelector('.logo-link');
-const icons = document.querySelector('.icons');
-
-const setFixedHeader = () => {
-  header.classList.add('fixed-header');
-  brunch.classList.add('fixed-text');
-  filled.classList.add('fixed-progress');
-  logoLink.classList.add('fixed-logo');
-  icons.classList.add('fixed-icons');
-};
-
-const removeFixedHeader = () => {
-  header.classList.remove('fixed-header');
-  brunch.classList.remove('fixed-text');
-  filled.classList.remove('fixed-progress');
-  logoLink.classList.remove('fixed-logo');
-  icons.classList.remove('fixed-icons');
-};
+const dimmed = document.querySelector('.dimmed');
+const title = document.querySelector('.title');
+const topBackground = document.querySelector('.top-background');
 
 const handleScroll = () => {
   const scrollY = window.scrollY;
   const ratio =
     scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-  filled.style.width = `${ratio * 100}%`;
 
-  overlay.style.opacity = ratio * 4;
+  filled.style.width = `${Math.floor(ratio * 100)}%`;
 
   if (scrollY > window.innerHeight) {
-    setFixedHeader();
+    header.classList.add('fixed');
   } else {
-    removeFixedHeader();
+    header.classList.remove('fixed');
+    // ratio 대신 scrollY를 이용할수도 있음. 그럼 * 대신 / 를 사용하여 이펙트를 확인해야함
+    dimmed.style.opacity = ratio * 4;
+    title.style.transform = `translate(-50%, -${ratio * 1000}%)`;
+    topBackground.style.transform = `translateY(-${ratio * 150}%)`;
   }
 };
 
