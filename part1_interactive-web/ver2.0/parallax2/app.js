@@ -1,6 +1,7 @@
 const header = document.querySelector('.header');
 const brunch = document.querySelector('.brunch');
 const filled = document.querySelector('.filled');
+const overlay = document.querySelector('.overlay');
 
 const setFixedHeader = () => {
   header.classList.add('fixed-header');
@@ -19,6 +20,8 @@ const handleScroll = () => {
   const ratio =
     scrollY / (document.documentElement.scrollHeight - window.innerHeight);
   filled.style.width = `${ratio * 100}%`;
+
+  overlay.style.opacity = ratio * 4;
 
   if (scrollY > window.innerHeight) {
     setFixedHeader();
