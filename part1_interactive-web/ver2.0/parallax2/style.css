@@ -4,17 +4,25 @@
   box-sizing: border-box;
 }
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   color: white;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 80px;
-  padding: 0 40px;
   z-index: 10;
+}
+.header-content {
+  width: 100%;
+  height: 100%;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .logo {
   width: 180px;
@@ -26,7 +34,7 @@
   font-size: 20px;
   color: inherit;
   text-decoration: none;
-  background-color: #bdc3c7;
+  background-color: #c7ecee;
   color: black;
   text-align: center;
 }
@@ -40,9 +48,17 @@
   padding: 10px 20px;
   border-radius: 10px;
   letter-spacing: 5px;
-  background-color: antiquewhite;
+  background-color: #95afc0;
   color: #2c3e50;
   text-align: center;
+}
+.progress {
+  width: 100%;
+  height: 2px;
+}
+.filled {
+  width: 100%;
+  height: 100%;
 }
 .top-banner {
   position: relative;
@@ -80,4 +96,16 @@
 }
 .section div {
   font-size: 20px;
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  background-color: rgba(256, 256, 256, 0.9);
+}
+.fixed-text {
+  color: black;
+}
+.fixed-progress {
+  background-color: black;
 }
