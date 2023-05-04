@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.top-background {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../images/parallax3/bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.content {
+  background: linear-gradient(black, #340e23, black);
+}
+.content {
+  display: flex;
+  flex-direction: column;
+}
+.section {
+  width: 60%;
+  margin: 30rem auto 15rem;
+  color: white;
+}
+.section h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+.section div {
+  font-size: 20px;
+  line-height: 2rem;
+}
