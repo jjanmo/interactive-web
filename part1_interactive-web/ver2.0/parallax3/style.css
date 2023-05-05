@@ -10,16 +10,18 @@
   width: 100%;
   height: 100vh;
   background: url('../images/parallax3/bg.jpg') center center / cover no-repeat;
+  overflow-x: hidden;
 }
 .image7 {
   position: absolute;
-  bottom: -7 vh;
+  bottom: -7vh;
   left: 0;
   z-index: 10;
 }
 .image7 img {
   width: 100%;
   height: 100vh;
+  transform: scale(1.05);
 }
 
 /* images */
@@ -34,6 +36,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.image5 img,
+.image6 img {
+  transform: scale(1.05);
 }
 
 /* content */
