@@ -1,22 +1,20 @@
 const images = document.querySelectorAll('.image');
 const image7 = document.querySelector('.image7');
-const mousemoveImages = [
-  image7,
-  images[5], // image6
-  images[4], // image5
-];
 
 const speed = 0.09;
 let targetX = 0;
+let scrollY = 0;
 
 window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
+  scrollY = window.scrollY;
 
   // scrollY / 분모 : 분모가 커야 결과값이 작아짐 → 결과값이 작으면 더 적게 움직임 → 뒷쪽 이미지가 더 적게 움직여야함
   images.forEach((image, index, array) => {
-    image.style.transform = `translateY(${
-      -scrollY / (4 * (array.length - index))
-    }px)`;
+    if (index < 4) {
+      image.style.transform = `translateY(${
+        -scrollY / (4 * (array.length - index))
+      }px)`;
+    }
   });
 });
 
@@ -28,13 +26,15 @@ window.addEventListener('mousemove', (e) => {
 const animate = () => {
   const distance = targetX - window.innerWidth / 2;
 
-  mousemoveImages.forEach((image, index) => {
-    console.log(distance / ((index + 1) * 50));
-    image.style.transform = `translateX(${-(
-      distance /
-      ((index + 1) * 25)
-    )}px) scale(1.05)`;
-  });
+  image7.style.transform = `translateX(${-(distance / 25)}px) scale(1.05)`;
+
+  images[5].style.transform = `translate(${-distance / (25 * 2)}px, ${
+    -scrollY / (4 * 2)
+  }px) scale(1.05)`;
+
+  images[4].style.transform = `translate(${-(distance / (25 * 3))}px, ${
+    -scrollY / 4
+  }px) scale(1.05)`;
 
   window.requestAnimationFrame(animate);
 };
