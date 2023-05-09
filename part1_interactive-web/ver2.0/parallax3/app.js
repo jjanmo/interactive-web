@@ -5,7 +5,7 @@ const speed = 0.09;
 let targetX = 0;
 let scrollY = 0;
 
-window.addEventListener('scroll', () => {
+const handleScroll = () => {
   scrollY = window.scrollY;
 
   // scrollY / 분모 : 분모가 커야 결과값이 작아짐 → 결과값이 작으면 더 적게 움직임 → 뒷쪽 이미지가 더 적게 움직여야함
@@ -16,7 +16,9 @@ window.addEventListener('scroll', () => {
       }px)`;
     }
   });
-});
+};
+
+window.addEventListener('scroll', handleScroll);
 
 window.addEventListener('mousemove', (e) => {
   const x = e.pageX; // clientX  로 해도 같음(이 구현은 페이지가 스크롤되지 않는 상태에서 일어나기때문에)
