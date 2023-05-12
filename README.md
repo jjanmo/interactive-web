@@ -12,7 +12,7 @@
 - 2022년 7~8월 : Three.js(Part6)
 - 2022년 8~9월 : CSS Flex&Grid(Part6)
 - 2022년 12월 : Interactive Leftlet(Part7)
-- 2023년 4월 : more Three.js(Part6)
+- 2023년 4월 : more Three.js(Part6) & Interactive Web2(Part1)
 
 </details>
 
