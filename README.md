@@ -13,10 +13,11 @@
 - 2022년 8~9월 : CSS Flex&Grid(Part6)
 - 2022년 12월 : Interactive Leftlet(Part7)
 - 2023년 4월 : more Three.js(Part6) & Interactive Web2(Part1)
+- 2023년 11~12월 : Three.js Review
 
 </details>
 
-## Part1 : Interactive Web Examples [-ing]
+## Part1 : Interactive Web Examples
 
 > 소소한 인터렉티브 예제들을 따라 만들어보자!
 
@@ -46,11 +47,11 @@
 
 </details>
 
-## Part2 : CSS 3D Transform [-ing]
+## Part2 : CSS 3D Transform
 
 > 파트1을 만들어가면서 조금 더 인터렉티브함을 주기 위해선 좋은 자바스크립트 실력과 더불어 `3D에 대한 감각`이 중요함을 느꼈다. 특히 CSS를 이용한 `3D Transform`에 대해선 좀 더 경험해볼 필요가 있다고 생각했다. 그래서 [해당 사이트](https://3dtransforms.desandro.com/)의 예제들을 따라 만들어보면서 3D 경험과 시야를 넑혀보고자 한다.
 
-## Part3 : SVG [done]
+## Part3 : SVG
 
 > SVG ~~마스터하기~~ 라고 쓰고 중수정도까지만 💫 되어보자!
 
@@ -63,7 +64,7 @@
 
 </details>
 
-## Part4 : HTML5 Canvas [done]
+## Part4 : HTML5 Canvas
 
 > HTML5 Canvas Tutorials with [1분코딩님](https://www.youtube.com/playlist?list=PLe9WXHRkq9p2Yl0z2zskv-FhP5sinISTc)
 
@@ -75,7 +76,7 @@
 
  </details>
 
-## Part5 : CSS Flex & Grid [-ing]
+## Part5 : CSS Flex & Grid
 
 - [x] [CSS Flex와 Grid 제대로 익히기](https://www.inflearn.com/course/css-flex-grid-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B5%ED%9E%88%EA%B8%B0) 1분코딩님의 강의를 듣고 실습한 공간 🤖
 
@@ -83,9 +84,11 @@
 
 - [ ] [Flex & Grid 응용 예제s](https://www.youtube.com/playlist?list=PLv_UUi9AVBVtJ26HDO-KJuxwzFO5LAJpN)
 
-## Part6 : three.js [-ing]
+## Part6 : three.js
 
 > [three.js](https://www.inflearn.com/course/3d-%EC%9D%B8%ED%84%B0%EB%9E%99%ED%8B%B0%EB%B8%8C-%EC%9B%B9) 1분코딩님 강의를 듣고 실습한 공간 🚀
+
+> [인터렉티브 웹 개발](https://fastcampus.co.kr/dev_online_interactive)의 **Three.js 파트**를 통한 복습용 실습 📝
 
 ## Part7 : Interactive Leaflet [done]
 
