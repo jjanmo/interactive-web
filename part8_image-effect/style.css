@@ -8,6 +8,7 @@
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 .bg-image {
   background-position: center center;
