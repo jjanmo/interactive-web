@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.bg-image {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(./assets/image1.webp);
+}
+
+.container .image-box {
+}
