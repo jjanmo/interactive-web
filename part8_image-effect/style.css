@@ -3,7 +3,29 @@
   padding: 0;
   box-sizing: border-box;
 }
-.container {
+.wrap {
+  max-width: 1920px;
+}
+.title-container {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.title {
+  text-transform: uppercase;
+  font-size: 80px;
+  color: #fff;
+  opacity: 0.6;
+}
+.sup {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  font-size: 30px;
+}
+
+.image-container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -17,5 +39,6 @@
   background-image: url(./assets/image1.webp);
 }
 
-.container .image-box {
+.image-container .image-box {
+  background: inherit;
 }

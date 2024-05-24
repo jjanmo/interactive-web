@@ -2,7 +2,7 @@ const COL = 8;
 const ROW = 4;
 
 const updateContainer = (elements) => {
-  const container = document.querySelector('.container');
+  const container = document.querySelector('.image-container');
   container.innerHTML = '';
   container.appendChild(elements);
 };
@@ -14,7 +14,7 @@ const makeImageBoxes = () => {
       const div = document.createElement('div');
       div.style.width = `${100 / COL}%`;
       div.style.height = `${100 / ROW}%`;
-      div.classList.add('.image-box');
+      div.classList.add('image-box');
       fragment.appendChild(div);
     }
   }
