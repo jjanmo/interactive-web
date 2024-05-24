@@ -15,7 +15,12 @@ const makeImageBoxes = () => {
       div.style.width = `${100 / COL}%`;
       div.style.height = `${100 / ROW}%`;
       div.classList.add('image-box');
+
       fragment.appendChild(div);
+
+      setTimeout(() => {
+        div.classList.add('active');
+      }, 200);
     }
   }
   return fragment;

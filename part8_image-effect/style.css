@@ -8,37 +8,60 @@
 }
 .title-container {
   position: fixed;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  /* 가장 위에 위치 */
+  z-index: 20;
 }
 .title {
   text-transform: uppercase;
   font-size: 80px;
+  font-weight: 800;
   color: #fff;
   opacity: 0.6;
 }
 .sup {
   position: absolute;
-  top: -30px;
+  top: -32px;
   right: 0;
-  font-size: 30px;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  border-bottom: 2px solid #fff;
 }
 
 .image-container {
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
 }
+.image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
 .bg-image {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(./assets/image1.webp);
+  background-image: url(./assets/image2.jpg);
 }
 
 .image-container .image-box {
   background: inherit;
+  opacity: 0;
+  transition-duration: 2s;
+  /* 시작시점 이후 이미지가 보일 때 bg-image 위로 보이도록 설정 */
+  z-index: 10;
+}
+.image-container .image-box.active {
+  opacity: 1;
 }
