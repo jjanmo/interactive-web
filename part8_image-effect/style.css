@@ -56,12 +56,19 @@
 }
 
 .image-container .image-box {
+  position: relative;
   background: inherit;
   opacity: 0;
   transition-duration: 2s;
   /* 시작시점 이후 이미지가 보일 때 bg-image 위로 보이도록 설정 */
   z-index: 10;
+  overflow: hidden;
 }
 .image-container .image-box.active {
   opacity: 1;
+}
+
+.image-container .image-box .image-position {
+  position: absolute;
+  background: inherit;
 }
