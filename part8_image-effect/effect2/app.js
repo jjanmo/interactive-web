@@ -3,7 +3,11 @@ const ROW = 4;
 const IMAGE_POSITION_ELEM_WIDTH = COL * 100;
 const IMAGE_POSITION_ELEM_HEIGHT = ROW * 100;
 
-const TRANSFORM_STYLE = `translateX(100%)`;
+// const TRANSFORM_STYLE = `translateX(100%)`;
+// const TRANSFORM_STYLE = `skew(-45deg)`;
+// const TRANSFORM_STYLE = `rotate(45deg)`;
+// const TRANSFORM_STYLE = `scale(0.3)`;
+const TRANSFORM_STYLE = `translateX(100%) skew(-45deg) rotate(45deg) scale(0.3)`; // 혼합해서 사용 가능
 
 const updateContainer = (elements) => {
   const container = document.querySelector('.image-container');
