@@ -3,6 +3,8 @@ const ROW = 4;
 const IMAGE_POSITION_ELEM_WIDTH = COL * 100;
 const IMAGE_POSITION_ELEM_HEIGHT = ROW * 100;
 
+const TRANSFORM_STYLE = `translateX(100%)`;
+
 const updateContainer = (elements) => {
   const container = document.querySelector('.image-container');
   container.innerHTML = '';
@@ -13,12 +15,13 @@ const makeImageBoxes = () => {
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < ROW; i++) {
     for (let j = 0; j < COL; j++) {
-      const delayTime = (COL - i - j * 0.5) * 0.25;
+      const delayTime = (COL - i - j * 0.5) * 0.2;
 
       const imageBox = document.createElement('div');
       imageBox.style.width = `${100 / COL}%`;
       imageBox.style.height = `${100 / ROW}%`;
       imageBox.style.transitionDelay = `${delayTime}s`;
+      imageBox.style.transform = `${TRANSFORM_STYLE}`;
       imageBox.classList.add('image-box');
 
       const imagePosition = document.createElement('div');

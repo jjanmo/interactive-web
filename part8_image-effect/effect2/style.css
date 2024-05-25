@@ -66,6 +66,7 @@
 }
 .image-container .image-box.active {
   opacity: 1;
+  transform: translateX(0) skew(0) rotate(0) scale(1) !important;
 }
 
 .image-container .image-box .image-position {
