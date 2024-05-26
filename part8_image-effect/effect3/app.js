@@ -1,13 +1,14 @@
-const COL = 8;
-const ROW = 4;
+const COL = 4;
+const ROW = 1;
 const IMAGE_POSITION_ELEM_WIDTH = COL * 100;
 const IMAGE_POSITION_ELEM_HEIGHT = ROW * 100;
 
-// const TRANSFORM_STYLE = `translateX(100%)`;
-// const TRANSFORM_STYLE = `skew(-45deg)`;
-// const TRANSFORM_STYLE = `rotate(45deg)`;
-// const TRANSFORM_STYLE = `scale(0.3)`;
-const TRANSFORM_STYLE = `translateX(100%) skew(-45deg) rotate(45deg) scale(0.3)`; // 혼합해서 사용 가능
+const customStyle = [
+  'transform-origin: 0 50%; transform: scale(0.1); transition-delay: 0.3s;',
+  'transform-origin: 0 50%; transform: scale(0.2); transition-delay: 0.1s;',
+  'transform-origin: 0 50%; transform: scale(0.3); transition-delay: 0.7s;',
+  'transform-origin: 0 50%; transform: scale(0.4); transition-delay: 1.2s;',
+];
 
 const updateContainer = (elements) => {
   const container = document.querySelector('.image-container');
@@ -22,10 +23,9 @@ const makeImageBoxes = () => {
       const delayTime = (COL - i - j * 0.5) * 0.2;
 
       const imageBox = document.createElement('div');
+      imageBox.style = customStyle[j];
       imageBox.style.width = `${100 / COL}%`;
       imageBox.style.height = `${100 / ROW}%`;
-      imageBox.style.transitionDelay = `${delayTime}s`;
-      imageBox.style.transform = `${TRANSFORM_STYLE}`;
       imageBox.classList.add('image-box');
 
       const imagePosition = document.createElement('div');
