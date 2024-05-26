@@ -8,10 +8,10 @@ const customStyle = [
   // 'transform-origin: 0 50%; transform: scale(0.2); transition-delay: 0.1s;',
   // 'transform-origin: 0 50%; transform: scale(0.3); transition-delay: 0.7s;',
   // 'transform-origin: 0 50%; transform: scale(0.4); transition-delay: 1.2s;',
-  'transform-origin: 0 50%; transform: rotate(20deg); transition-delay: 0.3s;',
-  'transform-origin: 0 50%; transform: rotate(-10deg); transition-delay: 0.1s;',
-  'transform-origin: 0 50%; transform: rotate(10deg); transition-delay: 0.7s;',
-  'transform-origin: 0 50%; transform: rotate(-15deg); transition-delay: 1.2s;',
+  'transform-origin: 0 50%; transform: rotateX(-100deg); transition-delay: 0.3s;',
+  'transform-origin: 0 50%; transform: rotateX(-100deg); transition-delay: 0.1s;',
+  'transform-origin: 0 50%; transform: rotateX(-100deg); transition-delay: 0.7s;',
+  'transform-origin: 0 50%; transform: rotateX(-100deg); transition-delay: 1.2s;',
 ];
 
 const updateContainer = (elements) => {
