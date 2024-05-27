@@ -22,8 +22,8 @@ const customStyle = [
   // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 3.3s',
   // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 3.6s',
 
-  'transform-origin:0% 50%; transform: perspective(450px) rotateY(80deg);',
-  'transform-origin:100% 50%; transform: perspective(450px) rotateY(-80deg);',
+  'transform-origin:0% 50%; transform: perspective(450px) rotateY(80deg); transition-duration:3s;',
+  'transform-origin:100% 50%; transform: perspective(450px) rotateY(-80deg); transition-duration:3s;',
 ];
 
 const updateContainer = (elements) => {
