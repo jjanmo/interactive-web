@@ -1,18 +1,26 @@
-const COL = 4;
+const COL = 12;
 const ROW = 1;
 const IMAGE_POSITION_ELEM_WIDTH = COL * 100;
 const IMAGE_POSITION_ELEM_HEIGHT = ROW * 100;
 
 const customStyle = [
-  'transform-origin:0% 50%; transform: perspective(450px) rotateX(-100deg); transition-delay: 0.3s',
-  'transform-origin:0% 50%; transform: perspective(450px) rotateX(-100deg); transition-delay: 0.1s',
-  'transform-origin:0% 50%; transform: perspective(450px) rotateX(-100deg); transition-delay: 0.9s',
-  'transform-origin:0% 50%; transform: perspective(450px) rotateX(-100deg); transition-delay: 1.2s',
+  // 'transform-origin:0% 50%; transform: perspective(450px) rotateX(-100deg); transition-delay: 0.3s',
+  // 'transform-origin:0% 50%; transform: perspective(450px) rotateX(-100deg); transition-delay: 0.1s',
+  // 'transform-origin:0% 50%; transform: perspective(450px) rotateX(-100deg); transition-delay: 0.9s',
+  // 'transform-origin:0% 50%; transform: perspective(450px) rotateX(-100deg); transition-delay: 1.2s',
 
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 0.3s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 0.6s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 0.9s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 1.2s',
+  'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 0.3s',
+  'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 0.6s',
+  'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 0.9s',
+  'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 1.2s',
+  'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 1.5s',
+  'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 1.8s',
+  'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 2.1s',
+  'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 2.4s',
+  'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 2.7s',
+  'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 3.0s',
+  'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 3.3s',
+  'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 3.6s',
 ];
 
 const updateContainer = (elements) => {
