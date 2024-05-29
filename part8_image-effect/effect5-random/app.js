@@ -1,30 +1,13 @@
-const COL = 2;
-const ROW = 1;
-const IMAGE_POSITION_ELEM_WIDTH = COL * 100;
-const IMAGE_POSITION_ELEM_HEIGHT = ROW * 100;
+const getCustomStyle = () => {
+  const random = Math.floor(Math.random() * imageEffect.length);
+  const selected = imageEffect[random];
 
-const customStyle = [
-  // 'transform-origin:0% 50%; transform: perspective(450px) rotateX(-100deg); transition-delay: 0.3s',
-  // 'transform-origin:0% 50%; transform: perspective(450px) rotateX(-100deg); transition-delay: 0.1s',
-  // 'transform-origin:0% 50%; transform: perspective(450px) rotateX(-100deg); transition-delay: 0.9s',
-  // 'transform-origin:0% 50%; transform: perspective(450px) rotateX(-100deg); transition-delay: 1.2s',
-
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 0.3s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 0.6s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 0.9s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 1.2s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 1.5s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 1.8s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 2.1s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 2.4s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 2.7s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 3.0s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 3.3s',
-  // 'transform-style: preserve-3d; transform-origin:0% 50%; transform: perspective(450px) rotateY(100deg); scale(0.5); transition-delay: 3.6s',
-
-  'transform-origin:0% 50%; transform: perspective(450px) rotateY(80deg); transition-duration:3s;',
-  'transform-origin:100% 50%; transform: perspective(450px) rotateY(-80deg); transition-duration:3s;',
-];
+  return {
+    ...selected,
+    imagePositionWidth: selected.col * 100,
+    imagePositionHeight: selected.row * 100,
+  };
+};
 
 const updateContainer = (elements) => {
   const container = document.querySelector('.image-container');
@@ -32,21 +15,21 @@ const updateContainer = (elements) => {
   container.appendChild(elements);
 };
 
-const makeImageBoxes = () => {
+const makeImageBoxes = (styleObj) => {
+  const { col, row, style, imagePositionWidth, imagePositionHeight } = styleObj;
   const fragment = document.createDocumentFragment();
-  for (let i = 0; i < ROW; i++) {
-    for (let j = 0; j < COL; j++) {
-      const delayTime = (COL - i - j * 0.5) * 0.2;
 
+  for (let i = 0; i < row; i++) {
+    for (let j = 0; j < col; j++) {
       const imageBox = document.createElement('div');
-      imageBox.style = customStyle[j];
-      imageBox.style.width = `${100 / COL}%`;
-      imageBox.style.height = `${100 / ROW}%`;
+      imageBox.style = Array.isArray(style) ? style[j] : style(row, col);
+      imageBox.style.width = `${100 / col}%`;
+      imageBox.style.height = `${100 / row}%`;
       imageBox.classList.add('image-box');
 
       const imagePosition = document.createElement('div');
-      imagePosition.style.width = `${IMAGE_POSITION_ELEM_WIDTH}%`;
-      imagePosition.style.height = `${IMAGE_POSITION_ELEM_HEIGHT}%`;
+      imagePosition.style.width = `${imagePositionWidth}%`;
+      imagePosition.style.height = `${imagePositionHeight}%`;
       imagePosition.style.top = `-${i * 100}%`;
       imagePosition.style.left = `-${j * 100}%`;
       imagePosition.classList.add('image-position');
@@ -63,7 +46,8 @@ const makeImageBoxes = () => {
 };
 
 const generateLayout = () => {
-  const imageBoxes = makeImageBoxes();
+  const styleObj = getCustomStyle();
+  const imageBoxes = makeImageBoxes(styleObj);
   updateContainer(imageBoxes);
 };
 
