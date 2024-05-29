@@ -9,6 +9,11 @@ const getCustomStyle = () => {
   };
 };
 
+const setRandomImage = () => {
+  const bgImage = document.querySelector('.bg-image');
+  bgImage.style.backgroundImage = `url(../assets/${Math.floor(Math.random() * 5)}.webp)`;
+};
+
 const updateContainer = (elements) => {
   const container = document.querySelector('.image-container');
   container.innerHTML = '';
@@ -47,6 +52,7 @@ const makeImageBoxes = (styleObj) => {
 };
 
 const startEffect = () => {
+  setRandomImage();
   const styleObj = getCustomStyle();
   const imageBoxes = makeImageBoxes(styleObj);
   updateContainer(imageBoxes);

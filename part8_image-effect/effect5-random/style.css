@@ -52,7 +52,6 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(../assets/image2.jpg);
 }
 
 .image-container .image-box {
@@ -70,7 +69,7 @@
 }
 .image-container .image-box.fade-out {
   opacity: 0;
-  transition: 2s;
+  transition: 1.5s;
 }
 
 .image-container .image-box .image-position {
