@@ -1,0 +1,81 @@
+let intervalId = null;
+const getCustomStyle = () => {
+  const random = Math.floor(Math.random() * imageEffect.length);
+  const selected = imageEffect[random];
+  return {
+    ...selected,
+    imagePositionWidth: selected.col * 100,
+    imagePositionHeight: selected.row * 100,
+  };
+};
+
+const setRandomImage = () => {
+  const bgImage = document.querySelector('.bg-image');
+  bgImage.style.backgroundImage = `url(../assets/${Math.floor(Math.random() * 5)}.webp)`;
+};
+
+const updateContainer = (elements) => {
+  const container = document.querySelector('.image-container');
+  container.innerHTML = '';
+  container.appendChild(elements);
+};
+
+const makeImageBoxes = (styleObj) => {
+  const { col, row, style, imagePositionWidth, imagePositionHeight } = styleObj;
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < row; i++) {
+    for (let j = 0; j < col; j++) {
+      const imageBox = document.createElement('div');
+      imageBox.style = Array.isArray(style) ? style[j] : style(i, j);
+      imageBox.style.width = `${100 / col}%`;
+      imageBox.style.height = `${100 / row}%`;
+      imageBox.classList.add('image-box');
+
+      const imagePosition = document.createElement('div');
+      imagePosition.style.width = `${imagePositionWidth}%`;
+      imagePosition.style.height = `${imagePositionHeight}%`;
+      imagePosition.style.top = `-${i * 100}%`;
+      imagePosition.style.left = `-${j * 100}%`;
+      imagePosition.classList.add('image-position');
+
+      imageBox.appendChild(imagePosition);
+      fragment.appendChild(imageBox);
+
+      setTimeout(() => {
+        imageBox.classList.add('active');
+      }, 200);
+    }
+  }
+
+  return fragment;
+};
+
+const startEffect = () => {
+  setRandomImage();
+  const styleObj = getCustomStyle();
+  const imageBoxes = makeImageBoxes(styleObj);
+  updateContainer(imageBoxes);
+
+  setTimeout(() => {
+    const imageBoxes = document.querySelectorAll('.image-box');
+    imageBoxes.forEach((imageBox) => {
+      imageBox.classList.add('fade-out');
+    });
+  }, 6000);
+};
+
+const init = () => {
+  startEffect();
+  intervalId = setInterval(() => {
+    startEffect();
+  }, 10000);
+};
+
+const handleResize = () => {
+  clearInterval(intervalId);
+  init();
+};
+
+window.addEventListener('resize', handleResize);
+init();
