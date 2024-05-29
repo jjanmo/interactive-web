@@ -84,3 +84,22 @@
 > 1분코딩님의 [인터랙티브웹-리플릿만들기](https://www.inflearn.com/course/%EC%9D%B8%ED%84%B0%EB%9E%99%ED%8B%B0%EB%B8%8C%EC%9B%B9-%EB%A6%AC%ED%94%8C%EB%A6%BF%EB%A7%8C%EB%93%A4%EA%B8%B0/)를 실습한 공간 🔖
 
 > [나만의 Leftlet Demo (사내 프로토타입용)](https://devdemodd.github.io/sl-leftlet/)
+
+## Part8 : Image Effect [done]
+
+> [깡코딩의 이미지 이펙트](https://www.inflearn.com/course/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%9D%B4%ED%8E%99%ED%8A%B8/dashboard) 강의 참고
+
+<details>
+  <summary>PR을 통한 정리</summary>
+
+- [기본원리](https://github.com/jjanmo/interactive-web/pull/4)
+  - 기본원리만 알면 나머지는 `tranform`을 어떻게 잘 사용할 수 있냐 이다!.
+  - `tranform` 을 조절하면서 아름다운 애니메이션을 만드는건 진정 디자인의 영역인듯!
+- [기본이펙트](https://github.com/jjanmo/interactive-web/pull/5)
+- [커스텀이펙트](https://github.com/jjanmo/interactive-web/pull/6)
+- [3D이펙트](https://github.com/jjanmo/interactive-web/pull/7)
+- [랜덤이펙트](https://github.com/jjanmo/interactive-web/pull/8)
+
+> 결국 이런 기술을 통해서 감동적인 이미지 이펙트를 만드는 것이 나의 최종 목표!!
+
+ </details>
