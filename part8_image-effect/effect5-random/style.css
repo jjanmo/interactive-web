@@ -68,6 +68,10 @@
   opacity: 1;
   transform: translateX(0) skew(0) rotate(0) scale(1) !important;
 }
+.image-container .image-box.fade-out {
+  opacity: 0;
+  transition: 2s;
+}
 
 .image-container .image-box .image-position {
   position: absolute;

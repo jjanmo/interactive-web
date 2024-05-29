@@ -1,3 +1,4 @@
+let intervalId = null;
 const getCustomStyle = () => {
   const random = Math.floor(Math.random() * imageEffect.length);
   const selected = imageEffect[random];
@@ -45,15 +46,30 @@ const makeImageBoxes = (styleObj) => {
   return fragment;
 };
 
-const generateLayout = () => {
+const startEffect = () => {
   const styleObj = getCustomStyle();
   const imageBoxes = makeImageBoxes(styleObj);
   updateContainer(imageBoxes);
+
+  setTimeout(() => {
+    const imageBoxes = document.querySelectorAll('.image-box');
+    imageBoxes.forEach((imageBox) => {
+      imageBox.classList.add('fade-out');
+    });
+  }, 6000);
 };
 
 const init = () => {
-  window.addEventListener('resize', generateLayout);
-  generateLayout();
+  startEffect();
+  intervalId = setInterval(() => {
+    startEffect();
+  }, 10000);
 };
 
+const handleResize = () => {
+  clearInterval(intervalId);
+  init();
+};
+
+window.addEventListener('resize', handleResize);
 init();
