@@ -2,34 +2,35 @@ const imageEffect = [
   {
     col: 8,
     row: 4,
-    style: (i, j) => `transition-delay: ${(8 - i - j * 0.5) * 0.25}s`,
+    style: (i, j) => `transition-delay: ${(8 - i - j * 0.5) * 0.15}s`,
   },
   {
     col: 8,
     row: 4,
-    style: (i, j) => `transform: translateX(100%); transition-delay: ${(8 - i - j * 0.5) * 0.25}s`,
+    style: (i, j) => `transform: translateX(100%); transition-delay: ${(8 - i - j * 0.5) * 0.15}s`,
   },
   {
     col: 8,
     row: 4,
-    style: (i, j) => `transform: skew(-45deg); transition-delay: ${(8 - i - j * 0.5) * 0.25}s`,
+    style: (i, j) =>
+      `transform: skew(-45deg) translateX(-100%) scale(0.3); transition-delay: ${(8 - i - j * 0.5) * 0.15}s`,
   },
   {
     col: 8,
     row: 4,
-    style: (i, j) => `transform: rotate(45deg); transition-delay: ${(8 - i - j * 0.5) * 0.25}s`,
+    style: (i, j) => `transform: rotate(45deg); transition-delay: ${(8 - i - j * 0.5) * 0.15}s`,
   },
   {
     col: 8,
     row: 4,
-    style: (i, j) => `transform: scale(0.3); transition-delay: ${(8 - i - j * 0.5) * 0.25}s`,
+    style: (i, j) => `transform: scale(0.3); transition-delay: ${(8 - i - j * 0.5) * 0.15}s`,
   },
   {
     col: 8,
     row: 4,
     style: (i, j) =>
       `transform: translateX(100%) skew(-45deg) rotate(45deg) scale(0.3); transition-delay: ${
-        (8 - i - j * 0.5) * 0.25
+        (8 - i - j * 0.5) * 0.15
       }s`,
   },
   {

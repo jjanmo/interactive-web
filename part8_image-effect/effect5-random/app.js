@@ -1,7 +1,6 @@
 const getCustomStyle = () => {
   const random = Math.floor(Math.random() * imageEffect.length);
   const selected = imageEffect[random];
-
   return {
     ...selected,
     imagePositionWidth: selected.col * 100,
@@ -22,7 +21,7 @@ const makeImageBoxes = (styleObj) => {
   for (let i = 0; i < row; i++) {
     for (let j = 0; j < col; j++) {
       const imageBox = document.createElement('div');
-      imageBox.style = Array.isArray(style) ? style[j] : style(row, col);
+      imageBox.style = Array.isArray(style) ? style[j] : style(i, j);
       imageBox.style.width = `${100 / col}%`;
       imageBox.style.height = `${100 / row}%`;
       imageBox.classList.add('image-box');
@@ -42,6 +41,7 @@ const makeImageBoxes = (styleObj) => {
       }, 200);
     }
   }
+
   return fragment;
 };
 
