@@ -35,8 +35,6 @@ const makeImageBoxes = () => {
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < ROW; i++) {
     for (let j = 0; j < COL; j++) {
-      const delayTime = (COL - i - j * 0.5) * 0.2;
-
       const imageBox = document.createElement('div');
       imageBox.style = customStyle[j];
       imageBox.style.width = `${100 / COL}%`;
