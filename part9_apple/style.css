@@ -80,6 +80,7 @@ body {
 
 #scroll-section-1 {
   .main-description {
+    max-width: 1000px;
     padding: 0 16px;
     color: #888;
 
@@ -94,9 +95,9 @@ body {
 }
 
 #scroll-section-2 {
-  .subtitle {
+  .title {
     padding: 0 16px;
-    font-size: 48px;
+    font-size: 1.5vw;
     font-weight: 800;
 
     small {
@@ -124,8 +125,10 @@ body {
 }
 
 #scroll-section-3 {
-  .subtitle {
+  .title {
+    max-width: 1000px;
     padding: 0 16px;
+    margin: 0 auto;
     font-size: 32px;
     color: #888;
 
@@ -135,7 +138,9 @@ body {
     }
   }
   .image-caption {
+    max-width: 1000px;
     padding: 0 16px;
+    margin: 0 auto;
     color: #888;
   }
 }
@@ -149,4 +154,52 @@ body {
   background-color: darkorange;
   text-align: center;
   font-size: 14px;
+}
+
+@media (min-width: 1024px) {
+  #scroll-section-0 {
+    h1 {
+      font-size: 9vw;
+    }
+    .subtitle {
+      font-size: 4vw;
+
+      p {
+        line-height: 1.2;
+      }
+    }
+  }
+  #scroll-section-1 {
+    .main-description {
+      padding: 0;
+      margin: 0 auto;
+      font-size: 28px;
+
+      strong {
+        font-size: 84px;
+      }
+    }
+  }
+  #scroll-section-2 {
+    .title {
+      font-size: 6vw;
+
+      small {
+        font-size: 1.5vw;
+      }
+    }
+    .detail {
+      width: 20%;
+    }
+  }
+  #scroll-section-3 {
+    .title {
+      padding: 0;
+      font-size: 4vw;
+    }
+    .image-caption {
+      padding: 0;
+      font-size: 28px;
+    }
+  }
 }
