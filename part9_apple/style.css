@@ -3,7 +3,7 @@ html {
 }
 body {
   overflow-x: hidden;
-  color: rgb(29, 29, 31);
+  color: #1d1d1f;
   letter-spacing: -0.05em;
   background-color: rgb(255, 255, 255);
 }
@@ -15,15 +15,16 @@ body {
 .global-nav {
   max-width: 1000px;
   height: 44px;
+  padding: 0 16px;
   margin: 0 auto;
 
-  & .links {
+  .links {
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    & a {
+    a {
       text-transform: capitalize;
     }
   }
@@ -32,25 +33,120 @@ body {
 .local-nav {
   max-width: 1000px;
   height: 54px;
+  padding: 0 16px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  & .logo {
+  .logo {
     font-size: 18px;
     font-weight: 800;
   }
 
-  & .links {
+  .links {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
 
-    & a {
+    a {
       font-size: 12px;
       text-transform: capitalize;
     }
   }
+}
+
+.scroll-section {
+  padding-top: 50vh;
+}
+
+#scroll-section-0 {
+  h1 {
+    font-size: 54px;
+    font-weight: 900;
+    text-align: center;
+  }
+  .subtitle {
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+
+    p {
+      line-height: 1.1;
+    }
+  }
+}
+
+#scroll-section-1 {
+  .main-description {
+    padding: 0 16px;
+    color: #888;
+
+    strong {
+      float: left;
+      font-size: 42px;
+      font-weight: 900;
+      margin-right: 0.3em;
+      color: #1d1d1f;
+    }
+  }
+}
+
+#scroll-section-2 {
+  .subtitle {
+    padding: 0 16px;
+    font-size: 48px;
+    font-weight: 800;
+
+    small {
+      text-align: center;
+      font-size: 20px;
+    }
+    p {
+      justify-content: center;
+      line-height: 1.2;
+      text-align: center;
+    }
+  }
+  .detail {
+    width: 50%;
+    padding: 0 16px;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .line {
+    width: 1px;
+    height: 100px;
+    background-color: #1d1d1f;
+  }
+}
+
+#scroll-section-3 {
+  .subtitle {
+    padding: 0 16px;
+    font-size: 32px;
+    color: #888;
+
+    strong {
+      font-weight: 800;
+      color: #1d1d1f;
+    }
+  }
+  .image-caption {
+    padding: 0 16px;
+    color: #888;
+  }
+}
+
+.footer {
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: darkorange;
+  text-align: center;
+  font-size: 14px;
 }
