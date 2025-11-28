@@ -1,0 +1,31 @@
+.title {
+  padding: 100px 0 80px;
+  font-size: 70px;
+  text-align: center;
+}
+
+.content {
+  font-size: 170px;
+}
+
+.content .progress {
+  position: fixed;
+  left: 50%;
+  top: 500px;
+  width: 70%;
+  height: 100px;
+  margin-left: -35%;
+  border: 1px solid #222;
+  text-align: center;
+}
+
+.content .progress .bar {
+  display: block;
+  width: 0%;
+  height: 100%;
+  background-color: #111;
+}
+
+.content .progress .percent {
+  font-size: 30px;
+}
