@@ -1,3 +1,26 @@
+.section {
+  padding: 2rem;
+  color: #ffffff;
+  background-image: linear-gradient(
+    to bottom,
+    #5ec8f2,
+    #4fb8e6,
+    #3fa8da,
+    #2f98ce,
+    #1e88c2,
+    #0e78b6,
+    #0068aa,
+    #00589e,
+    #004892,
+    #003886,
+    #00287a,
+    #001f6e,
+    #001662,
+    #000d56,
+    #00044a
+  );
+}
+
 .title {
   padding: 100px 0 80px;
   font-size: 70px;
@@ -11,11 +34,12 @@
 .content .progress {
   position: fixed;
   left: 50%;
-  top: 500px;
+  top: 400px;
   width: 70%;
   height: 100px;
   margin-left: -35%;
-  border: 1px solid #222;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 20, 60, 0.3);
   text-align: center;
 }
 
@@ -23,7 +47,7 @@
   display: block;
   width: 0%;
   height: 100%;
-  background-color: #111;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .content .progress .percent {
